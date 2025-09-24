@@ -10,7 +10,7 @@ import com.fitness.model.User;
 
 public class UserDAO {
     private Connection getConnection() throws SQLException {
-        String url = "jdbc:mysql://localhost:3306/fitness_tracker";
+        String url = "jdbc:mysql://localhost:3306/macromind";
         String user = "root";
         String password = "ed0924!";
         return DriverManager.getConnection(url, user, password);
@@ -35,7 +35,7 @@ public class UserDAO {
             // String hashed = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
             ps.setString(1, user.getName());
             ps.setString(2, user.getEmail());
-            // ps.setString(3, hashed);
+            ps.setString(3, user.getPassword());
             ps.executeUpdate();
         }
     }
