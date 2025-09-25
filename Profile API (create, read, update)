@@ -1,0 +1,34 @@
+{
+  "userId": "uuid/objectId",
+  "goal": "Lose Weight | Build Muscle | Maintain",
+  "preferences": ["Vegetarian","Low Carb"],
+  "availabilityPerWeek": 3,
+  "dietaryRestrictions": ["Gluten-free"],
+  "updatedAt": "ISO-8601"
+}
+
+
+
+Endpoints (REST)
+
+POST /api/profile – create first-time profile
+
+Body: goal, preferences[], availabilityPerWeek, dietaryRestrictions[]
+
+Returns: 201 + profile
+
+GET /api/profile/me – read my profile (auth required)
+
+Returns: 200 + profile (or 404 if not created)
+
+PUT /api/profile – update profile (any field)
+
+Returns: 200 + updated profile
+
+(optional) POST /api/profile/replan – regenerate plan on demand (if you want a separate trigger)
+
+Validation (server-side)
+
+goal in enum; availabilityPerWeek int 1–7; arrays length ≤ reasonable bounds.
+
+Return 400 with clear messages (used later by QA).
