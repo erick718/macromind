@@ -33,7 +33,7 @@ public class UserDAO {
 
     // Create new user
     public void createUser(User user) {
-        String query = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
+        String query = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
         try (Connection conn = getConnection();
              PreparedStatement ps = conn.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS)) {
 
@@ -41,6 +41,7 @@ public class UserDAO {
             ps.setString(2, user.getEmail());
             ps.setString(3, user.getPassword());
             ps.executeUpdate();
+            
 
             // Get generated user_id
             ResultSet rs = ps.getGeneratedKeys();
@@ -64,7 +65,7 @@ public class UserDAO {
             if (rs.next()) {
                 User user = new User();
                 user.setUserId(rs.getInt("user_id"));
-                user.setName(rs.getString("name"));
+                user.setName(rs.getString("username"));
                 user.setEmail(rs.getString("email"));
                 user.setPassword(rs.getString("password"));
                 return user;
@@ -78,7 +79,7 @@ public class UserDAO {
 
     // Update user
     public void updateUser(User user) {
-        String query = "UPDATE users SET name=?, email=? WHERE user_id=?";
+        String query = "UPDATE users SET username=?, email=? WHERE user_id=?";
         try (Connection conn = getConnection();
              PreparedStatement ps = conn.prepareStatement(query)) {
 

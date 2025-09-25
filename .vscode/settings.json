@@ -11,9 +11,9 @@
             "port": 3306,
             "driver": "MySQL",
             "name": "MacroMind",
-            "database": "MacroMind",
+            "database": "macromind",
             "username": "root",
-            "askForPassword": true
+            "password": "3932"
         }
     ],
     "java.configuration.updateBuildConfiguration": "interactive"
