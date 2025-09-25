@@ -14,7 +14,6 @@ npm i
 npm run dev
 # API: http://localhost:$PORT  (default 5003)
 
-
 # 1) Create profile
 curl -s -X POST http://localhost:5003/api/profile \
  -H "Content-Type: application/json" \
