@@ -1,53 +1,30 @@
 package com.fitness.servlets;
 
-import com.fitness.util.DBConnection;
-import javax.servlet.*;
-import javax.servlet.http.*;
+import com.fitness.dao.UserDAO;
+import com.fitness.model.User;
+import jakarta.servlet.*;
+import jakarta.servlet.http.*;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 
 public class RegisterServlet extends HttpServlet {
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String username = request.getParameter("username");
+        String name = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        if(username.isEmpty() || email.isEmpty() || password.isEmpty()) {
-            response.sendRedirect("register.jsp?error=empty");
+        UserDAO dao = new UserDAO();
+        if (dao.isEmailTaken(email)) {
+            request.setAttribute("message", "Email is already registered");
+            request.getRequestDispatcher("register.jsp").forward(request, response);
             return;
         }
 
-        try (Connection conn = DBConnection.getConnection()) {
-            // Check duplicates
-            String checkSql = "SELECT * FROM users WHERE username=? OR email=?";
-            PreparedStatement checkStmt = conn.prepareStatement(checkSql);
-            checkStmt.setString(1, username);
-            checkStmt.setString(2, email);
-            ResultSet rs = checkStmt.executeQuery();
-            if(rs.next()) {
-                response.sendRedirect("register.jsp?error=exists");
-                return;
-            }
+        User user = new User(name, email, password);
+        dao.createUser(user);
 
-            // Insert user
-            String sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
-            PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1, username);
-            stmt.setString(2, email);
-            stmt.setString(3, password);
-            stmt.executeUpdate();
+        HttpSession session = request.getSession();
+        session.setAttribute("user", user);
 
-            response.sendRedirect("success.jsp");
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            response.sendRedirect("register.jsp?error=db");
-        }
+        response.sendRedirect("profile.jsp");
     }
-    
 }
