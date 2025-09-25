@@ -1,0 +1,19 @@
+POST /api/profile – create profile
+Body:
+
+{
+  "goal": "Lose Weight",
+  "preferences": ["Vegetarian"],
+  "availabilityPerWeek": 3,
+  "dietaryRestrictions": ["Gluten-free"]
+}
+
+
+Returns 201 with { message: "Profile completed.", profile }
+
+GET /api/profile/me – read my profile (404 if none)
+
+PUT /api/profile – update profile (any field)
+Returns 200 with { message: "Profile updated. A new personalized plan is ready.", profile }
+
+GET /api/plan/week?start=YYYY-MM-DD – fetch weekly plan (generates if missing)
