@@ -1,9 +1,10 @@
 package com.fitness.servlets;
 
-import com.fitness.model.User;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import java.io.IOException;
+
+import com.fitness.model.User;
 
 public class DashboardServlet extends HttpServlet {
     @Override
