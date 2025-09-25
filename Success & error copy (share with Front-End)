@@ -1,0 +1,48 @@
+
+---
+
+# 4) Postman collection (paste to `postman_collection.json`)
+```json
+{
+  "info": {
+    "name": "Fitness Backend Sprint 1",
+    "_postman_id": "b6b1a3e4-0000-4000-9000-000000000001",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": { "method": "GET", "header": [], "url": { "raw": "http://localhost:5003/", "protocol": "http", "host": ["localhost"], "port": "5003", "path": [""] } }
+    },
+    {
+      "name": "Create Profile",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"goal\": \"Lose Weight\",\n  \"preferences\": [\"Vegetarian\"],\n  \"availabilityPerWeek\": 3,\n  \"dietaryRestrictions\": [\"Gluten-free\"]\n}"
+        },
+        "url": { "raw": "http://localhost:5003/api/profile", "protocol": "http", "host": ["localhost"], "port": "5003", "path": ["api","profile"] }
+      }
+    },
+    {
+      "name": "Get My Profile",
+      "request": { "method": "GET", "header": [], "url": { "raw": "http://localhost:5003/api/profile/me", "protocol": "http", "host": ["localhost"], "port": "5003", "path": ["api","profile","me"] } }
+    },
+    {
+      "name": "Update Profile",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"goal\": \"Build Muscle\"\n}" },
+        "url": { "raw": "http://localhost:5003/api/profile", "protocol": "http", "host": ["localhost"], "port": "5003", "path": ["api","profile"] }
+      }
+    },
+    {
+      "name": "Get Weekly Plan (current)",
+      "request": { "method": "GET", "header": [], "url": { "raw": "http://localhost:5003/api/plan/week", "protocol": "http", "host": ["localhost"], "port": "5003", "path": ["api","plan","week"] } }
+    }
+  ],
+  "variable": []
+}
