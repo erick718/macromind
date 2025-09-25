@@ -1,0 +1,26 @@
+fitness-backend/
+├─ src/
+│  ├─ server.js
+│  ├─ app.js
+│  ├─ config/
+│  │  └─ db.js
+│  ├─ middleware/
+│  │  └─ auth.js
+│  ├─ models/
+│  │  ├─ Profile.js
+│  │  └─ Plan.js
+│  ├─ controllers/
+│  │  ├─ profileController.js
+│  │  └─ planController.js
+│  ├─ routes/
+│  │  ├─ profileRoutes.js
+│  │  └─ planRoutes.js
+│  ├─ services/
+│  │  └─ planService.js
+│  └─ utils/
+│     └─ validate.js
+├─ package.json
+├─ .env.example
+├─ .gitignore
+├─ README.md
+└─ postman_collection.json
