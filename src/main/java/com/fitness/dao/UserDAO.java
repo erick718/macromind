@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.fitness.model.User;
+import com.fitness.Model.User;
 
 public class UserDAO {
     private Connection getConnection() throws SQLException {
