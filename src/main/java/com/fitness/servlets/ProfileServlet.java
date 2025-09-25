@@ -1,6 +1,6 @@
 package com.fitness.servlets;
 
-import com.fitness.model.User;
+import com.fitness.Model.User;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import java.io.IOException;

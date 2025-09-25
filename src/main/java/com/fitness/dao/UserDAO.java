@@ -1,20 +1,17 @@
 package com.fitness.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.fitness.model.User;
+import com.fitness.Model.User;
+import com.fitness.util.DBConnection;
 
 public class UserDAO {
 
     private Connection getConnection() throws SQLException {
-        String url = "jdbc:mysql://localhost:3306/macromind";
-        String user = "root";
-        String password = "ed0924!";
-        return DriverManager.getConnection(url, user, password);
+        return DBConnection.getConnection();
     }
 
     // Check if email already exists
@@ -29,6 +26,7 @@ public class UserDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
+            System.out.println("Database connection error");
             return false; // fallback if DB not reachable
         }
     }
