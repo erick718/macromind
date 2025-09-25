@@ -6,4 +6,5 @@ com\fitness\servlets\LogoutServlet.class
 com\fitness\servlets\RegisterServlet.class
 com\fitness\util\DBConnection.class
 com\fitness\servlets\UserServlet.class
+com\fitness\servlets\DashboardServlet.class
 com\fitness\servlets\LoginServlet.class

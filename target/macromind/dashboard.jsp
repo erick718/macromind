@@ -2,10 +2,6 @@
 <%@ page import="com.fitness.model.User" %>
 <%
     User user = (User) session.getAttribute("user");
-    if (user == null) {
-        response.sendRedirect("login.jsp");
-        return;
-    }
 %>
 <html>
 <head>
