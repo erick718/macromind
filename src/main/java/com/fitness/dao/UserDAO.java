@@ -1,20 +1,17 @@
 package com.fitness.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.fitness.model.User;
+import com.fitness.util.DBConnection;
 
 public class UserDAO {
 
     private Connection getConnection() throws SQLException {
-        String url = "jdbc:mysql://localhost:3306/macromind";
-        String user = "root";
-        String password = "ed0924!";
-        return DriverManager.getConnection(url, user, password);
+        return DBConnection.getConnection();
     }
 
     // Check if email already exists
@@ -29,13 +26,14 @@ public class UserDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
+            System.out.println("Database connection error");
             return false; // fallback if DB not reachable
         }
     }
 
     // Create new user
     public void createUser(User user) {
-        String query = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
+        String query = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
         try (Connection conn = getConnection();
              PreparedStatement ps = conn.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS)) {
 
@@ -66,9 +64,19 @@ public class UserDAO {
             if (rs.next()) {
                 User user = new User();
                 user.setUserId(rs.getInt("user_id"));
-                user.setName(rs.getString("name"));
+                user.setName(rs.getString("username"));
                 user.setEmail(rs.getString("email"));
                 user.setPassword(rs.getString("password"));
+                
+                // Load profile data if available
+                user.setAge(rs.getInt("age"));
+                user.setWeight(rs.getFloat("weight"));
+                user.setHeight(rs.getInt("height"));
+                user.setGoal(rs.getString("goal"));
+                user.setDietaryPreference(rs.getString("dietary_preference"));
+                user.setFitnessLevel(rs.getString("fitness_level"));
+                user.setAvailability(rs.getInt("availability"));
+                
                 return user;
             }
 
@@ -80,7 +88,7 @@ public class UserDAO {
 
     // Update user
     public void updateUser(User user) {
-        String query = "UPDATE users SET name=?, email=? WHERE user_id=?";
+        String query = "UPDATE users SET username=?, email=? WHERE user_id=?";
         try (Connection conn = getConnection();
              PreparedStatement ps = conn.prepareStatement(query)) {
 
@@ -105,6 +113,30 @@ public class UserDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    // Update user profile information
+    public void updateUserProfile(User user) {
+        String query = "UPDATE users SET age=?, weight=?, height=?, goal=?, dietary_preference=?, fitness_level=?, availability=? WHERE user_id=?";
+        try (Connection conn = getConnection();
+             PreparedStatement ps = conn.prepareStatement(query)) {
+
+            ps.setInt(1, user.getAge());
+            ps.setFloat(2, user.getWeight());
+            ps.setInt(3, user.getHeight());
+            ps.setString(4, user.getGoal());
+            ps.setString(5, user.getDietaryPreference());
+            ps.setString(6, user.getFitnessLevel());
+            ps.setInt(7, user.getAvailability());
+            ps.setInt(8, user.getUserId());
+            
+            int rowsUpdated = ps.executeUpdate();
+            System.out.println("Profile updated: " + rowsUpdated + " rows affected");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("Error updating user profile: " + e.getMessage());
         }
     }
 }

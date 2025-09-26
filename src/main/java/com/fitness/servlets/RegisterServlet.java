@@ -1,12 +1,18 @@
 package com.fitness.servlets;
 
-import com.fitness.dao.UserDAO;
-import com.fitness.model.User;
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
 import java.io.IOException;
 
+import com.fitness.dao.UserDAO;
+import com.fitness.model.User;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 public class RegisterServlet extends HttpServlet {
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("username");
         String email = request.getParameter("email");

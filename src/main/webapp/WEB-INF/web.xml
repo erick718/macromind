@@ -32,6 +32,8 @@
         <servlet-class>com.fitness.servlets.DashboardServlet</servlet-class>
     </servlet>
 
+
+
     <!-- ======== URL Mappings ======== -->
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
@@ -58,6 +60,8 @@
         <servlet-name>DashboardServlet</servlet-name>
         <url-pattern>/dashboard</url-pattern>
     </servlet-mapping>
+
+
 
     <!-- ======== Welcome Page ======== -->
     <welcome-file-list>
