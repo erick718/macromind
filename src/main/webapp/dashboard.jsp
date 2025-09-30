@@ -10,7 +10,6 @@
 <html>
 <head>
     <title>Dashboard - MacroMind</title>
-    <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
 <div class="container">
@@ -50,11 +49,33 @@
             </div>
             <div class="profile-item">
                 <strong>Fitness Level:</strong> 
-                <%= user.getFitnessLevel() != null ? user.getFitnessLevel() : "Not set" %>
+                <% 
+                String fitnessDisplay = "Not set";
+                if (user.getFitnessLevel() != null) {
+                    switch(user.getFitnessLevel().toLowerCase()) {
+                        case "low": fitnessDisplay = "Low Activity"; break;
+                        case "moderate": fitnessDisplay = "Moderate Activity"; break;
+                        case "high": fitnessDisplay = "High Activity"; break;
+                        default: fitnessDisplay = user.getFitnessLevel();
+                    }
+                }
+                %>
+                <%= fitnessDisplay %>
             </div>
             <div class="profile-item">
                 <strong>Goal:</strong> 
-                <%= user.getGoal() != null ? user.getGoal() : "Not set" %>
+                <% 
+                String goalDisplay = "Not set";
+                if (user.getGoal() != null) {
+                    switch(user.getGoal().toLowerCase()) {
+                        case "lose": goalDisplay = "Lose Weight"; break;
+                        case "maintain": goalDisplay = "Maintain Weight"; break;
+                        case "gain": goalDisplay = "Gain Muscle"; break;
+                        default: goalDisplay = user.getGoal();
+                    }
+                }
+                %>
+                <%= goalDisplay %>
             </div>
         </div>
         
@@ -62,18 +83,18 @@
                user.getFitnessLevel() == null || user.getGoal() == null) { %>
             <div class="incomplete-profile">
                 <p><strong>Complete your profile to get personalized recommendations!</strong></p>
-                <a href="profile.jsp" class="btn btn-primary">Complete Profile</a>
+                <!--<a href="profile.jsp" class="btn btn-primary">Complete Profile</a>-->
             </div>
         <% } else { %>
             <div class="complete-profile">
-                <p>Your profile is complete! 🎉</p>
-                <a href="profile.jsp" class="btn btn-secondary">Update Profile</a>
+                <p>Your profile is complete!</p>
+                <!--<a href="profile.jsp" class="btn btn-secondary">Update Profile</a>-->
             </div>
         <% } %>
     </div>
 
     <div class="actions">
-        <a href="profile.jsp" class="btn">Edit Profile</a>
+        <a href="profile.jsp" class="btn btn-primary" >Edit Profile</a>
         <a href="LogoutServlet" class="btn btn-outline">Logout</a>
     </div>
 </div>
