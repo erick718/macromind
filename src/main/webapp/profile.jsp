@@ -10,7 +10,6 @@
 <html>
 <head>
     <title>Profile Setup - MacroMind</title>
-    <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
 <div class="container">
