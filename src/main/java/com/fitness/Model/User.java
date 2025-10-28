@@ -5,6 +5,13 @@ public class User {
     private String name;
     private String email;
     private String password;
+    private int age;
+    private float weight;
+    private int height;
+    private String goal;
+    private String dietaryPreference;
+    private String fitnessLevel;
+    private int availability;
 
     public User(){}
     public User(String name, String email, String password) {
@@ -44,5 +51,60 @@ public class User {
         this.password = password; 
     }
 
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public float getWeight() {
+        return weight;
+    }
+
+    public void setWeight(float weight) {
+        this.weight = weight;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public String getGoal() {
+        return goal;
+    }
+
+    public void setGoal(String goal) {
+        this.goal = goal;
+    }
+
+    public String getDietaryPreference() {
+        return dietaryPreference;
+    }
+
+    public void setDietaryPreference(String dietaryPreference) {
+        this.dietaryPreference = dietaryPreference;
+    }
+
+    public String getFitnessLevel() {
+        return fitnessLevel;
+    }
+
+    public void setFitnessLevel(String fitnessLevel) {
+        this.fitnessLevel = fitnessLevel;
+    }
+
+    public int getAvailability() {
+        return availability;
+    }
+
+    public void setAvailability(int availability) {
+        this.availability = availability;
+    }
 }
 

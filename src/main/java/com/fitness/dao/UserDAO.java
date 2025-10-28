@@ -68,6 +68,16 @@ public class UserDAO {
                 user.setName(rs.getString("username"));
                 user.setEmail(rs.getString("email"));
                 user.setPassword(rs.getString("password"));
+                
+                // Load profile data if available
+                user.setAge(rs.getInt("age"));
+                user.setWeight(rs.getFloat("weight"));
+                user.setHeight(rs.getInt("height"));
+                user.setGoal(rs.getString("goal"));
+                user.setDietaryPreference(rs.getString("dietary_preference"));
+                user.setFitnessLevel(rs.getString("fitness_level"));
+                user.setAvailability(rs.getInt("availability"));
+                
                 return user;
             }
 
@@ -104,6 +114,30 @@ public class UserDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    // Update user profile information
+    public void updateUserProfile(User user) {
+        String query = "UPDATE users SET age=?, weight=?, height=?, goal=?, dietary_preference=?, fitness_level=?, availability=? WHERE user_id=?";
+        try (Connection conn = getConnection();
+             PreparedStatement ps = conn.prepareStatement(query)) {
+
+            ps.setInt(1, user.getAge());
+            ps.setFloat(2, user.getWeight());
+            ps.setInt(3, user.getHeight());
+            ps.setString(4, user.getGoal());
+            ps.setString(5, user.getDietaryPreference());
+            ps.setString(6, user.getFitnessLevel());
+            ps.setInt(7, user.getAvailability());
+            ps.setInt(8, user.getUserId());
+            
+            int rowsUpdated = ps.executeUpdate();
+            System.out.println("Profile updated: " + rowsUpdated + " rows affected");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("Error updating user profile: " + e.getMessage());
         }
     }
 }
