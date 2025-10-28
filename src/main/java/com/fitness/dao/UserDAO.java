@@ -41,6 +41,7 @@ public class UserDAO {
             ps.setString(2, user.getEmail());
             ps.setString(3, user.getPassword());
             ps.executeUpdate();
+            
 
             // Get generated user_id
             ResultSet rs = ps.getGeneratedKeys();
