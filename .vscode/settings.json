@@ -10,10 +10,10 @@
             "server": "localhost",
             "port": 3306,
             "driver": "MySQL",
-            "name": "MacroMind",
+            "name": "macromind",
             "database": "macromind",
             "username": "root",
-            "password": "3932"
+            "askForPassword": true
         }
     ],
     "java.configuration.updateBuildConfiguration": "interactive"
