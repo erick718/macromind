@@ -32,6 +32,24 @@
         <servlet-class>com.fitness.servlets.DashboardServlet</servlet-class>
     </servlet>
 
+    <!-- Workout Logging Servlet -->
+    <servlet>
+        <servlet-name>WorkoutLogServlet</servlet-name>
+        <servlet-class>com.fitness.servlets.WorkoutLogServlet</servlet-class>
+    </servlet>
+
+    <!-- Workout History Servlet -->
+    <servlet>
+        <servlet-name>WorkoutHistoryServlet</servlet-name>
+        <servlet-class>com.fitness.servlets.WorkoutHistoryServlet</servlet-class>
+    </servlet>
+
+    <!-- Progress Dashboard Servlet -->
+    <servlet>
+        <servlet-name>ProgressDashboardServlet</servlet-name>
+        <servlet-class>com.fitness.servlets.ProgressDashboardServlet</servlet-class>
+    </servlet>
+
 
 
     <!-- ======== URL Mappings ======== -->
@@ -59,6 +77,24 @@
     <servlet-mapping>
         <servlet-name>DashboardServlet</servlet-name>
         <url-pattern>/dashboard</url-pattern>
+    </servlet-mapping>
+
+    <!-- Map /workout-log to WorkoutLogServlet -->
+    <servlet-mapping>
+        <servlet-name>WorkoutLogServlet</servlet-name>
+        <url-pattern>/workout-log</url-pattern>
+    </servlet-mapping>
+
+    <!-- Map /workout-history to WorkoutHistoryServlet -->
+    <servlet-mapping>
+        <servlet-name>WorkoutHistoryServlet</servlet-name>
+        <url-pattern>/workout-history</url-pattern>
+    </servlet-mapping>
+
+    <!-- Map /progress-dashboard to ProgressDashboardServlet -->
+    <servlet-mapping>
+        <servlet-name>ProgressDashboardServlet</servlet-name>
+        <url-pattern>/progress-dashboard</url-pattern>
     </servlet-mapping>
 
 

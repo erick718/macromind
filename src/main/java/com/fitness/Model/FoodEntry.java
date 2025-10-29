@@ -1,5 +1,6 @@
 package com.fitness.model;
 
+import java.util.Date;
 import java.time.LocalDateTime;
 
 public class FoodEntry {
@@ -10,10 +11,24 @@ public class FoodEntry {
     private float protein;
     private float carbs;
     private float fat;
-    private double consumedOz;  // make sure this exists
-    private LocalDateTime dateTime;
+    private double consumed_oz;
+    private Date dateTime;
 
-    // Getters and setters
+    public FoodEntry() {}
+
+    public FoodEntry(int userId, String foodName, int calories, float protein, float carbs, float fat, String servingSize, Date entryDate) {
+        this.userId = userId;
+        this.foodName = foodName;
+        this.calories = calories;
+        this.protein = protein;
+        this.carbs = carbs;
+        this.fat = fat;
+        this.consumed_oz = consumed_oz;
+        this.dateTime = dateTime;
+    }
+
+    
+    
     public int getEntryId() { return entryId; }
     public void setEntryId(int entryId) { this.entryId = entryId; }
 
@@ -35,9 +50,10 @@ public class FoodEntry {
     public float getFat() { return fat; }
     public void setFat(float fat) { this.fat = fat; }
 
-    public double getConsumedOz() { return consumedOz; }
-    public void setConsumedOz(double consumedOz) { this.consumedOz = consumedOz; }
+    public String getServingSize() { return servingSize; }
+    public void setServingSize(String servingSize) { this.servingSize = servingSize; }
 
-    public LocalDateTime getDateTime() { return dateTime; }
-    public void setDateTime(LocalDateTime dateTime) { this.dateTime = dateTime; }
+    public Date getEntryDate() { return entryDate; }
+    public void setEntryDate(Date entryDate) { this.entryDate = entryDate; }
+    
 }
