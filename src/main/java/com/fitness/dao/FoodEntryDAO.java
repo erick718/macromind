@@ -1,68 +1,63 @@
 package com.fitness.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 import com.fitness.model.FoodEntry;
 import com.fitness.util.DBConnection;
 
+import java.sql.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 public class FoodEntryDAO {
 
-    public void createFoodEntry(FoodEntry entry) {
-        String sql = "INSERT INTO food_entries (user_id, food_name, calories, protein, carbs, fat, serving_size, entry_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    // Add a new food entry to the database
+    public void addFoodEntry(FoodEntry entry) {
+        String sql = "INSERT INTO food_entries " +
+                     "(user_id, food_name, calories, protein, carbs, fat, consumed_oz, date_time) " +
+                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection conn = DBConnection.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            ps.setInt(1, entry.getUserId());
-            ps.setString(2, entry.getFoodName());
-            ps.setInt(3, entry.getCalories());
-            ps.setFloat(4, entry.getProtein());
-            ps.setFloat(5, entry.getCarbs());
-            ps.setFloat(6, entry.getFat());
-            ps.setString(7, entry.getServingSize());
-            ps.setDate(8, new java.sql.Date(entry.getEntryDate().getTime()));
+            stmt.setInt(1, entry.getUserId());
+            stmt.setString(2, entry.getFoodName());
+            stmt.setInt(3, entry.getCalories());
+            stmt.setFloat(4, (float) entry.getProtein());
+            stmt.setFloat(5, (float) entry.getCarbs());
+            stmt.setFloat(6, (float) entry.getFat());
+            stmt.setFloat(7, (float) entry.getConsumedOz());
+            stmt.setTimestamp(8, Timestamp.valueOf(entry.getDateTime()));
 
-            ps.executeUpdate();
-
-            ResultSet rs = ps.getGeneratedKeys();
-            if (rs.next()) {
-                entry.setEntryId(rs.getInt(1));
-            }
-
+            stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public List<FoodEntry> getFoodEntriesByUser(int userId, Date date) {
+    // Get all entries for a user on a specific date
+    public List<FoodEntry> getEntriesByUserAndDate(int userId, LocalDate date) {
         List<FoodEntry> entries = new ArrayList<>();
-        String sql = "SELECT * FROM food_entries WHERE user_id = ? AND entry_date = ?";
+        String sql = "SELECT * FROM food_entries WHERE user_id = ? AND DATE(date_time) = ? ORDER BY date_time DESC";
+
         try (Connection conn = DBConnection.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            ps.setInt(1, userId);
-            ps.setDate(2, new java.sql.Date(date.getTime()));
+            stmt.setInt(1, userId);
+            stmt.setDate(2, Date.valueOf(date));
 
-            ResultSet rs = ps.executeQuery();
+            ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 FoodEntry entry = new FoodEntry();
-                entry.setEntryId(rs.getInt("entry_id"));
+                entry.setEntryId(rs.getInt("id"));
                 entry.setUserId(rs.getInt("user_id"));
                 entry.setFoodName(rs.getString("food_name"));
                 entry.setCalories(rs.getInt("calories"));
-                entry.setProtein(rs.getFloat("protein"));
+                entry.setProtein(rs.getFloat("protein")); // cast to float already in DB
                 entry.setCarbs(rs.getFloat("carbs"));
                 entry.setFat(rs.getFloat("fat"));
-                entry.setServingSize(rs.getString("serving_size"));
-                entry.setEntryDate(rs.getDate("entry_date"));
+                entry.setConsumedOz(rs.getFloat("consumed_oz"));
+                entry.setDateTime(rs.getTimestamp("date_time").toLocalDateTime());
                 entries.add(entry);
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }

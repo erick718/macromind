@@ -3,18 +3,20 @@ package com.fitness.model;
 import java.time.LocalDateTime;
 
 public class FoodEntry {
+    private int entryId;
     private int userId;
     private String foodName;
     private int calories;
     private float protein;
     private float carbs;
     private float fat;
-    private double consumedOunces;
+    private double consumedOz;  // make sure this exists
     private LocalDateTime dateTime;
 
-    public FoodEntry() {}
+    // Getters and setters
+    public int getEntryId() { return entryId; }
+    public void setEntryId(int entryId) { this.entryId = entryId; }
 
-    // getters & setters
     public int getUserId() { return userId; }
     public void setUserId(int userId) { this.userId = userId; }
 
@@ -33,8 +35,8 @@ public class FoodEntry {
     public float getFat() { return fat; }
     public void setFat(float fat) { this.fat = fat; }
 
-    public double getConsumedOunces() { return consumedOunces; }
-    public void setConsumedOunces(double consumedOunces) { this.consumedOunces = consumedOunces; }
+    public double getConsumedOz() { return consumedOz; }
+    public void setConsumedOz(double consumedOz) { this.consumedOz = consumedOz; }
 
     public LocalDateTime getDateTime() { return dateTime; }
     public void setDateTime(LocalDateTime dateTime) { this.dateTime = dateTime; }
