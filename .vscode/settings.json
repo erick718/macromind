@@ -10,8 +10,8 @@
             "server": "localhost",
             "port": 3306,
             "driver": "MySQL",
-            "name": "MacroMind",
-            "database": "MacroMind",
+            "name": "macromind",
+            "database": "macromind",
             "username": "root",
             "askForPassword": true
         }

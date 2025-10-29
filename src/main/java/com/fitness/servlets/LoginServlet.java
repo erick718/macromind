@@ -1,16 +1,19 @@
 package com.fitness.servlets;
 
+import java.io.IOException;
+
 import com.fitness.dao.UserDAO;
 import com.fitness.model.User;
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
-import java.io.IOException;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 public class LoginServlet extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
@@ -20,8 +23,7 @@ public class LoginServlet extends HttpServlet {
         if (user != null && user.getPassword().equals(password)) {
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
-            // redirect to servlet
-            response.sendRedirect(request.getContextPath() + "/dashboard");
+            response.sendRedirect("dashboard");
         } else {
             request.setAttribute("message", "Invalid email or password");
             request.getRequestDispatcher("login.jsp").forward(request, response);
