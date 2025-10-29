@@ -20,7 +20,7 @@ public class FoodEntryServlet extends HttpServlet {
     @Override
     public void init() {
         foodEntryDAO = new FoodEntryDAO();
-        foodItemDAO = new FoodItemDAO(); // your existing DAO with hardcoded meals
+        foodItemDAO = new FoodItemDAO(); // DAO with predefined meals
     }
 
     @Override
@@ -60,7 +60,7 @@ public class FoodEntryServlet extends HttpServlet {
         entry.setProtein((float) protein);
         entry.setCarbs((float) carbs);
         entry.setFat((float) fat);
-        entry.setConsumedOz(consumedOunces);  // <-- matches the model now
+        entry.setConsumedOz(consumedOunces);  // consistent with model
         entry.setDateTime(LocalDateTime.now());
 
         foodEntryDAO.addFoodEntry(entry);
@@ -73,12 +73,5 @@ public class FoodEntryServlet extends HttpServlet {
 
     private double parseDoubleSafe(String value) {
         try { return Double.parseDouble(value); } catch (Exception e) { return 0; }
-    }
-
-    private double parseOunces(String servingSize) {
-        if (servingSize == null || servingSize.isEmpty()) return 1;
-        String[] parts = servingSize.split(" ");
-        try { return Double.parseDouble(parts[0]); }
-        catch (Exception e) { return 1; }
     }
 }
