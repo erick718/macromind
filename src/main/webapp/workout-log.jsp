@@ -42,6 +42,8 @@
             </div>
         <% } %>
         
+
+        
         <div class="card">
             <div class="card-body">
                 <form action="workout-log" method="post" id="workoutForm">

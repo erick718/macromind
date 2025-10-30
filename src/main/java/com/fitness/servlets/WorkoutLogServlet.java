@@ -1,13 +1,17 @@
 package com.fitness.servlets;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.sql.Time;
 import java.time.LocalTime;
 
 import com.fitness.dao.WorkoutDAO;
 import com.fitness.model.User;
 import com.fitness.model.Workout;
+import com.fitness.util.DBConnection;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -16,6 +20,47 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 public class WorkoutLogServlet extends HttpServlet {
+    
+    // Calculate calories burned based on exercise type and user weight
+    private double getCaloriesBurnedPerMinute(String exerciseType, double weightKg) {
+        double met;
+        switch (exerciseType.toLowerCase()) {
+            case "cardio":
+                met = 8; // running, cycling, etc.
+                break;
+            case "strength":
+                met = 6; // weight lifting
+                break;
+            case "flexibility":
+                met = 2.5; // stretching, yoga
+                break;
+            case "sports":
+                met = 7; // general sports activities
+                break;
+            default:
+                met = 5; // general exercise
+                break;
+        }
+        // Calories burned per minute = (MET * 3.5 * weightKg) / 200
+        return (met * 3.5 * weightKg) / 200.0;
+    }
+    
+    // Store calorie data in exercise_log table for calorie balance integration
+    private void logCaloriesForBalance(int userId, String exerciseName, int caloriesBurned) {
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(
+                 "INSERT INTO exercise_log (user_id, exercise_name, calories_burned, date_logged) VALUES (?, ?, ?, CURDATE())"
+             )) {
+            ps.setInt(1, userId);
+            ps.setString(2, exerciseName);
+            ps.setInt(3, caloriesBurned);
+            ps.executeUpdate();
+            System.out.println("Logged " + caloriesBurned + " calories for calorie balance tracking");
+        } catch (SQLException e) {
+            System.err.println("Error logging calories for balance: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -120,6 +165,9 @@ public class WorkoutLogServlet extends HttpServlet {
             // Save to database
             System.out.println("WorkoutLogServlet: Saving workout to database for user ID: " + user.getUserId());
             workoutDAO.createWorkout(workout);
+            
+            // Also log calories for calorie balance tracking
+            logCaloriesForBalance(user.getUserId(), exerciseName, (int) Math.round(caloriesBurned));
             
             // Update daily fitness summary
             workoutDAO.updateDailyFitnessSummary(user.getUserId(), workoutDate);
