@@ -10,12 +10,22 @@ public class LogExerciseServlet extends HttpServlet {
 
     // Rough MET estimates for categories
     private double getCaloriesBurnedPerMinute(String type, double weightKg) {
-        double met = switch (type.toLowerCase()) {
-            case "cardio" -> 8;        // e.g., running or cycling
-            case "weightlifting" -> 6; // moderate lifting
-            case "hiit" -> 10;         // high intensity interval training
-            default -> 5;              // general
-        };
+        double met;
+        switch (type.toLowerCase()) {
+            case "cardio":
+                met = 8; // e.g., running or cycling
+                break;
+            case "weightlifting":
+                met = 6; // moderate lifting
+                break;
+            case "hiit":
+                met = 10; // high intensity interval training
+                break;
+            default:
+                met = 5; // general
+                break;
+        }
+
         // Calories burned per minute = (MET * 3.5 * weightKg) / 200
         return (met * 3.5 * weightKg) / 200.0;
     }
@@ -37,14 +47,15 @@ public class LogExerciseServlet extends HttpServlet {
         int duration = Integer.parseInt(request.getParameter("duration")); // in minutes
 
         // Get user weight from session for calorie estimation
-        double weightKg = session.getAttribute("weight") != null ? 
-                          Double.parseDouble(session.getAttribute("weight").toString()) : 70;
+        double weightKg = session.getAttribute("weight") != null
+                ? Double.parseDouble(session.getAttribute("weight").toString())
+                : 70;
 
         int caloriesBurned = (int) Math.round(getCaloriesBurnedPerMinute(exerciseType, weightKg) * duration);
 
         try (Connection conn = com.fitness.util.DBConnection.getConnection()) {
             PreparedStatement ps = conn.prepareStatement(
-                "INSERT INTO exercise_log (user_id, exercise_name, calories_burned, date_logged) VALUES (?, ?, ?, CURDATE())"
+                    "INSERT INTO exercise_log (user_id, exercise_name, calories_burned, date_logged) VALUES (?, ?, ?, CURDATE())"
             );
             ps.setInt(1, user.getUserId());
             ps.setString(2, exerciseName);
@@ -54,6 +65,7 @@ public class LogExerciseServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        response.sendRedirect(request.getContextPath() + "/calorieBalance"); // redirect to calorie balance
+        // Redirect to calorie balance page after logging exercise
+        response.sendRedirect(request.getContextPath() + "/calorieBalance");
     }
 }
