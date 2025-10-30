@@ -32,6 +32,7 @@ public class LogExerciseServlet extends HttpServlet {
                 met = 5; // general
                 break;
         }
+
         // Calories burned per minute = (MET * 3.5 * weightKg) / 200
         return (met * 3.5 * weightKg) / 200.0;
     }
@@ -53,14 +54,15 @@ public class LogExerciseServlet extends HttpServlet {
         int duration = Integer.parseInt(request.getParameter("duration")); // in minutes
 
         // Get user weight from session for calorie estimation
-        double weightKg = session.getAttribute("weight") != null ? 
-                          Double.parseDouble(session.getAttribute("weight").toString()) : 70;
+        double weightKg = session.getAttribute("weight") != null
+                ? Double.parseDouble(session.getAttribute("weight").toString())
+                : 70;
 
         int caloriesBurned = (int) Math.round(getCaloriesBurnedPerMinute(exerciseType, weightKg) * duration);
 
         try (Connection conn = com.fitness.util.DBConnection.getConnection()) {
             PreparedStatement ps = conn.prepareStatement(
-                "INSERT INTO exercise_log (user_id, exercise_name, calories_burned, date_logged) VALUES (?, ?, ?, CURDATE())"
+                    "INSERT INTO exercise_log (user_id, exercise_name, calories_burned, date_logged) VALUES (?, ?, ?, CURDATE())"
             );
             ps.setInt(1, user.getUserId());
             ps.setString(2, exerciseName);
@@ -70,6 +72,7 @@ public class LogExerciseServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        response.sendRedirect(request.getContextPath() + "/calorieBalance"); // redirect to calorie balance
+        // Redirect to calorie balance page after logging exercise
+        response.sendRedirect(request.getContextPath() + "/calorieBalance");
     }
 }
