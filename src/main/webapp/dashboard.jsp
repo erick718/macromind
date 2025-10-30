@@ -149,7 +149,7 @@
                         <div style="font-size: var(--font-size-sm); opacity: 0.8;">Analytics & insights</div>
                     </a>
 
-                    <a href= "food_entry.jsp" class="btn btn-warning btn-lg text-center" style="padding: var(--spacing-xl); text-decoration: none;">
+                    <a href= "food-log" class="btn btn-warning btn-lg text-center" style="padding: var(--spacing-xl); text-decoration: none;">
                         
                         <div style="font-weight: 600;">Log Food Intake</div>
                         <div style="font-size: var(--font-size-sm); opacity: 0.8;">Track your meals & nutrition</div>
