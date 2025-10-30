@@ -155,7 +155,7 @@
                         <div style="font-size: var(--font-size-sm); opacity: 0.8;">Track your meals & nutrition</div>
                     </a>
                     <div>
-                        <a href="food-history.jsp" class="btn btn-danger btn-lg text-center" style="padding: var(--spacing-xl); text-decoration: none;">
+                        <a href="food-history" class="btn btn-danger btn-lg text-center" style="padding: var(--spacing-xl); text-decoration: none;">
                             
                             <div style="font-weight: 600;">Food History</div>
                             <div style="font-size: var(--font-size-sm); opacity: 0.8;">View logged meals</div>

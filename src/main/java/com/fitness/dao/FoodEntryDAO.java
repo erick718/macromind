@@ -38,8 +38,36 @@ public class FoodEntryDAO {
         }
     }
 
+    // Get all food entries for a user
+    public List<FoodEntry> getFoodEntriesByUser(int userId) {
+        List<FoodEntry> entries = new ArrayList<>();
+        String sql = "SELECT * FROM food_entries WHERE user_id = ? ORDER BY date_time DESC";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, userId);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                FoodEntry entry = new FoodEntry();
+                entry.setEntryId(rs.getInt("id"));
+                entry.setUserId(rs.getInt("user_id"));
+                entry.setFoodName(rs.getString("food_name"));
+                entry.setCalories(rs.getInt("calories"));
+                entry.setProtein(rs.getFloat("protein")); // cast to float already in DB
+                entry.setCarbs(rs.getFloat("carbs"));
+                entry.setFat(rs.getFloat("fat"));
+                entry.setConsumedOz(rs.getFloat("consumed_oz"));
+                entry.setEntryDate(rs.getTimestamp("date_time").toLocalDateTime());
+                entries.add(entry);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return entries;
+        }
+
     // Get all entries for a user on a specific date
-    public List<FoodEntry> getFoodEntriesByUser(int userId, LocalDate date) {
+    public List<FoodEntry> getFoodEntriesByUserByDate(int userId, LocalDate date) {
         List<FoodEntry> entries = new ArrayList<>();
         String sql = "SELECT * FROM food_entries WHERE user_id = ? AND DATE(date_time) = ? ORDER BY date_time DESC";
 

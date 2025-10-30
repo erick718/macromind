@@ -43,7 +43,7 @@ public class FoodEntryServlet extends HttpServlet {
         dao.createFoodEntry(entry);
 
         request.setAttribute("message", "Food entry logged successfully!");
-        request.getRequestDispatcher("food_entry.jsp").forward(request, response);
+        response.sendRedirect("food-history");
     }
 
     @Override
@@ -56,7 +56,7 @@ public class FoodEntryServlet extends HttpServlet {
             return;
         }
         FoodEntryDAO dao = new FoodEntryDAO();
-        List<FoodEntry> entries = dao.getFoodEntriesByUser(user.getUserId(), LocalDate.now())
+        List<FoodEntry> entries = dao.getFoodEntriesByUserByDate(user.getUserId(), LocalDate.now())
                 .stream()
                 .map(o -> (FoodEntry) o)
                 .collect(Collectors.toList());

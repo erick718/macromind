@@ -49,6 +49,13 @@
         <servlet-name>ProgressDashboardServlet</servlet-name>
         <servlet-class>com.fitness.servlets.ProgressDashboardServlet</servlet-class>
     </servlet>
+    <!-- Food Entry Servlet -->
+    <servlet>
+        <servlet-name>FoodEntryServlet</servlet-name>
+        <servlet-class>com.fitness.servlets.FoodEntryServlet</servlet-class>
+    </servlet>
+    <!-- Food History servlet -->
+    
 
 
 
