@@ -30,7 +30,7 @@ public class FoodDataCentralClient {
         
         try {
             // 1. Construct the API URL with query parameter
-            String encodedQuery = URLEncoder.encode(query, StandardCharsets.UTF_8);
+            String encodedQuery = URLEncoder.encode(query, StandardCharsets.UTF_8.toString());
             String fullUrl = String.format("%s?api_key=%s&query=%s&pageSize=25", BASE_URL, API_KEY, encodedQuery);
             URL url = new URL(fullUrl);
             
@@ -45,13 +45,13 @@ public class FoodDataCentralClient {
             }
 
             // 2. Read the JSON Response
-            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             StringBuilder jsonResponse = new StringBuilder();
-            String line;
-            while ((line = br.readLine()) != null) {
-                jsonResponse.append(line);
+            try (BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()))) {
+                String line;
+                while ((line = br.readLine()) != null) {
+                    jsonResponse.append(line);
+                }
             }
-            br.close();
             
             // 3. Parse the JSON and map to FoodItem objects
             // THIS IS WHERE YOU NEED YOUR JSON LIBRARY (Gson/Jackson)
@@ -59,9 +59,10 @@ public class FoodDataCentralClient {
             
             conn.disconnect();
 
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.err.println("Error connecting to or parsing FoodData Central API: " + e.getMessage());
+        } catch (java.io.IOException e) {
+            System.err.println("Network error connecting to FoodData Central API: " + e.getMessage());
+        } catch (RuntimeException e) {
+            System.err.println("Runtime error parsing FoodData Central API response: " + e.getMessage());
         }
         
         return results;
@@ -70,9 +71,10 @@ public class FoodDataCentralClient {
     /**
      * Placeholder method for JSON parsing logic.
      * A robust implementation requires a JSON library (e.g., Gson).
-     * * @param jsonString The raw JSON string response from the USDA API.
+     * @param jsonString The raw JSON string response from the USDA API.
      * @return A list of FoodItem objects.
      */
+    @SuppressWarnings("unused")
     private List<FoodItem> parseJsonResponse(String jsonString) {
         List<FoodItem> items = new ArrayList<>();
         
