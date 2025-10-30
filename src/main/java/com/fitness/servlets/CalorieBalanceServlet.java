@@ -1,16 +1,20 @@
 package com.fitness.servlets;
 
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.List;
+
 import com.fitness.dao.ExerciseLogDAO;
 import com.fitness.dao.FoodEntryDAO;
 import com.fitness.model.FoodEntry;
 import com.fitness.model.User;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.*;
-
-import java.io.IOException;
-import java.time.LocalDate;
-import java.util.List;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/calorieBalance")
 public class CalorieBalanceServlet extends HttpServlet {

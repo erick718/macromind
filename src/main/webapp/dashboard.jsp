@@ -123,11 +123,34 @@
             </div>
         </div>
 
-        <!-- Fitness Tracking Actions -->
+        <!-- New Calorie Balance Features -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">🔥 New! Calorie Balance Tracking</h2>
+                <p class="card-subtitle">Enhanced features from your teammate - track food intake, exercise, and calorie balance</p>
+            </div>
+            <div class="card-body">
+                <div class="grid grid-auto">
+                    <a href="calorieBalance" class="btn btn-primary btn-lg text-center" style="padding: var(--spacing-xl); text-decoration: none; border: 2px solid #3498db;">
+                        
+                        <div style="font-weight: 600;">🎯 Calorie Balance</div>
+                        <div style="font-size: var(--font-size-sm); opacity: 0.8;">Smart daily calorie tracking</div>
+                    </a>
+                    
+                    <a href="daily_log.jsp" class="btn btn-info btn-lg text-center" style="padding: var(--spacing-xl); text-decoration: none;">
+                        
+                        <div style="font-weight: 600;">💪 Log Exercise</div>
+                        <div style="font-size: var(--font-size-sm); opacity: 0.8;">Track calories burned</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Original Fitness Tracking Features -->
         <div class="card">
             <div class="card-header">
                 <h2 class="card-title">Fitness Tracking</h2>
-                <p class="card-subtitle">Track your workouts, monitor progress, and achieve your goals</p>
+                <p class="card-subtitle">Your original workout and nutrition tracking features</p>
             </div>
             <div class="card-body">
                 <div class="grid grid-auto">
@@ -149,18 +172,17 @@
                         <div style="font-size: var(--font-size-sm); opacity: 0.8;">Analytics & insights</div>
                     </a>
 
-                    <a href= "food_entry.jsp" class="btn btn-warning btn-lg text-center" style="padding: var(--spacing-xl); text-decoration: none;">
+                    <a href="food_entry.jsp" class="btn btn-warning btn-lg text-center" style="padding: var(--spacing-xl); text-decoration: none;">
                         
                         <div style="font-weight: 600;">Log Food Intake</div>
                         <div style="font-size: var(--font-size-sm); opacity: 0.8;">Track your meals & nutrition</div>
                     </a>
-                    <div>
-                        <a href="food-history.jsp" class="btn btn-danger btn-lg text-center" style="padding: var(--spacing-xl); text-decoration: none;">
-                            
-                            <div style="font-weight: 600;">Food History</div>
-                            <div style="font-size: var(--font-size-sm); opacity: 0.8;">View logged meals</div>
-                        </a>
-                    </div>
+                    
+                    <a href="food-history" class="btn btn-danger btn-lg text-center" style="padding: var(--spacing-xl); text-decoration: none;">
+                        
+                        <div style="font-weight: 600;">Food History</div>
+                        <div style="font-size: var(--font-size-sm); opacity: 0.8;">View logged meals</div>
+                    </a>
                 </div>
             </div>
         </div>

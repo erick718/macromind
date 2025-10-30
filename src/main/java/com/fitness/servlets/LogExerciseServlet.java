@@ -8,11 +8,13 @@ import java.sql.SQLException;
 import com.fitness.model.User;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
+@WebServlet("/LogExerciseServlet")
 public class LogExerciseServlet extends HttpServlet {
 
     // Rough MET estimates for categories
