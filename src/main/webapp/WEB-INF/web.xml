@@ -21,6 +21,10 @@
         <servlet-name>ProfileServlet</servlet-name>
         <servlet-class>com.fitness.servlets.ProfileServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>WorkoutPlanServlet</servlet-name>
+        <servlet-class>com.fitness.servlets.WorkoutPlanServlet</servlet-class>
+    </servlet>
 
     <!-- Servlet Mappings -->
     <servlet-mapping>
@@ -38,6 +42,10 @@
     <servlet-mapping>
         <servlet-name>ProfileServlet</servlet-name>
         <url-pattern>/ProfileServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>WorkoutPlanServlet</servlet-name>
+        <url-pattern>/WorkoutPlanServlet</url-pattern>
     </servlet-mapping>
 
     <!-- Welcome page -->
