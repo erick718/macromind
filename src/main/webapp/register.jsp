@@ -54,12 +54,12 @@
             
             <div class="card-footer text-center">
                 <p class="text-muted">Already have an account? 
-                    <a href="login.jsp" class="text-primary" style="text-decoration: none; font-weight: 600;">
+                    <a href="login.jsp" class="text-primary auth-link">
                         Sign in here
                     </a>
                 </p>
                 <p class="text-muted">
-                    <a href="index.jsp" class="text-secondary" style="text-decoration: none;">
+                    <a href="index.jsp" class="text-secondary auth-link-secondary">
                         ← Back to Home
                     </a>
                 </p>

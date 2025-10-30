@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="com.fitness.model.User, java.util.List, com.fitness.model.FoodEntry" %>
+<%-- VS Code: Ignore CSS parsing warnings for JSP expressions --%>
 <%
     User user = (User) session.getAttribute("user");
     if (user == null) {
@@ -26,97 +27,95 @@
 <html>
 <head>
     <title>Daily Calorie Balance</title>
-    <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            margin: 40px; 
-            background-color: #fdfdfd;
-        }
-        h1, h2 { color: #333; }
-        .summary {
-            background-color: #fff;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            width: 600px;
-        }
-        .progress-container {
-            background-color: #ddd;
-            border-radius: 20px;
-            overflow: hidden;
-            width: 100%;
-            height: 25px;
-            margin-top: 10px;
-        }
-        .progress-bar {
-            height: 100%;
-            text-align: center;
-            line-height: 25px;
-            color: white;
-            font-weight: bold;
-            width: <%= progress %>%;
-            background-color: <%= progressColor %>;
-            transition: width 0.5s ease-in-out;
-        }
-        table { 
-            border-collapse: collapse; 
-            width: 600px; 
-            margin-top: 20px; 
-        }
-        th, td { 
-            border: 1px solid #ccc; 
-            padding: 8px; 
-            text-align: left; 
-        }
-        th { background-color: #f4f4f4; }
-        a { color: #3498db; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-    </style>
+    <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
 
-<div class="summary">
-    <h1>Calorie Balance for <%= user.getName() %></h1>
-    <h2>Recommended: <%= recommendedCalories %> kcal</h2>
-    <p><strong>Consumed:</strong> <%= totalIntake %> kcal</p>
-    <p><strong>Burned:</strong> <%= totalBurned %> kcal</p>
-    <p><strong>Net:</strong> <%= netCalories %> kcal</p>
-    <p><strong>Remaining:</strong> <%= remainingCalories %> kcal</p>
-
-    <div class="progress-container">
-        <div class="progress-bar"><%= String.format("%.0f", progress) %>%</div>
+<div class="container container-lg">
+    <div class="page-header">
+        <h1 class="page-title">Daily Calorie Balance</h1>
+        <p class="page-subtitle">Track your daily calorie intake and burn for <%= user.getName() %></p>
     </div>
 
-    <% if (netCalories > recommendedCalories) { %>
-        <p style="color:red; margin-top:10px;">You are above your daily goal!</p>
-    <% } else if (remainingCalories > 0) { %>
-        <p style="color:green; margin-top:10px;">You’re within your goal range!</p>
-    <% } else { %>
-        <p style="color:orange; margin-top:10px;">Perfectly balanced today!</p>
-    <% } %>
+    <div class="calorie-summary">
+        <h2>Recommended: <%= recommendedCalories %> kcal</h2>
+        <div class="grid grid-2 mb-4">
+            <div class="stat-card">
+                <div class="stat-value"><%= totalIntake %></div>
+                <div class="stat-label">Consumed</div>
+                <div class="stat-description">Total calories eaten today</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value"><%= totalBurned %></div>
+                <div class="stat-label">Burned</div>
+                <div class="stat-description">Calories burned through exercise</div>
+            </div>
+        </div>
+        
+        <div class="grid grid-2 mb-4">
+            <div class="stat-card">
+                <div class="stat-value" style="color: <%= netCalories > recommendedCalories ? "#e74c3c" : "#2ecc71" %>;"><%= netCalories %></div>
+                <div class="stat-label">Net Calories</div>
+                <div class="stat-description">Consumed minus burned</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" style="color: <%= remainingCalories < 0 ? "#e74c3c" : "#2ecc71" %>;"><%= remainingCalories %></div>
+                <div class="stat-label">Remaining</div>
+                <div class="stat-description">Calories left for the day</div>
+            </div>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-bar" style="width: <%= progress %>%; background-color: <%= progressColor %>;"><%= String.format("%.0f", progress) %>%</div>
+        </div>
+
+        <% if (netCalories > recommendedCalories) { %>
+            <div class="calorie-status over-goal">You are above your daily goal!</div>
+        <% } else if (remainingCalories > 0) { %>
+            <div class="calorie-status within-goal">You're within your goal range!</div>
+        <% } else { %>
+            <div class="calorie-status balanced">Perfectly balanced today!</div>
+        <% } %>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Today's Food Entries</h3>
+        </div>
+        <div class="card-body">
+            <% if (entries.isEmpty()) { %>
+                <div class="empty-state">
+                    <h3>No food logged yet</h3>
+                    <p>Start tracking your nutrition by logging your first meal!</p>
+                </div>
+            <% } else { %>
+            <div class="table-responsive">
+                <table class="table calorie-entries-table">
+                    <thead>
+                        <tr><th>Food</th><th>Calories</th><th>Protein (g)</th><th>Carbs (g)</th><th>Fat (g)</th></tr>
+                    </thead>
+                    <tbody>
+                        <% for (FoodEntry entry : entries) { %>
+                        <tr>
+                            <td><%= entry.getFoodName() %></td>
+                            <td><%= entry.getCalories() %></td>
+                            <td><%= entry.getProtein() %></td>
+                            <td><%= entry.getCarbs() %></td>
+                            <td><%= entry.getFat() %></td>
+                        </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+            <% } %>
+        </div>
+    </div>
+
+    <div class="nav-actions justify-center">
+        <a href="food_entry.jsp" class="btn btn-primary">Log Food</a>
+        <a href="dashboard" class="btn btn-outline">Back to Dashboard</a>
+    </div>
 </div>
-
-<h3>Today's Food Entries</h3>
-<% if (entries.isEmpty()) { %>
-    <p>No food logged yet.</p>
-<% } else { %>
-<table>
-    <tr><th>Food</th><th>Calories</th><th>Protein (g)</th><th>Carbs (g)</th><th>Fat (g)</th></tr>
-    <% for (FoodEntry entry : entries) { %>
-    <tr>
-        <td><%= entry.getFoodName() %></td>
-        <td><%= entry.getCalories() %></td>
-        <td><%= entry.getProtein() %></td>
-        <td><%= entry.getCarbs() %></td>
-        <td><%= entry.getFat() %></td>
-    </tr>
-    <% } %>
-</table>
-<% } %>
-
-<br>
-<a href="food_entry.jsp">Log Food</a> |
-<a href="dashboard">Back to Dashboard</a>
 
 </body>
 </html>

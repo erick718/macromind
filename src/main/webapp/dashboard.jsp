@@ -131,40 +131,34 @@
             </div>
             <div class="card-body">
                 <div class="grid grid-auto">
-                    <a href="workout-log" class="btn btn-primary btn-lg text-center" style="padding: var(--spacing-xl); text-decoration: none;">
-                        
-                        <div style="font-weight: 600;">🏋️ Log Workout</div>
-                        <div style="font-size: var(--font-size-sm); opacity: 0.8;">Track exercises & calories burned</div>
+                    <a href="workout-log" class="btn btn-primary btn-lg text-center dashboard-nav-card">
+                        <div class="dashboard-nav-title">Log Workout</div>
+                        <div class="dashboard-nav-subtitle">Track exercises & calories burned</div>
+                    </a>
+
+                    <a href="food_entry.jsp" class="btn btn-warning btn-lg text-center dashboard-nav-card">
+                        <div class="dashboard-nav-title">Log Food</div>
+                        <div class="dashboard-nav-subtitle">Track meals & nutrition</div>
                     </a>
                     
-                    <a href="calorieBalance" class="btn btn-success btn-lg text-center" style="padding: var(--spacing-xl); text-decoration: none;">
-                        
-                        <div style="font-weight: 600;">🎯 Calorie Balance</div>
-                        <div style="font-size: var(--font-size-sm); opacity: 0.8;">Daily calorie tracking & goals</div>
+                    <a href="calorieBalance" class="btn btn-success btn-lg text-center dashboard-nav-card">
+                        <div class="dashboard-nav-title">Calorie Balance</div>
+                        <div class="dashboard-nav-subtitle">Daily calorie tracking & goals</div>
                     </a>
                     
-                    <a href="food_entry.jsp" class="btn btn-warning btn-lg text-center" style="padding: var(--spacing-xl); text-decoration: none;">
-                        
-                        <div style="font-weight: 600;">🍽️ Log Food</div>
-                        <div style="font-size: var(--font-size-sm); opacity: 0.8;">Track meals & nutrition</div>
+                    <a href="workout-history" class="btn btn-info btn-lg text-center dashboard-nav-card">
+                        <div class="dashboard-nav-title">Workout History</div>
+                        <div class="dashboard-nav-subtitle">View past workouts & progress</div>
                     </a>
                     
-                    <a href="workout-history" class="btn btn-info btn-lg text-center" style="padding: var(--spacing-xl); text-decoration: none;">
-                        
-                        <div style="font-weight: 600;">📊 Workout History</div>
-                        <div style="font-size: var(--font-size-sm); opacity: 0.8;">View past workouts & progress</div>
+                    <a href="food-history" class="btn btn-danger btn-lg text-center dashboard-nav-card">
+                        <div class="dashboard-nav-title">Food History</div>
+                        <div class="dashboard-nav-subtitle">View logged meals</div>
                     </a>
                     
-                    <a href="food-history" class="btn btn-danger btn-lg text-center" style="padding: var(--spacing-xl); text-decoration: none;">
-                        
-                        <div style="font-weight: 600;">📋 Food History</div>
-                        <div style="font-size: var(--font-size-sm); opacity: 0.8;">View logged meals</div>
-                    </a>
-                    
-                    <a href="progress-dashboard" class="btn btn-outline btn-lg text-center" style="padding: var(--spacing-xl); text-decoration: none;">
-                        
-                        <div style="font-weight: 600;">📈 Progress Dashboard</div>
-                        <div style="font-size: var(--font-size-sm); opacity: 0.8;">Analytics & insights</div>
+                    <a href="progress-dashboard" class="btn btn-outline btn-lg text-center dashboard-nav-card">
+                        <div class="dashboard-nav-title">Progress Dashboard</div>
+                        <div class="dashboard-nav-subtitle">Analytics & insights</div>
                     </a>
                 </div>
             </div>

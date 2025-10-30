@@ -45,7 +45,7 @@
         <div class="card">
             <div class="card-body">
                 <!-- Debug info -->
-                    <div class="debug-info" style="background-color: #f0f0f0; border: 1px solid #ccc; padding: 10px; margin: 10px 0;">
+                    <div class="debug-info">
         <h4>Debug Info:</h4>
         <p>User ID: <%= user != null ? user.getUserId() : "null" %></p>
         <p>Food History Size: <%= foodHistory != null ? foodHistory.size() : "null" %></p>

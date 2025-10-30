@@ -47,15 +47,14 @@
             
             <div class="card-footer text-center">
                 <p class="text-muted">Don't have an account? 
-                    <a href="register.jsp" class="text-primary" style="text-decoration: none; font-weight: 600;">
-                        Create one here
+                                        <a href="register.jsp" class="text-primary auth-link">
+                        Create an account
                     </a>
-                </p>
-                <p class="text-muted">
-                    <a href="index.jsp" class="text-secondary" style="text-decoration: none;">
+                </div>
+                <div class="text-center mt-3">
+                    <a href="index.jsp" class="text-secondary auth-link-secondary">
                         ← Back to Home
                     </a>
-                </p>
             </div>
         </div>
     </div>

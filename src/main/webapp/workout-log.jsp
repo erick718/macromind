@@ -122,13 +122,9 @@
                             
                             Log Workout
                         </button>
-                        <a href="workout-history" class="btn btn-secondary">
-                            
-                            View History
-                        </a>
                         <a href="dashboard" class="btn btn-outline">
                             
-                            Dashboard
+                            Cancel
                         </a>
                     </div>
                 </form>
