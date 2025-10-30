@@ -1,6 +1,5 @@
 package com.fitness.model;
 
-import java.util.Date;
 import java.time.LocalDateTime;
 
 public class FoodEntry {
@@ -11,22 +10,21 @@ public class FoodEntry {
     private float protein;
     private float carbs;
     private float fat;
-    private double consumed_oz;
-    private Date dateTime;
+    private double consumedOz;
+    private LocalDateTime entryDate;
 
     public FoodEntry() {}
 
-    public FoodEntry(int userId, String foodName, int calories, float protein, float carbs, float fat, String servingSize, Date entryDate) {
+    public FoodEntry(int userId, String foodName, int calories, float protein, float carbs, float fat, double consumedOz, LocalDateTime entryDate) {
         this.userId = userId;
         this.foodName = foodName;
         this.calories = calories;
         this.protein = protein;
         this.carbs = carbs;
         this.fat = fat;
-        this.consumed_oz = consumed_oz;
-        this.dateTime = dateTime;
+        this.consumedOz = consumedOz;
+        this.entryDate = entryDate;
     }
-
     
     
     public int getEntryId() { return entryId; }
@@ -50,10 +48,10 @@ public class FoodEntry {
     public float getFat() { return fat; }
     public void setFat(float fat) { this.fat = fat; }
 
-    public String getServingSize() { return servingSize; }
-    public void setServingSize(String servingSize) { this.servingSize = servingSize; }
+    public double getConsumedOz() { return consumedOz; }
+    public void setConsumedOz(double consumedOz) { this.consumedOz = consumedOz; }
 
-    public Date getEntryDate() { return entryDate; }
-    public void setEntryDate(Date entryDate) { this.entryDate = entryDate; }
+    public LocalDateTime getEntryDate() { return entryDate; }
+    public void setEntryDate(LocalDateTime entryDate) { this.entryDate = entryDate; }
     
 }

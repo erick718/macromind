@@ -148,6 +148,19 @@
                         <div style="font-weight: 600;">Progress Dashboard</div>
                         <div style="font-size: var(--font-size-sm); opacity: 0.8;">Analytics & insights</div>
                     </a>
+
+                    <a href= "food_entry.jsp" class="btn btn-warning btn-lg text-center" style="padding: var(--spacing-xl); text-decoration: none;">
+                        
+                        <div style="font-weight: 600;">Log Food Intake</div>
+                        <div style="font-size: var(--font-size-sm); opacity: 0.8;">Track your meals & nutrition</div>
+                    </a>
+                    <div>
+                        <a href="food-history.jsp" class="btn btn-danger btn-lg text-center" style="padding: var(--spacing-xl); text-decoration: none;">
+                            
+                            <div style="font-weight: 600;">Food History</div>
+                            <div style="font-size: var(--font-size-sm); opacity: 0.8;">View logged meals</div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

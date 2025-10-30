@@ -1,12 +1,12 @@
 package com.fitness.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +16,7 @@ import com.fitness.util.DBConnection;
 public class FoodEntryDAO {
 
     // Add a new food entry to the database
-    public void addFoodEntry(FoodEntry entry) {
+    public void createFoodEntry(FoodEntry entry) {
         String sql = "INSERT INTO food_entries " +
                      "(user_id, food_name, calories, protein, carbs, fat, consumed_oz, date_time) " +
                      "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
@@ -29,9 +29,9 @@ public class FoodEntryDAO {
             stmt.setFloat(4, (float) entry.getProtein());
             stmt.setFloat(5, (float) entry.getCarbs());
             stmt.setFloat(6, (float) entry.getFat());
-            stmt.setFloat(7, (float) entry.getConsumedOz());
-            stmt.setTimestamp(8, Timestamp.valueOf(entry.getDateTime()));
-
+            stmt.setDouble(7, (float) entry.getConsumedOz());
+            stmt.setTimestamp(8, Timestamp.valueOf(entry.getEntryDate()));
+            
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -39,17 +39,23 @@ public class FoodEntryDAO {
     }
 
     // Get all entries for a user on a specific date
-    public List<FoodEntry> getEntriesByUserAndDate(int userId, LocalDate date) {
+    public List<FoodEntry> getFoodEntriesByUser(int userId, LocalDate date) {
         List<FoodEntry> entries = new ArrayList<>();
         String sql = "SELECT * FROM food_entries WHERE user_id = ? AND DATE(date_time) = ? ORDER BY date_time DESC";
 
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
+            LocalDateTime startOfDay = date.atStartOfDay();
+            LocalDateTime endOfDay = date.plusDays(1).atStartOfDay();   
+
             stmt.setInt(1, userId);
-            stmt.setDate(2, Date.valueOf(date));
+            stmt.setTimestamp(2, Timestamp.valueOf(startOfDay));
+            stmt.setTimestamp(3, Timestamp.valueOf(endOfDay));
+            
 
             ResultSet rs = stmt.executeQuery();
+            
             while (rs.next()) {
                 FoodEntry entry = new FoodEntry();
                 entry.setEntryId(rs.getInt("id"));
@@ -60,7 +66,7 @@ public class FoodEntryDAO {
                 entry.setCarbs(rs.getFloat("carbs"));
                 entry.setFat(rs.getFloat("fat"));
                 entry.setConsumedOz(rs.getFloat("consumed_oz"));
-                entry.setDateTime(rs.getTimestamp("date_time").toLocalDateTime());
+                entry.setEntryDate(rs.getTimestamp("date_time").toLocalDateTime());
                 entries.add(entry);
             }
         } catch (SQLException e) {

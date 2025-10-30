@@ -7,69 +7,102 @@
         return;
     }
 %>
-
+<!DOCTYPE html>
 <html>
 <head>
     <title>Log Food - MacroMind</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-        }
-        h1 {
-            color: #333;
-        }
-        form {
-            width: 300px;
-        }
-        label {
-            display: block;
-            margin-top: 10px;
-        }
-        input, select {
-            width: 100%;
-            padding: 6px;
-            margin-top: 4px;
-        }
-        .btn {
-            margin-top: 14px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 8px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .btn:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
+    <div class="container container-lg">
+        <div class="page-header">
+            <h1 class="page-title">Log Your Food</h1>
+            <p class="page-subtitle">Welcome back, <strong><%= user.getName() %></strong>! Track your daily nutrition.</p>
+        </div>
 
-<h1>Log Food for <%= user.getName() %></h1>
+        <% if (request.getAttribute("message") != null) { %>
+            <div class="alert alert-success">
+                <%= request.getAttribute("message") %>
+            </div>
+        <% } %>
+        <% if (request.getAttribute("error") != null) { %>
+            <div class="alert alert-error">
+                <%= request.getAttribute("error") %>
+            </div>
+        <% } %>
 
-<form action="FoodEntryServlet" method="post">
-    <label for="foodName">Food Name:</label>
-    <input type="text" id="foodName" name="foodName" required>
+        <div class="card">
+            <div class="card-body">
+                <form action="FoodEntryServlet" method="post" id="foodEntryForm">
 
-    <label for="calories">Calories:</label>
-    <input type="number" id="calories" name="calories" min="0" required>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="foodName" class="form-label">Food Name *</label>
+                            <input type="text" id="foodName" name="foodName" class="form-input" required placeholder="e.g., Hamburger">
+                        </div>
+                        <div class="form-group">
+                            <label for="calories" class="form-label">Calories *</label>
+                            <input type="number" id="calories" name="calories" class="form-input" min="0" required>
+                        </div>
+                    </div>
 
-    <label for="protein">Protein (g):</label>
-    <input type="number" id="protein" name="protein" min="0">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="protein" class="form-label">Protein (g) *</label>
+                            <input type="number" id="protein" name="protein" class="form-input" step="0.1" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="carbs" class="form-label">Carbs (g) *</label>
+                            <input type="number" id="carbs" name="carbs" class="form-input" step="0.1" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="fat" class="form-label">Fat (g) *</label>
+                            <input type="number" id="fat" name="fat" class="form-input" step="0.1" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="consumed_oz" class="form-label">Serving Size (oz) *</label>
+                            <input type="number" id="consumed_oz" name="consumed_oz" class="form-input" step="0.1" min="0" required>
+                        </div>
+                    </div>
 
-    <label for="carbs">Carbs (g):</label>
-    <input type="number" id="carbs" name="carbs" min="0">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="entryDate" class="form-label">Date *</label>
+                            <input type="date" id="entryDate" name="entryDate" class="form-input" value="<%= java.time.LocalDate.now() %>" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="entryTime" class="form-label">Time</label>
+                            <input type="time" id="entryTime" name="entryTime" class="form-input">
+                        </div>
+                    </div>
 
-    <label for="fat">Fat (g):</label>
-    <input type="number" id="fat" name="fat" min="0">
+                    <div class="form-group">
+                        <label for="notes" class="form-label">Notes</label>
+                        <textarea id="notes" name="notes" class="form-textarea" rows="3" placeholder="Optional observations"></textarea>
+                    </div>
 
-    <button type="submit" class="btn">Save Entry</button>
-</form>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Log Food</button>
+                        <a href="food-history.jsp" class="btn btn-secondary">View History</a>
+                        <a href="dashboard" class="btn btn-outline">Dashboard</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
-<br>
-<a href="calorieBalance">Back to Calorie Balance</a>
-
+    <script>
+        document.getElementById('foodEntryForm').addEventListener('submit', function(e) {
+            const requiredFields = ['foodName','calories','protein','carbs','fat','consumed_oz','entryDate'];
+            for (const field of requiredFields) {
+                if (!document.getElementById(field).value) {
+                    e.preventDefault();
+                    alert('Please fill all required fields.');
+                    return false;
+                }
+            }
+        });
+    </script>
 </body>
 </html>

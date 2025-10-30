@@ -1,77 +1,65 @@
 package com.fitness.servlets;
 
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import com.fitness.dao.FoodEntryDAO;
-import com.fitness.dao.FoodItemDAO;
 import com.fitness.model.FoodEntry;
-import com.fitness.model.FoodItem;
 import com.fitness.model.User;
 
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.*;
-import java.io.IOException;
-import java.time.LocalDateTime;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
-@WebServlet("/FoodEntryServlet")
 public class FoodEntryServlet extends HttpServlet {
-    private FoodEntryDAO foodEntryDAO;
-    private FoodItemDAO foodItemDAO;
 
     @Override
-    public void init() {
-        foodEntryDAO = new FoodEntryDAO();
-        foodItemDAO = new FoodItemDAO(); // DAO with predefined meals
-    }
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-        HttpSession session = request.getSession(false);
-        User user = (session != null) ? (User) session.getAttribute("user") : null;
         if (user == null) {
-            response.sendRedirect(request.getContextPath() + "/login.jsp");
+            response.sendRedirect("login.jsp");
             return;
         }
 
         String foodName = request.getParameter("foodName");
-        double consumedOunces = parseDoubleSafe(request.getParameter("consumedOunces"));
+        int calories = Integer.parseInt(request.getParameter("calories"));
+        float protein = Float.parseFloat(request.getParameter("protein"));
+        float carbs = Float.parseFloat(request.getParameter("carbs"));
+        float fat = Float.parseFloat(request.getParameter("fat"));
+        double consumed_oz = Double.parseDouble(request.getParameter("consumed_oz"));
+        LocalDateTime entryDate = LocalDateTime.now();
 
-        int calories = parseIntSafe(request.getParameter("calories"));
-        double protein = parseDoubleSafe(request.getParameter("protein"));
-        double carbs = parseDoubleSafe(request.getParameter("carbs"));
-        double fat = parseDoubleSafe(request.getParameter("fat"));
+        FoodEntry entry = new FoodEntry(user.getUserId(), foodName, calories, protein, carbs, fat, consumed_oz, entryDate);
+        FoodEntryDAO dao = new FoodEntryDAO();
+        dao.createFoodEntry(entry);
 
-        // Check if this is a predefined meal
-        FoodItem predefined = foodItemDAO.findByName(foodName);
-        if (predefined != null) {
-            double multiplier = consumedOunces / predefined.getServingSize();
-            calories = (int)(predefined.getCalories() * multiplier);
-            protein = predefined.getProtein() * multiplier;
-            carbs = predefined.getCarbs() * multiplier;
-            fat = predefined.getFat() * multiplier;
+        request.setAttribute("message", "Food entry logged successfully!");
+        request.getRequestDispatcher("food_entry.jsp").forward(request, response);
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+
+        if (user == null) {
+            response.sendRedirect("login.jsp");
+            return;
         }
-
-        // Create entry (predefined scaled or custom)
-        FoodEntry entry = new FoodEntry();
-        entry.setUserId(user.getUserId());
-        entry.setFoodName(foodName);
-        entry.setCalories(calories);
-        entry.setProtein((float) protein);
-        entry.setCarbs((float) carbs);
-        entry.setFat((float) fat);
-        entry.setConsumedOz(consumedOunces);  // consistent with model
-        entry.setDateTime(LocalDateTime.now());
-
-        foodEntryDAO.addFoodEntry(entry);
-        response.sendRedirect(request.getContextPath() + "/calorieBalance");
-    }
-
-    private int parseIntSafe(String value) {
-        try { return Integer.parseInt(value); } catch (Exception e) { return 0; }
-    }
-
-    private double parseDoubleSafe(String value) {
-        try { return Double.parseDouble(value); } catch (Exception e) { return 0; }
+        FoodEntryDAO dao = new FoodEntryDAO();
+        List<FoodEntry> entries = dao.getFoodEntriesByUser(user.getUserId(), LocalDate.now())
+                .stream()
+                .map(o -> (FoodEntry) o)
+                .collect(Collectors.toList());
+        request.setAttribute("entries", entries);
+        request.getRequestDispatcher("food_entry.jsp").forward(request, response);
+        
     }
 }

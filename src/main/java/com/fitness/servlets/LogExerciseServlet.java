@@ -1,21 +1,37 @@
 package com.fitness.servlets;
 
-import com.fitness.model.User;
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
 import java.io.IOException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import com.fitness.model.User;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 public class LogExerciseServlet extends HttpServlet {
 
     // Rough MET estimates for categories
     private double getCaloriesBurnedPerMinute(String type, double weightKg) {
-        double met = switch (type.toLowerCase()) {
-            case "cardio" -> 8;        // e.g., running or cycling
-            case "weightlifting" -> 6; // moderate lifting
-            case "hiit" -> 10;         // high intensity interval training
-            default -> 5;              // general
-        };
+        double met;
+        switch (type.toLowerCase()) {
+            case "cardio":
+                met = 8; // e.g., running or cycling
+                break;
+            case "weightlifting":
+                met = 6; // moderate lifting
+                break;
+            case "hiit":
+                met = 10; // high intensity interval training
+                break;
+            default:
+                met = 5; // general
+                break;
+        }
         // Calories burned per minute = (MET * 3.5 * weightKg) / 200
         return (met * 3.5 * weightKg) / 200.0;
     }
