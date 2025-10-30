@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,12 +45,8 @@ public class FoodEntryDAO {
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            LocalDateTime startOfDay = date.atStartOfDay();
-            LocalDateTime endOfDay = date.plusDays(1).atStartOfDay();   
-
             stmt.setInt(1, userId);
-            stmt.setTimestamp(2, Timestamp.valueOf(startOfDay));
-            stmt.setTimestamp(3, Timestamp.valueOf(endOfDay));
+            stmt.setDate(2, java.sql.Date.valueOf(date));
             
 
             ResultSet rs = stmt.executeQuery();

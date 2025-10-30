@@ -28,20 +28,31 @@ public class FoodEntryServlet extends HttpServlet {
             return;
         }
 
-        String foodName = request.getParameter("foodName");
-        int calories = Integer.parseInt(request.getParameter("calories"));
-        float protein = Float.parseFloat(request.getParameter("protein"));
-        float carbs = Float.parseFloat(request.getParameter("carbs"));
-        float fat = Float.parseFloat(request.getParameter("fat"));
-        double consumed_oz = Double.parseDouble(request.getParameter("consumed_oz"));
-        LocalDateTime entryDate = LocalDateTime.now();
+        try {
+            String foodName = request.getParameter("foodName");
+            int calories = Integer.parseInt(request.getParameter("calories"));
+            float protein = Float.parseFloat(request.getParameter("protein"));
+            float carbs = Float.parseFloat(request.getParameter("carbs"));
+            float fat = Float.parseFloat(request.getParameter("fat"));
+            double consumed_oz = Double.parseDouble(request.getParameter("consumed_oz"));
+            LocalDateTime entryDate = LocalDateTime.now();
 
-        FoodEntry entry = new FoodEntry(user.getUserId(), foodName, calories, protein, carbs, fat, consumed_oz, entryDate);
-        FoodEntryDAO dao = new FoodEntryDAO();
-        dao.createFoodEntry(entry);
+            FoodEntry entry = new FoodEntry(user.getUserId(), foodName, calories, protein, carbs, fat, consumed_oz, entryDate);
+            FoodEntryDAO dao = new FoodEntryDAO();
+            dao.createFoodEntry(entry);
 
-        request.setAttribute("message", "Food entry logged successfully!");
-        request.getRequestDispatcher("food_entry.jsp").forward(request, response);
+            session.setAttribute("message", "Food entry logged successfully!");
+            response.sendRedirect("dashboard");
+        } catch (NumberFormatException e) {
+            System.err.println("Error parsing food entry data: " + e.getMessage());
+            request.setAttribute("error", "Please enter valid numbers for calories, protein, carbs, fat, and serving size.");
+            request.getRequestDispatcher("food_entry.jsp").forward(request, response);
+        } catch (Exception e) {
+            System.err.println("Error saving food entry: " + e.getMessage());
+            e.printStackTrace();
+            request.setAttribute("error", "Failed to save food entry. Please try again.");
+            request.getRequestDispatcher("food_entry.jsp").forward(request, response);
+        }
     }
 
     @Override
