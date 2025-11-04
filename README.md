@@ -2,7 +2,7 @@
 
 A comprehensive web-based fitness tracking application built with Java Servlets, JSP, and MySQL. MacroMind helps users monitor their workouts, track food intake, and analyze their fitness progress.
 
-## 🎯 Features
+## Features
 
 ### Core Functionality
 - **User Management**: Registration, login, and profile management
@@ -19,7 +19,7 @@ A comprehensive web-based fitness tracking application built with Java Servlets,
 - Exercise distribution analysis (cardio vs. strength training)
 - Session-based authentication and authorization
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 - **Backend**: Java 17, Jakarta Servlets 5.0
 - **Frontend**: JSP, HTML, CSS (Bootstrap)
