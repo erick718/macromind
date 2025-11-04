@@ -1,8 +1,7 @@
 package com.fitness.util;
 
-import com.fitness.model.User;
-import com.fitness.model.Workout;
-import com.fitness.util.CalorieCalculator.CalorieBalanceSummary;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatCode;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -10,7 +9,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import static org.assertj.core.api.Assertions.*;
+import com.fitness.model.User;
+import com.fitness.model.Workout;
+import com.fitness.util.CalorieCalculator.CalorieBalanceSummary;
 
 @DisplayName("CalorieCalculator Tests")
 class CalorieCalculatorTest {
