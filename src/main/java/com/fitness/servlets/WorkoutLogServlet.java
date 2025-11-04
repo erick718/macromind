@@ -19,6 +19,18 @@ import jakarta.servlet.http.HttpSession;
 @WebServlet("/workout-log")
 public class WorkoutLogServlet extends HttpServlet {
     
+    private WorkoutDAO workoutDAO;
+    
+    // Default constructor for container initialization
+    public WorkoutLogServlet() {
+        this(new WorkoutDAO());
+    }
+    
+    // Constructor for dependency injection (testing)
+    public WorkoutLogServlet(WorkoutDAO workoutDAO) {
+        this.workoutDAO = workoutDAO;
+    }
+    
     // Calculate calories burned based on exercise type and user weight
     private double getCaloriesBurnedPerMinute(String exerciseType, double weightKg) {
         double met;
@@ -135,7 +147,6 @@ public class WorkoutLogServlet extends HttpServlet {
             }
 
             // Calculate calories burned
-            WorkoutDAO workoutDAO = new WorkoutDAO();
             double caloriesBurned = workoutDAO.calculateCaloriesBurned(
                 exerciseName, 
                 workout.getDurationMinutes(), 

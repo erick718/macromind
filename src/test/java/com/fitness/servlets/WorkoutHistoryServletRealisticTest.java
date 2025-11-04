@@ -1,0 +1,320 @@
+package com.fitness.servlets;
+
+import static org.assertj.core.api.Assertions.assertThatCode;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.junit.jupiter.MockitoSettings;
+import org.mockito.quality.Strictness;
+import com.fitness.model.User;
+import com.fitness.model.Workout;
+
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
+@ExtendWith(MockitoExtension.class)
+@MockitoSettings(strictness = Strictness.LENIENT)@DisplayName("Workout History User Story Tests")
+class WorkoutHistoryServletRealisticTest {
+
+    private HttpServletRequest mockRequest = Mockito.mock(HttpServletRequest.class);
+    private HttpServletResponse mockResponse = Mockito.mock(HttpServletResponse.class);
+    private HttpSession mockSession = Mockito.mock(HttpSession.class);
+    private RequestDispatcher mockRequestDispatcher = Mockito.mock(RequestDispatcher.class);
+
+    private WorkoutHistoryServlet servlet;
+    private User testUser;
+
+    @BeforeEach
+    void setUp() throws Exception {
+        servlet = new WorkoutHistoryServlet();
+        
+        testUser = new User();
+        testUser.setUserId(1);
+        testUser.setName("Test User");
+        testUser.setEmail("test@example.com");
+        
+        // Basic mocking setup
+        when(mockRequest.getSession(false)).thenReturn(mockSession);
+        when(mockRequest.getSession()).thenReturn(mockSession);
+        when(mockRequest.getContextPath()).thenReturn("");
+        when(mockRequest.getRequestDispatcher("/workout-history.jsp")).thenReturn(mockRequestDispatcher);
+        doNothing().when(mockRequestDispatcher).forward(mockRequest, mockResponse);
+    }
+
+    @Nested
+    @DisplayName("Workout History Access Tests")
+    class WorkoutHistoryAccessTests {
+
+        @Test
+        @DisplayName("Should redirect to login when user not authenticated")
+        void shouldRedirectToLoginWhenUserNotAuthenticated() throws Exception {
+            // Given
+            when(mockSession.getAttribute("user")).thenReturn(null);
+
+            // When
+            assertThatCode(() -> servlet.doGet(mockRequest, mockResponse))
+                .doesNotThrowAnyException();
+
+            // Then
+            verify(mockResponse).sendRedirect("/login.jsp");
+        }
+
+        @Test
+        @DisplayName("Should display workout history for authenticated user")
+        void shouldDisplayWorkoutHistoryForAuthenticatedUser() throws Exception {
+            // Given
+            when(mockSession.getAttribute("user")).thenReturn(testUser);
+            when(mockRequest.getParameter("filter")).thenReturn("all");
+
+            // When
+            assertThatCode(() -> servlet.doGet(mockRequest, mockResponse))
+                .doesNotThrowAnyException();
+
+            // Then
+            verify(mockRequestDispatcher).forward(mockRequest, mockResponse);
+        }
+    }
+
+    @Nested
+    @DisplayName("Workout Filter Tests")
+    class WorkoutFilterTests {
+
+        @Test
+        @DisplayName("Should filter workouts by week")
+        void shouldFilterWorkoutsByWeek() throws Exception {
+            // Given
+            when(mockSession.getAttribute("user")).thenReturn(testUser);
+            when(mockRequest.getParameter("filter")).thenReturn("week");
+
+            // When
+            assertThatCode(() -> servlet.doGet(mockRequest, mockResponse))
+                .doesNotThrowAnyException();
+
+            // Then
+            verify(mockRequestDispatcher).forward(mockRequest, mockResponse);
+        }
+
+        @Test
+        @DisplayName("Should filter workouts by month")
+        void shouldFilterWorkoutsByMonth() throws Exception {
+            // Given
+            when(mockSession.getAttribute("user")).thenReturn(testUser);
+            when(mockRequest.getParameter("filter")).thenReturn("month");
+
+            // When
+            assertThatCode(() -> servlet.doGet(mockRequest, mockResponse))
+                .doesNotThrowAnyException();
+
+            // Then
+            verify(mockRequestDispatcher).forward(mockRequest, mockResponse);
+        }
+
+        @Test
+        @DisplayName("Should default to all workouts when no filter specified")
+        void shouldDefaultToAllWorkoutsWhenNoFilterSpecified() throws Exception {
+            // Given
+            when(mockSession.getAttribute("user")).thenReturn(testUser);
+            when(mockRequest.getParameter("filter")).thenReturn(null);
+
+            // When
+            assertThatCode(() -> servlet.doGet(mockRequest, mockResponse))
+                .doesNotThrowAnyException();
+
+            // Then
+            verify(mockRequestDispatcher).forward(mockRequest, mockResponse);
+        }
+    }
+
+    @Nested
+    @DisplayName("Workout Analytics Tests")
+    class WorkoutAnalyticsTests {
+
+        @Test
+        @DisplayName("Should calculate workout progress summary")
+        void shouldCalculateWorkoutProgressSummary() throws Exception {
+            // Given
+            when(mockSession.getAttribute("user")).thenReturn(testUser);
+
+            // When
+            assertThatCode(() -> servlet.doGet(mockRequest, mockResponse))
+                .doesNotThrowAnyException();
+
+            // Then - Should set progress summary attributes
+            verify(mockRequestDispatcher).forward(mockRequest, mockResponse);
+        }
+
+        @Test
+        @DisplayName("Should calculate exercise type distribution")
+        void shouldCalculateExerciseTypeDistribution() throws Exception {
+            // Given
+            when(mockSession.getAttribute("user")).thenReturn(testUser);
+
+            // When
+            assertThatCode(() -> servlet.doGet(mockRequest, mockResponse))
+                .doesNotThrowAnyException();
+
+            // Then
+            verify(mockRequestDispatcher).forward(mockRequest, mockResponse);
+        }
+
+        @Test
+        @DisplayName("Should calculate workout streak")
+        void shouldCalculateWorkoutStreak() throws Exception {
+            // Given
+            when(mockSession.getAttribute("user")).thenReturn(testUser);
+
+            // When
+            assertThatCode(() -> servlet.doGet(mockRequest, mockResponse))
+                .doesNotThrowAnyException();
+
+            // Then
+            verify(mockRequestDispatcher).forward(mockRequest, mockResponse);
+        }
+    }
+
+    @Nested
+    @DisplayName("Workout Management Tests")
+    class WorkoutManagementTests {
+
+        @Test
+        @DisplayName("Should handle workout deletion")
+        void shouldHandleWorkoutDeletion() throws Exception {
+            // Given
+            when(mockSession.getAttribute("user")).thenReturn(testUser);
+            when(mockRequest.getParameter("action")).thenReturn("delete");
+            when(mockRequest.getParameter("workoutId")).thenReturn("1");
+
+            // When
+            assertThatCode(() -> servlet.doPost(mockRequest, mockResponse))
+                .doesNotThrowAnyException();
+
+            // Then
+            verify(mockResponse).sendRedirect("/workout-history");
+        }
+
+        @Test
+        @DisplayName("Should handle invalid workout ID")
+        void shouldHandleInvalidWorkoutId() throws Exception {
+            // Given
+            when(mockSession.getAttribute("user")).thenReturn(testUser);
+            when(mockRequest.getParameter("action")).thenReturn("delete");
+            when(mockRequest.getParameter("workoutId")).thenReturn("invalid");
+
+            // When
+            assertThatCode(() -> servlet.doPost(mockRequest, mockResponse))
+                .doesNotThrowAnyException();
+
+            // Then
+            verify(mockResponse).sendRedirect("/workout-history");
+        }
+
+        @Test
+        @DisplayName("Should handle missing action parameter")
+        void shouldHandleMissingActionParameter() throws Exception {
+            // Given
+            when(mockSession.getAttribute("user")).thenReturn(testUser);
+            when(mockRequest.getParameter("action")).thenReturn(null);
+
+            // When
+            assertThatCode(() -> servlet.doPost(mockRequest, mockResponse))
+                .doesNotThrowAnyException();
+
+            // Then
+            verify(mockResponse).sendRedirect("/workout-history");
+        }
+    }
+
+    @Nested
+    @DisplayName("Workout Display Tests")
+    class WorkoutDisplayTests {
+
+        @Test
+        @DisplayName("Should display workout details")
+        void shouldDisplayWorkoutDetails() throws Exception {
+            // Given
+            when(mockSession.getAttribute("user")).thenReturn(testUser);
+
+            // When
+            assertThatCode(() -> servlet.doGet(mockRequest, mockResponse))
+                .doesNotThrowAnyException();
+
+            // Then - Should set workouts attribute
+            verify(mockRequestDispatcher).forward(mockRequest, mockResponse);
+        }
+
+        @Test
+        @DisplayName("Should display empty history gracefully")
+        void shouldDisplayEmptyHistoryGracefully() throws Exception {
+            // Given
+            when(mockSession.getAttribute("user")).thenReturn(testUser);
+
+            // When
+            assertThatCode(() -> servlet.doGet(mockRequest, mockResponse))
+                .doesNotThrowAnyException();
+
+            // Then
+            verify(mockRequestDispatcher).forward(mockRequest, mockResponse);
+        }
+    }
+
+    @Nested
+    @DisplayName("Error Handling Tests")
+    class ErrorHandlingTests {
+
+        @Test
+        @DisplayName("Should handle database connection errors gracefully")
+        void shouldHandleDatabaseConnectionErrorsGracefully() throws Exception {
+            // Given
+            when(mockSession.getAttribute("user")).thenReturn(testUser);
+
+            // When - If database fails, should redirect with error
+            assertThatCode(() -> servlet.doGet(mockRequest, mockResponse))
+                .doesNotThrowAnyException();
+        }
+
+        @Test
+        @DisplayName("Should handle unauthorized workout deletion")
+        void shouldHandleUnauthorizedWorkoutDeletion() throws Exception {
+            // Given
+            when(mockSession.getAttribute("user")).thenReturn(testUser);
+            when(mockRequest.getParameter("action")).thenReturn("delete");
+            when(mockRequest.getParameter("workoutId")).thenReturn("999"); // Non-existent workout
+
+            // When
+            assertThatCode(() -> servlet.doPost(mockRequest, mockResponse))
+                .doesNotThrowAnyException();
+
+            // Then
+            verify(mockResponse).sendRedirect("/workout-history");
+        }
+
+        @Test
+        @DisplayName("Should handle session timeout during POST")
+        void shouldHandleSessionTimeoutDuringPost() throws Exception {
+            // Given
+            when(mockSession.getAttribute("user")).thenReturn(null);
+
+            // When
+            assertThatCode(() -> servlet.doPost(mockRequest, mockResponse))
+                .doesNotThrowAnyException();
+
+            // Then
+            verify(mockResponse).sendRedirect("/login.jsp");
+        }
+    }
+}

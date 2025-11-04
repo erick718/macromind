@@ -19,8 +19,19 @@ import jakarta.servlet.http.HttpSession;
 @WebServlet("/calorieBalance")
 public class CalorieBalanceServlet extends HttpServlet {
 
-    private final FoodEntryDAO foodEntryDAO = new FoodEntryDAO();
-    private final ExerciseLogDAO exerciseLogDAO = new ExerciseLogDAO();
+    private FoodEntryDAO foodEntryDAO;
+    private ExerciseLogDAO exerciseLogDAO;
+    
+    // Default constructor for container initialization
+    public CalorieBalanceServlet() {
+        this(new FoodEntryDAO(), new ExerciseLogDAO());
+    }
+    
+    // Constructor for dependency injection (testing)
+    public CalorieBalanceServlet(FoodEntryDAO foodEntryDAO, ExerciseLogDAO exerciseLogDAO) {
+        this.foodEntryDAO = foodEntryDAO;
+        this.exerciseLogDAO = exerciseLogDAO;
+    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
