@@ -10,12 +10,52 @@ import com.fitness.model.User;
 import com.fitness.model.Workout;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
+@WebServlet("/workout-log")
 public class WorkoutLogServlet extends HttpServlet {
+    
+    private WorkoutDAO workoutDAO;
+    
+    // Default constructor for container initialization
+    public WorkoutLogServlet() {
+        this(new WorkoutDAO());
+    }
+    
+    // Constructor for dependency injection (testing)
+    public WorkoutLogServlet(WorkoutDAO workoutDAO) {
+        this.workoutDAO = workoutDAO;
+    }
+    
+    // Calculate calories burned based on exercise type and user weight
+    private double getCaloriesBurnedPerMinute(String exerciseType, double weightKg) {
+        double met;
+        switch (exerciseType.toLowerCase()) {
+            case "cardio":
+                met = 8; // running, cycling, etc.
+                break;
+            case "strength":
+                met = 6; // weight lifting
+                break;
+            case "flexibility":
+                met = 2.5; // stretching, yoga
+                break;
+            case "sports":
+                met = 7; // general sports activities
+                break;
+            default:
+                met = 5; // general exercise
+                break;
+        }
+        // Calories burned per minute = (MET * 3.5 * weightKg) / 200
+        return (met * 3.5 * weightKg) / 200.0;
+    }
+    
+
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -107,7 +147,6 @@ public class WorkoutLogServlet extends HttpServlet {
             }
 
             // Calculate calories burned
-            WorkoutDAO workoutDAO = new WorkoutDAO();
             double caloriesBurned = workoutDAO.calculateCaloriesBurned(
                 exerciseName, 
                 workout.getDurationMinutes(), 
@@ -121,7 +160,7 @@ public class WorkoutLogServlet extends HttpServlet {
             System.out.println("WorkoutLogServlet: Saving workout to database for user ID: " + user.getUserId());
             workoutDAO.createWorkout(workout);
             
-            // Update daily fitness summary
+            // Update daily fitness summary (this will include the calories for calorie balance)
             workoutDAO.updateDailyFitnessSummary(user.getUserId(), workoutDate);
             
             System.out.println("WorkoutLogServlet: Workout saved successfully");

@@ -26,17 +26,9 @@
         <servlet-class>com.fitness.servlets.ProfileServlet</servlet-class>
     </servlet>
 
-    <!-- New Dashboard Servlet -->
-    <servlet>
-        <servlet-name>DashboardServlet</servlet-name>
-        <servlet-class>com.fitness.servlets.DashboardServlet</servlet-class>
-    </servlet>
 
-    <!-- Workout Logging Servlet -->
-    <servlet>
-        <servlet-name>WorkoutLogServlet</servlet-name>
-        <servlet-class>com.fitness.servlets.WorkoutLogServlet</servlet-class>
-    </servlet>
+
+
 
     <!-- Workout History Servlet -->
     <servlet>
@@ -61,6 +53,12 @@
     <servlet>
         <servlet-name>FoodEntryServlet</servlet-name>
         <servlet-class>com.fitness.servlets.FoodEntryServlet</servlet-class>
+    </servlet>
+
+    <!-- Food Entry History Servlet -->
+    <servlet>
+        <servlet-name>FoodEntryHistoryServlet</servlet-name>
+        <servlet-class>com.fitness.servlets.FoodEntryHistoryServlet</servlet-class>
     </servlet>
 
    
@@ -88,17 +86,9 @@
         <url-pattern>/ProfileServlet</url-pattern>
     </servlet-mapping>
 
-    <!-- Map /dashboard to DashboardServlet -->
-    <servlet-mapping>
-        <servlet-name>DashboardServlet</servlet-name>
-        <url-pattern>/dashboard</url-pattern>
-    </servlet-mapping>
 
-    <!-- Map /workout-log to WorkoutLogServlet -->
-    <servlet-mapping>
-        <servlet-name>WorkoutLogServlet</servlet-name>
-        <url-pattern>/workout-log</url-pattern>
-    </servlet-mapping>
+
+
 
     <!-- Map /workout-history to WorkoutHistoryServlet -->
     <servlet-mapping>
@@ -116,6 +106,12 @@
     <servlet-mapping>
         <servlet-name>FoodEntryServlet</servlet-name>
         <url-pattern>/FoodEntryServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- Map /food-history to FoodEntryHistoryServlet -->
+    <servlet-mapping>
+        <servlet-name>FoodEntryHistoryServlet</servlet-name>
+        <url-pattern>/food-history</url-pattern>
     </servlet-mapping>
 
 

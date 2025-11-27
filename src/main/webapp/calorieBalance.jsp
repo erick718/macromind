@@ -1,7 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.fitness.model.User" %>
-<%@ page import="java.util.List" %>
-<%@ page import="com.fitness.servlets.CalorieBalanceServlet.Meal" %>
+<%@ page import="com.fitness.model.User, java.util.List, com.fitness.model.FoodEntry" %>
+<%-- VS Code: Ignore CSS parsing warnings for JSP expressions --%>
 <%
     User user = (User) session.getAttribute("user");
     if (user == null) {
@@ -14,46 +13,109 @@
     int totalBurned = (int) request.getAttribute("totalBurned");
     int netCalories = (int) request.getAttribute("netCalories");
     int remainingCalories = (int) request.getAttribute("remainingCalories");
-    List<Meal> meals = (List<Meal>) request.getAttribute("meals");
+    List<FoodEntry> entries = (List<FoodEntry>) request.getAttribute("entries");
+
+    // Calculate percentage of goal reached
+    double progress = ((double) netCalories / recommendedCalories) * 100;
+    if (progress > 100) progress = 100;
+    if (progress < 0) progress = 0;
+
+    // Determine progress bar color
+    String progressColor = (netCalories > recommendedCalories) ? "#e74c3c" : "#2ecc71";
 %>
 
 <html>
 <head>
     <title>Daily Calorie Balance</title>
+    <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
-<h1>Calorie Balance for <%= user.getName() %></h1>
 
-<h2>Recommended Daily Calories: <%= recommendedCalories %> kcal</h2>
+<div class="container container-lg">
+    <div class="page-header">
+        <h1 class="page-title">Daily Calorie Balance</h1>
+        <p class="page-subtitle">Track your daily calorie intake and burn for <%= user.getName() %></p>
+    </div>
 
-<h2>Meals Consumed Today</h2>
-<% if (meals.isEmpty()) { %>
-    <p>No meals logged yet.</p>
-<% } else { %>
-<table border="1">
-<tr><th>Food</th><th>Calories</th></tr>
-<% for(Meal meal : meals) { %>
-<tr>
-    <td><%= meal.getName() %></td>
-    <td><%= meal.getCalories() %></td>
-</tr>
-<% } %>
-</table>
-<% } %>
+    <div class="calorie-summary">
+        <h2>Recommended: <%= recommendedCalories %> kcal</h2>
+        <div class="grid grid-2 mb-4">
+            <div class="stat-card">
+                <div class="stat-value"><%= totalIntake %></div>
+                <div class="stat-label">Consumed</div>
+                <div class="stat-description">Total calories eaten today</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value"><%= totalBurned %></div>
+                <div class="stat-label">Burned</div>
+                <div class="stat-description">Calories burned through exercise</div>
+            </div>
+        </div>
+        
+        <div class="grid grid-2 mb-4">
+            <div class="stat-card">
+                <div class="stat-value" style="color: <%= netCalories > recommendedCalories ? "#e74c3c" : "#2ecc71" %>;"><%= netCalories %></div>
+                <div class="stat-label">Net Calories</div>
+                <div class="stat-description">Consumed minus burned</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" style="color: <%= remainingCalories < 0 ? "#e74c3c" : "#2ecc71" %>;"><%= remainingCalories %></div>
+                <div class="stat-label">Remaining</div>
+                <div class="stat-description">Calories left for the day</div>
+            </div>
+        </div>
 
-<p><strong>Total Calories Consumed:</strong> <%= totalIntake %> kcal</p>
-<p><strong>Remaining Calories:</strong> <%= remainingCalories %> kcal</p>
-<p><strong>Total Calories Burned:</strong> <%= totalBurned %> kcal</p>
-<p><strong>Net Calories:</strong> <%= netCalories %> kcal</p>
+        <div class="progress-container">
+            <div class="progress-bar" style="width: <%= progress %>%; background-color: <%= progressColor %>;"><%= String.format("%.0f", progress) %>%</div>
+        </div>
 
-<% if(netCalories > recommendedCalories){ %>
-    <p style="color:red;">You are above your recommended calories.</p>
-<% } else if (netCalories < recommendedCalories){ %>
-    <p style="color:green;">You are below your recommended calories.</p>
-<% } else { %>
-    <p>You are right on track!</p>
-<% } %>
+        <% if (netCalories > recommendedCalories) { %>
+            <div class="calorie-status over-goal">You are above your daily goal!</div>
+        <% } else if (remainingCalories > 0) { %>
+            <div class="calorie-status within-goal">You're within your goal range!</div>
+        <% } else { %>
+            <div class="calorie-status balanced">Perfectly balanced today!</div>
+        <% } %>
+    </div>
 
-<a href="dashboard">Back to Dashboard</a>
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Today's Food Entries</h3>
+        </div>
+        <div class="card-body">
+            <% if (entries.isEmpty()) { %>
+                <div class="empty-state">
+                    <h3>No food logged yet</h3>
+                    <p>Start tracking your nutrition by logging your first meal!</p>
+                </div>
+            <% } else { %>
+            <div class="table-responsive">
+                <table class="table calorie-entries-table">
+                    <thead>
+                        <tr><th>Food</th><th>Calories</th><th>Protein (g)</th><th>Carbs (g)</th><th>Fat (g)</th></tr>
+                    </thead>
+                    <tbody>
+                        <% for (FoodEntry entry : entries) { %>
+                        <tr>
+                            <td><%= entry.getFoodName() %></td>
+                            <td><%= entry.getCalories() %></td>
+                            <td><%= entry.getProtein() %></td>
+                            <td><%= entry.getCarbs() %></td>
+                            <td><%= entry.getFat() %></td>
+                        </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+            <% } %>
+        </div>
+    </div>
+
+    <div class="nav-actions justify-center">
+        <a href="food_entry.jsp" class="btn btn-primary">Log Food</a>
+        <a href="dashboard" class="btn btn-outline">Back to Dashboard</a>
+    </div>
+</div>
+
 </body>
 </html>

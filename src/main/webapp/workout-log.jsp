@@ -42,6 +42,8 @@
             </div>
         <% } %>
         
+
+        
         <div class="card">
             <div class="card-body">
                 <form action="workout-log" method="post" id="workoutForm">
@@ -120,13 +122,9 @@
                             
                             Log Workout
                         </button>
-                        <a href="workout-history" class="btn btn-secondary">
-                            
-                            View History
-                        </a>
                         <a href="dashboard" class="btn btn-outline">
                             
-                            Dashboard
+                            Cancel
                         </a>
                     </div>
                 </form>

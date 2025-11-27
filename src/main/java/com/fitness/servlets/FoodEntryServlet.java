@@ -3,6 +3,7 @@ package com.fitness.servlets;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,6 +20,18 @@ import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/food-log")
 public class FoodEntryServlet extends HttpServlet {
+    
+    private FoodEntryDAO foodEntryDAO;
+    
+    // Default constructor for container initialization
+    public FoodEntryServlet() {
+        this(new FoodEntryDAO());
+    }
+    
+    // Constructor for dependency injection (testing)
+    public FoodEntryServlet(FoodEntryDAO foodEntryDAO) {
+        this.foodEntryDAO = foodEntryDAO;
+    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -40,13 +53,8 @@ public class FoodEntryServlet extends HttpServlet {
             LocalDateTime entryDate = LocalDateTime.now();
 
             FoodEntry entry = new FoodEntry(user.getUserId(), foodName, calories, protein, carbs, fat, consumed_oz, entryDate);
-            FoodEntryDAO dao = new FoodEntryDAO();
-            dao.createFoodEntry(entry);
+            foodEntryDAO.createFoodEntry(entry);
 
-<<<<<<< HEAD
-        request.setAttribute("message", "Food entry logged successfully!");
-        response.sendRedirect("food-history");
-=======
             session.setAttribute("message", "Food entry logged successfully!");
             response.sendRedirect("dashboard");
         } catch (NumberFormatException e) {
@@ -59,8 +67,8 @@ public class FoodEntryServlet extends HttpServlet {
             request.setAttribute("error", "Failed to save food entry. Please try again.");
             request.getRequestDispatcher("food_entry.jsp").forward(request, response);
         }
->>>>>>> 8ab7dd1ffa82585a1225bf46f39107c987023a21
     }
+
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -71,13 +79,19 @@ public class FoodEntryServlet extends HttpServlet {
             response.sendRedirect("login.jsp");
             return;
         }
-        FoodEntryDAO dao = new FoodEntryDAO();
-        List<FoodEntry> entries = dao.getFoodEntriesByUserByDate(user.getUserId(), LocalDate.now())
-                .stream()
-                .map(o -> (FoodEntry) o)
-                .collect(Collectors.toList());
-        request.setAttribute("entries", entries);
-        request.getRequestDispatcher("food_entry.jsp").forward(request, response);
-        
+        try {
+            List<FoodEntry> entries = foodEntryDAO.getFoodEntriesByUser(user.getUserId(), LocalDate.now())
+                    .stream()
+                    .map(o -> (FoodEntry) o)
+                    .collect(Collectors.toList());
+            request.setAttribute("entries", entries);
+            request.getRequestDispatcher("food_entry.jsp").forward(request, response);
+        } catch (Exception e) {
+            System.err.println("Error retrieving food entries: " + e.getMessage());
+            e.printStackTrace();
+            request.setAttribute("error", "Failed to load food entries. Please try again.");
+            request.setAttribute("entries", Collections.emptyList());
+            request.getRequestDispatcher("food_entry.jsp").forward(request, response);
+        }
     }
 }

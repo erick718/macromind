@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import com.fitness.dao.UserDAO;
 import com.fitness.model.User;
+import com.fitness.util.SecurityUtil;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -20,7 +21,7 @@ public class LoginServlet extends HttpServlet {
         UserDAO dao = new UserDAO();
         User user = dao.getUserByEmail(email);
 
-        if (user != null && user.getPassword().equals(password)) {
+        if (user != null && SecurityUtil.checkPassword(password, user.getPassword())) {
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
             response.sendRedirect("dashboard");

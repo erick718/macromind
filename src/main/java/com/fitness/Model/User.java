@@ -1,5 +1,7 @@
 package com.fitness.model;
 
+import java.time.LocalDateTime;
+
 public class User {
     private int userId;
     private String name;
@@ -12,6 +14,8 @@ public class User {
     private String dietaryPreference;
     private String fitnessLevel;
     private int availability;
+    private String resetToken;
+    private LocalDateTime tokenExpiry;
 
     public User(){}
     public User(String name, String email, String password) {
@@ -106,5 +110,20 @@ public class User {
     public void setAvailability(int availability) {
         this.availability = availability;
     }
+
+    public String getResetToken() {
+        return this.resetToken;
+    }
+    public void setResetToken(String resetToken) {
+        this.resetToken = resetToken;
+    }
+    public LocalDateTime getTokenExpiry() {
+            return this.tokenExpiry;
+        }
+    public void setTokenExpiry(LocalDateTime tokenExpiry) {
+        this.tokenExpiry = tokenExpiry;
+    }
+
+    
 }
 

@@ -44,13 +44,34 @@
 
         <div class="card">
             <div class="card-body">
+                <!-- Debug info -->
+                    <div class="debug-info">
+        <h4>Debug Info:</h4>
+        <p>User ID: <%= user != null ? user.getUserId() : "null" %></p>
+        <p>Food History Size: <%= foodHistory != null ? foodHistory.size() : "null" %></p>
+        <p>Current Date: <%= java.time.LocalDate.now() %></p>
+        <p>Food History Object: <%= foodHistory != null ? "Not null" : "Null" %></p>
+        <% if (foodHistory != null && !foodHistory.isEmpty()) { %>
+        <p>First Entry Food Name: <%= foodHistory.get(0).getFoodName() %></p>
+        <p>First Entry Date: <%= foodHistory.get(0).getEntryDate() %></p>
+        <% } %>
+        <% if (foodHistory != null) { 
+            out.println("<p>Iterating through " + foodHistory.size() + " entries:</p>");
+            for (int i = 0; i < foodHistory.size(); i++) {
+                com.fitness.model.FoodEntry entry = foodHistory.get(i);
+                out.println("<p>Entry " + i + ": " + entry.getFoodName() + " - " + entry.getCalories() + " cal</p>");
+            }
+        } %>
+    </div>
+
                 <% if (foodHistory.isEmpty()) { %>
                     <div class="alert alert-warning">
-                        You haven't logged any food yet!
+                        You haven't logged any food yet for today!<br>
+                        <small>Debug: List size is <%= foodHistory.size() %></small>
                     </div>
                 <% } else { %>
                     <div class="table-responsive">
-                        <table>
+                        <table class="table">
                             <thead>
                                 <tr>
                                     <th>Date/Time</th>
@@ -81,7 +102,7 @@
             </div>
         </div>
         <div class="nav-actions justify-center mt-4">
-            <a href="log-food" class="btn btn-warning">Log New Food</a>
+            <a href="FoodEntryServlet" class="btn btn-warning">Log New Food</a>
             <a href="dashboard" class="btn btn-outline">Dashboard</a>
         </div>
     </div>

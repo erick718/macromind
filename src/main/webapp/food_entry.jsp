@@ -84,8 +84,7 @@
 
                     <div class="form-actions">
                         <button type="submit" class="btn btn-primary">Log Food</button>
-                        <a href="food-history" class="btn btn-secondary">View History</a>
-                        <a href="dashboard" class="btn btn-outline">Dashboard</a>
+                        <a href="dashboard" class="btn btn-outline">Cancel</a>
                     </div>
                 </form>
             </div>
