@@ -28,8 +28,8 @@ public class FoodEntryHistoryServlet extends HttpServlet {
         }
 
         FoodEntryDAO dao = new FoodEntryDAO();
-        // Call the new DAO method to get ALL food entries
-        List<FoodEntry> foodHistory = dao.getFoodEntriesByUser(user.getUserId()); 
+        // Call the DAO method to get food entries for today
+        List<FoodEntry> foodHistory = dao.getFoodEntriesByUser(user.getUserId(), java.time.LocalDate.now()); 
 
         request.setAttribute("foodHistory", foodHistory);
 

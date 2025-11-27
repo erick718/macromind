@@ -57,6 +57,14 @@
     <!-- Food History servlet -->
     
 
+    <!-- Food Entry Servlet -->
+    <servlet>
+        <servlet-name>FoodEntryServlet</servlet-name>
+        <servlet-class>com.fitness.servlets.FoodEntryServlet</servlet-class>
+    </servlet>
+
+   
+
 
 
     <!-- ======== URL Mappings ======== -->
@@ -102,6 +110,12 @@
     <servlet-mapping>
         <servlet-name>ProgressDashboardServlet</servlet-name>
         <url-pattern>/progress-dashboard</url-pattern>
+    </servlet-mapping>
+
+    <!-- Map /FoodEntryServlet to FoodEntryServlet -->
+    <servlet-mapping>
+        <servlet-name>FoodEntryServlet</servlet-name>
+        <url-pattern>/FoodEntryServlet</url-pattern>
     </servlet-mapping>
 
 
