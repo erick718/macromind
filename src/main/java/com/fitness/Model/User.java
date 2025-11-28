@@ -16,6 +16,7 @@ public class User {
     private int availability;
     private String resetToken;
     private LocalDateTime tokenExpiry;
+    private String securityAnswer;
 
     public User(){}
     public User(String name, String email, String password) {
@@ -111,6 +112,13 @@ public class User {
         this.availability = availability;
     }
 
+    public String getSecurityAnswer() {
+    return securityAnswer;
+    }
+
+    public void setSecurityAnswer(String securityAnswer) {
+        this.securityAnswer = securityAnswer;
+    }
     public String getResetToken() {
         return this.resetToken;
     }
@@ -122,7 +130,9 @@ public class User {
         }
     public void setTokenExpiry(LocalDateTime tokenExpiry) {
         this.tokenExpiry = tokenExpiry;
-    }
+    } 
+    
+
 
     
 }

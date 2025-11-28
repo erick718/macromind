@@ -17,6 +17,7 @@ public class RegisterServlet extends HttpServlet {
         String name = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        String securityAnswer = request.getParameter("security_answer");
 
         UserDAO dao = new UserDAO();
         if (dao.isEmailTaken(email)) {
@@ -26,6 +27,7 @@ public class RegisterServlet extends HttpServlet {
         }
 
         User user = new User(name, email, password);
+        user.setSecurityAnswer(securityAnswer);
         dao.createUser(user);
 
 

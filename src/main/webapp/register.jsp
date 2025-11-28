@@ -43,6 +43,22 @@
                                placeholder="Create a secure password" minlength="6">
                         <small class="text-muted">Password must be at least 6 characters long</small>
                     </div>
+
+                    <div class="form-group">
+                        <label for="securityQuestion">Security Question</label>
+                        <select id="securityQuestion" name="securityQuestion" class="form-control" required>
+                            <option value="" disabled selected>Select a question...</option>
+                            <option value="mother_maiden">What is your mother's maiden name?</option>
+                            <option value="first_pet">What was the name of your first pet?</option>
+                            <option value="city_born">In which city were you born?</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="securityAnswer">Security Answer</label>
+                        <input type="text" id="securityAnswer" name="securityAnswer" required 
+                               placeholder="Enter your security answer">
+                    </div>
                     
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-block btn-lg">

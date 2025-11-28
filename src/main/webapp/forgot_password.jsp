@@ -11,7 +11,7 @@
     <div class="container container-sm">
         <div class="page-header">
             <h1 class="page-title">Forgot Password</h1>
-            <p class="page-subtitle">Enter your email to receive a reset link.</p>
+            <p class="page-subtitle">Verify your account with your email and security answer.</p>
         </div>
 
         <% String message = (String) request.getAttribute("message"); %>
@@ -29,13 +29,29 @@
                         <input type="email" id="email" name="email" required 
                                placeholder="Enter your email address">
                     </div>
+
+<div class="form-group">
+                        <label for="securityQuestion">Security Question</label>
+                        <select id="securityQuestion" name="securityQuestion" class="form-control" required>
+                            <option value="" disabled selected>Select a question...</option>
+                            <option value="mother_maiden">What is your mother's maiden name?</option>
+                            <option value="first_pet">What was the name of your first pet?</option>
+                            <option value="city_born">In which city were you born?</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="securityAnswer">Security Answer</label>
+                        <input type="text" id="securityAnswer" name="securityAnswer" required 
+                               placeholder="Enter your security answer">
+                    </div>
                     
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-block btn-lg">
-                            Request Reset Link
+                            Reset Password
                         </button>
                     </div>
-                </form>
+            </form>
             </div>
             
             <div class="card-footer text-center">

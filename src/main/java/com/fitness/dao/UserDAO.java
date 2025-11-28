@@ -45,6 +45,8 @@ public class UserDAO {
             ps.setString(1, user.getName());
             ps.setString(2, user.getEmail());
             ps.setString(3, hashedPassword);
+            ps.setString(4, user.getSecurityAnswer());
+            
             ps.executeUpdate();
             
 
@@ -146,6 +148,32 @@ public class UserDAO {
         }
     }
 
+    public User getUserByEmailForSecurityCheck(String email){
+    String sql = "SELECT user_id, email, security_answer, FROM users WHERE email = ?";
+    User user = null;
+
+    try (Connection conn = getConnection();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+        stmt.setString(1, email);
+
+        try (ResultSet rs = stmt.executeQuery()) {
+            if (rs.next()) {
+                user = new User();
+                user.setUserId(rs.getInt("user_id"));
+                user.setEmail(rs.getString("email"));
+                user.setSecurityAnswer(rs.getString("security_answer"));
+            }
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return user;
+}
+
+
+
+
     public void savePasswordResetToken(int userId, String token, LocalDateTime expiryTime){
     
         // NOTE: Your database column names must match: reset_token and token_expiry
@@ -221,5 +249,6 @@ public class UserDAO {
     }
     return user;
 }
+    
 
 }

@@ -23,50 +23,41 @@ public class ForgotPasswordServlet extends HttpServlet {
             throws ServletException, IOException {
         
         String email = request.getParameter("email");
+        String submittedSecurityAnswer = request.getParameter("security_nswer");
         
-        User user = userDAO.getUserByEmail(email);
+        User user = userDAO.getUserByEmailForSecurityCheck(email);
 
         if (user != null) {
+            String securityAnswerFromUser = user.getSecurityAnswer();
             
-            // 2. Generate Token and Expiry Time
-            String token = SecurityUtil.generateSecureToken();
-            // Token is valid for 30 minutes
-            LocalDateTime expiryTime = LocalDateTime.now().plusMinutes(30); 
+            if (submittedSecurityAnswer != null && securityAnswerFromUser != null &&
+                submittedSecurityAnswer.equalsIgnoreCase(securityAnswerFromUser)) {
+                
+                String token = SecurityUtil.generateSecureToken();
+                LocalDateTime expiryTime = LocalDateTime.now().plusMinutes(15); 
+                userDAO.savePasswordResetToken(user.getUserId(), token, expiryTime);
 
-            userDAO.savePasswordResetToken(user.getUserId(),token, expiryTime);
-
-            // 4. Send Reset Link (CRITICAL STEP - MOCK FOR NOW)
-            // In a real application, you would use JavaMail API here.
-            
-            // The reset link the user receives in their email:
-            String resetLink = request.getScheme() + "://" + request.getServerName() + 
-                               ":" + request.getServerPort() + request.getContextPath() + 
-                               "/resetPassword?token=" + token;
-            
-            // --- MOCK ACTION ---
-            // For testing/development, print the link to the console instead of emailing:
-            System.out.println("--- PASSWORD RESET LINK GENERATED ---");
-            System.out.println("Send to: " + email);
-            System.out.println("Link: " + resetLink);
-            System.out.println("-------------------------------------");
-            
-            // 5. Provide User Feedback
-            request.setAttribute("message", "A password reset link has been sent to your email address.");
-            
-        } else {
-            // Important Security Note: Do NOT tell the user if the email doesn't exist.
-            // This prevents attackers from guessing valid emails. Send a generic success message.
-            request.setAttribute("message", "If an account exists for that email, a password reset link has been sent.");
+                response.sendRedirect(request.getContextPath() + "/resetPassword?token=" + token);
+            return;
+            } else {
+            // Failed verification
+            request.setAttribute("message", "Verification failed: Invalid email or security answer.");
         }
-        
+        } else {
+            // User not found
+            request.setAttribute("message", "Verification failed: Invalid email or security answer.");
+        }
+
         request.getRequestDispatcher("login.jsp").forward(request, response);
+            
+            
     }
     
-    // You may also want a doGet method to display the initial email submission form.
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
         request.getRequestDispatcher("forgot_password.jsp").forward(request, response);
     }
+    
 }
     
