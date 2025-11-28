@@ -2,8 +2,8 @@ package com.fitness.servlets;
 
 import java.io.IOException;
 
-import com.fitness.Model.User;
 import com.fitness.dao.UserDAO;
+import com.fitness.model.User;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
