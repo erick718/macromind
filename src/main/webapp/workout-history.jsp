@@ -223,12 +223,14 @@
                         </div>
                         
                         <div class="workout-actions">
+                            <a href="workout-edit?id=<%= workout.getWorkoutId() %>" class="btn btn-outline btn-sm">
+                                Edit
+                            </a>
                             <form method="post" class="delete-form" 
                                   onsubmit="return confirm('Are you sure you want to delete this workout?');">
                                 <input type="hidden" name="action" value="delete">
                                 <input type="hidden" name="workoutId" value="<%= workout.getWorkoutId() %>">
                                 <button type="submit" class="btn btn-danger btn-sm">
-                                    
                                     Delete
                                 </button>
                             </form>

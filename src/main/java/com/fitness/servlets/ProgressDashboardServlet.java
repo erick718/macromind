@@ -37,13 +37,66 @@ public class ProgressDashboardServlet extends HttpServlet {
         try {
             WorkoutDAO workoutDAO = new WorkoutDAO();
             
-            // Calculate date ranges
+            // Get date range parameters
+            String rangeParam = request.getParameter("range");
+            String startDateParam = request.getParameter("startDate");
+            String endDateParam = request.getParameter("endDate");
+            
+            // Calculate date ranges based on filter
             LocalDate today = LocalDate.now();
+            LocalDate startDate;
+            LocalDate endDate = today;
+            
+            if ("custom".equals(rangeParam) && startDateParam != null && !startDateParam.isEmpty() 
+                    && endDateParam != null && !endDateParam.isEmpty()) {
+                // Custom date range
+                try {
+                    startDate = LocalDate.parse(startDateParam);
+                    endDate = LocalDate.parse(endDateParam);
+                    
+                    // Validate: start date must be before or equal to end date
+                    if (startDate.isAfter(endDate)) {
+                        session.setAttribute("error", "Start date must be before or equal to end date. Dates have been swapped.");
+                        LocalDate temp = startDate;
+                        startDate = endDate;
+                        endDate = temp;
+                    }
+                    
+                    // Validate: end date cannot be in the future
+                    if (endDate.isAfter(today)) {
+                        session.setAttribute("error", "Cannot select future dates. End date has been set to today.");
+                        endDate = today;
+                    }
+                    
+                    // Validate: start date cannot be in the future
+                    if (startDate.isAfter(today)) {
+                        session.setAttribute("error", "Cannot select future dates. Start date has been set to today.");
+                        startDate = today;
+                    }
+                } catch (Exception e) {
+                    System.err.println("Invalid custom date range: " + e.getMessage());
+                    session.setAttribute("error", "Invalid date format. Showing last 7 days instead.");
+                    startDate = today.minusDays(7); // Default to week
+                }
+            } else if ("month".equals(rangeParam)) {
+                startDate = today.minusDays(30);
+            } else if ("quarter".equals(rangeParam)) {
+                startDate = today.minusDays(90);
+            } else if ("all".equals(rangeParam)) {
+                startDate = LocalDate.of(2000, 1, 1); // Far back enough to get all workouts
+            } else {
+                // Default to week
+                startDate = today.minusDays(7);
+                rangeParam = "week";
+            }
+            
+            System.out.println("ProgressDashboardServlet: Date range - " + startDate + " to " + endDate);
+            
+            // Calculate sub-periods for comparison
             LocalDate weekStart = today.minusDays(7);
             LocalDate monthStart = today.minusDays(30);
-            LocalDate quarterStart = today.minusDays(90);
             
-            // Get workout data for different time periods
+            // Get workout data for the selected date range
             Map<String, Object> weeklyProgress = workoutDAO.getWeeklyProgressSummary(
                 user.getUserId(), Date.valueOf(weekStart), Date.valueOf(today)
             );
@@ -52,18 +105,19 @@ public class ProgressDashboardServlet extends HttpServlet {
                 user.getUserId(), Date.valueOf(monthStart), Date.valueOf(today)
             );
             
-            Map<String, Object> quarterlyProgress = workoutDAO.getMonthlyProgressSummary(
-                user.getUserId(), Date.valueOf(quarterStart), Date.valueOf(today)
+            // Get progress for the filtered date range
+            Map<String, Object> filteredProgress = workoutDAO.getMonthlyProgressSummary(
+                user.getUserId(), Date.valueOf(startDate), Date.valueOf(endDate)
             );
             
-            // Get recent workouts for trend analysis
+            // Get recent workouts for the filtered range
             List<Workout> recentWorkouts = workoutDAO.getWorkoutsByDateRange(
-                user.getUserId(), Date.valueOf(monthStart), Date.valueOf(today)
+                user.getUserId(), Date.valueOf(startDate), Date.valueOf(endDate)
             );
             
-            // Exercise type distribution
+            // Exercise type distribution for filtered range
             Map<String, Integer> exerciseDistribution = workoutDAO.getExerciseTypeDistribution(
-                user.getUserId(), Date.valueOf(monthStart), Date.valueOf(today)
+                user.getUserId(), Date.valueOf(startDate), Date.valueOf(endDate)
             );
             
             // Workout streak
@@ -93,18 +147,19 @@ public class ProgressDashboardServlet extends HttpServlet {
             
             // Calculate progress metrics
             Map<String, Object> progressMetrics = calculateProgressMetrics(
-                weeklyProgress, monthlyProgress, quarterlyProgress, user
+                weeklyProgress, monthlyProgress, filteredProgress, user, 
+                (int) java.time.temporal.ChronoUnit.DAYS.between(startDate, endDate)
             );
             
             // Generate insights and recommendations
             Map<String, String> insights = generateInsights(
-                weeklyProgress, monthlyProgress, exerciseDistribution, workoutStreak, user
+                weeklyProgress, filteredProgress, exerciseDistribution, workoutStreak, user
             );
             
             // Set request attributes for JSP
             request.setAttribute("weeklyProgress", weeklyProgress);
             request.setAttribute("monthlyProgress", monthlyProgress);
-            request.setAttribute("quarterlyProgress", quarterlyProgress);
+            request.setAttribute("filteredProgress", filteredProgress);
             request.setAttribute("exerciseDistribution", exerciseDistribution);
             request.setAttribute("workoutStreak", workoutStreak);
             request.setAttribute("recentWorkouts", recentWorkouts);
@@ -115,9 +170,14 @@ public class ProgressDashboardServlet extends HttpServlet {
             request.setAttribute("monthlyBalance", monthlyBalance);
             request.setAttribute("progressMetrics", progressMetrics);
             request.setAttribute("insights", insights);
+            request.setAttribute("startDate", startDate.toString());
+            request.setAttribute("endDate", endDate.toString());
+            request.setAttribute("dateRange", rangeParam);
             
             System.out.println("ProgressDashboardServlet: Weekly calories burned: " + weeklyCaloriesBurned);
             System.out.println("ProgressDashboardServlet: Monthly calories burned: " + monthlyCaloriesBurned);
+            System.out.println("ProgressDashboardServlet: Filtered calories burned: " + 
+                (Double) filteredProgress.getOrDefault("totalCalories", 0.0));
             System.out.println("ProgressDashboardServlet: Recommended daily intake: " + recommendedDailyIntake);
 
             // Forward to the JSP
@@ -137,48 +197,55 @@ public class ProgressDashboardServlet extends HttpServlet {
     private Map<String, Object> calculateProgressMetrics(
             Map<String, Object> weekly, 
             Map<String, Object> monthly, 
-            Map<String, Object> quarterly, 
-            User user) {
+            Map<String, Object> filtered, 
+            User user,
+            int daysInRange) {
         
         Map<String, Object> metrics = new HashMap<>();
         
         // Workout frequency trends
         int weeklyWorkouts = (Integer) weekly.getOrDefault("totalWorkouts", 0);
         int monthlyWorkouts = (Integer) monthly.getOrDefault("totalWorkouts", 0);
-        int quarterlyWorkouts = (Integer) quarterly.getOrDefault("totalWorkouts", 0);
+        int filteredWorkouts = (Integer) filtered.getOrDefault("totalWorkouts", 0);
         
         double weeklyFrequency = weeklyWorkouts / 7.0; // workouts per day
         double monthlyFrequency = monthlyWorkouts / 30.0;
-        double quarterlyFrequency = quarterlyWorkouts / 90.0;
+        double filteredFrequency = daysInRange > 0 ? (double) filteredWorkouts / daysInRange : 0;
         
         metrics.put("weeklyFrequency", weeklyFrequency);
         metrics.put("monthlyFrequency", monthlyFrequency);
-        metrics.put("quarterlyFrequency", quarterlyFrequency);
+        metrics.put("filteredFrequency", filteredFrequency);
         
         // Duration trends
         int weeklyDuration = (Integer) weekly.getOrDefault("totalDuration", 0);
         int monthlyDuration = (Integer) monthly.getOrDefault("totalDuration", 0);
+        int filteredDuration = (Integer) filtered.getOrDefault("totalDuration", 0);
         
         double avgWeeklyWorkoutDuration = weeklyWorkouts > 0 ? (double) weeklyDuration / weeklyWorkouts : 0;
         double avgMonthlyWorkoutDuration = monthlyWorkouts > 0 ? (double) monthlyDuration / monthlyWorkouts : 0;
+        double avgFilteredWorkoutDuration = filteredWorkouts > 0 ? (double) filteredDuration / filteredWorkouts : 0;
         
         metrics.put("avgWeeklyWorkoutDuration", avgWeeklyWorkoutDuration);
         metrics.put("avgMonthlyWorkoutDuration", avgMonthlyWorkoutDuration);
+        metrics.put("avgFilteredWorkoutDuration", avgFilteredWorkoutDuration);
         
         // Calorie burn trends
         double weeklyCalories = (Double) weekly.getOrDefault("totalCalories", 0.0);
         double monthlyCalories = (Double) monthly.getOrDefault("totalCalories", 0.0);
+        double filteredCalories = (Double) filtered.getOrDefault("totalCalories", 0.0);
         
         double avgDailyCalorieBurn = weeklyCalories / 7.0;
         double avgWeeklyCalorieBurn = monthlyCalories / 4.0; // approximate weeks in month
+        double avgFilteredDailyCalorieBurn = daysInRange > 0 ? filteredCalories / daysInRange : 0;
         
         metrics.put("avgDailyCalorieBurn", avgDailyCalorieBurn);
         metrics.put("avgWeeklyCalorieBurn", avgWeeklyCalorieBurn);
+        metrics.put("avgFilteredDailyCalorieBurn", avgFilteredDailyCalorieBurn);
         
         // Goal alignment metrics
         String goal = user.getGoal();
         double goalCalorieAdjustment = CalorieCalculator.calculateCalorieGoalAdjustment(0, goal);
-        boolean isOnTrackWithGoal = evaluateGoalProgress(avgDailyCalorieBurn, goalCalorieAdjustment, goal);
+        boolean isOnTrackWithGoal = evaluateGoalProgress(avgFilteredDailyCalorieBurn, goalCalorieAdjustment, goal);
         
         metrics.put("goalCalorieAdjustment", goalCalorieAdjustment);
         metrics.put("isOnTrackWithGoal", isOnTrackWithGoal);
@@ -191,7 +258,7 @@ public class ProgressDashboardServlet extends HttpServlet {
      */
     private Map<String, String> generateInsights(
             Map<String, Object> weekly,
-            Map<String, Object> monthly,
+            Map<String, Object> filtered,
             Map<String, Integer> exerciseDistribution,
             int workoutStreak,
             User user) {
@@ -200,7 +267,7 @@ public class ProgressDashboardServlet extends HttpServlet {
         
         // Workout consistency insight
         int weeklyWorkouts = (Integer) weekly.getOrDefault("totalWorkouts", 0);
-        int monthlyWorkouts = (Integer) monthly.getOrDefault("totalWorkouts", 0);
+        int filteredWorkouts = (Integer) filtered.getOrDefault("totalWorkouts", 0);
         
         if (workoutStreak >= 7) {
             insights.put("consistency", "Amazing! You've maintained a " + workoutStreak + " day workout streak. Keep it up!");

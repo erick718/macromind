@@ -308,12 +308,6 @@ textarea {
     color: var(--white);
 }
 
-/* Delete button spacing in workout actions */
-.workout-actions .btn-danger {
-    margin: 8px;
-    padding: 8px 16px;
-}
-
 .btn-warning {
     background: linear-gradient(45deg, var(--warning-color), #d39e00);
     color: var(--text-primary);
@@ -1109,6 +1103,7 @@ textarea {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: var(--spacing-lg);
     transition: background-color 0.3s ease;
 }
 
@@ -1162,6 +1157,7 @@ textarea {
     display: flex;
     gap: var(--spacing-lg);
     align-items: center;
+    flex-shrink: 0;
 }
 
 .workout-stat {
@@ -1185,10 +1181,12 @@ textarea {
 .workout-actions {
     display: flex;
     gap: var(--spacing-sm);
+    align-items: center;
 }
 
 .delete-form {
     display: inline;
+    margin: 0;
 }
 
 /* Exercise Type Distribution */

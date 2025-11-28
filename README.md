@@ -7,9 +7,11 @@ A comprehensive web-based fitness tracking application built with Java Servlets,
 ### Core Functionality
 - **User Management**: Registration, login, and profile management
 - **Workout Logging**: Track cardio and strength training exercises with automatic calorie calculations
+- **Workout Editing**: Edit and update existing workout entries
 - **Food Entry Tracking**: Log daily food intake with macronutrient breakdown (calories, protein, carbs, fat)
 - **Workout History**: View, filter, and manage past workouts
-- **Progress Dashboard**: Visualize fitness metrics, calorie balance, and progress over time
+- **Progress Dashboard**: Visualize fitness metrics, calorie balance, and progress over time with date filtering
+- **Date Range Filtering**: Filter progress charts by preset ranges (7/30/90 days) or custom date ranges
 - **Calorie Balance**: Monitor daily calorie intake vs. burned calories
 
 ### Key Capabilities
