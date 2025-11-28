@@ -13,6 +13,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentCaptor;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
 import org.mockito.Mock;
@@ -151,7 +152,12 @@ class UserDAOTest {
             // Then
             verify(mockPreparedStatement).setString(1, newUser.getName());
             verify(mockPreparedStatement).setString(2, newUser.getEmail());
-            verify(mockPreparedStatement).setString(3, newUser.getPassword());
+            // Verify that a BCrypt hashed password was stored (not the plain text)
+            ArgumentCaptor<String> passwordCaptor = ArgumentCaptor.forClass(String.class);
+            verify(mockPreparedStatement).setString(eq(3), passwordCaptor.capture());
+            String hashedPassword = passwordCaptor.getValue();
+            assertThat(hashedPassword).startsWith("$2a$"); // BCrypt hash prefix
+            assertThat(hashedPassword).isNotEqualTo(newUser.getPassword()); // Should not be plain text
             verify(mockPreparedStatement).executeUpdate();
             assertThat(newUser.getUserId()).isEqualTo(123);
         }
@@ -279,7 +285,7 @@ class UserDAOTest {
         when(rs.getInt("user_id")).thenReturn(user.getUserId());
         when(rs.getString("username")).thenReturn(user.getName()); // Fixed: DAO uses "username", not "name"
         when(rs.getString("email")).thenReturn(user.getEmail());
-        when(rs.getString("password")).thenReturn(user.getPassword());
+        when(rs.getString("hashed_password")).thenReturn(user.getPassword());
         when(rs.getInt("age")).thenReturn(user.getAge());
         when(rs.getFloat("weight")).thenReturn(user.getWeight());
         when(rs.getInt("height")).thenReturn(user.getHeight());
@@ -287,5 +293,7 @@ class UserDAOTest {
         when(rs.getString("dietary_preference")).thenReturn(user.getDietaryPreference());
         when(rs.getString("fitness_level")).thenReturn(user.getFitnessLevel());
         when(rs.getInt("availability")).thenReturn(user.getAvailability());
+        when(rs.getString("security_question")).thenReturn(user.getSecurityQuestion());
+        when(rs.getString("security_answer_hash")).thenReturn(user.getSecurityAnswerHash());
     }
 }

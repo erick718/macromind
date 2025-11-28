@@ -88,6 +88,19 @@
             <scope>test</scope>
         </dependency>
         
+        <!-- Spring Security Crypto for password hashing -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-crypto</artifactId>
+            <version>6.2.1</version>
+        </dependency>
+        
+        <!-- Required for Spring Security Crypto -->
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.2</version>
+        </dependency>
 
     </dependencies>
 

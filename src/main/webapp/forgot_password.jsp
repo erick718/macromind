@@ -4,61 +4,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In - MacroMind</title>
+    <title>Forgot Password - MacroMind</title>
     <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
     <div class="container container-sm">
         <div class="page-header">
-            <h1 class="page-title">Welcome Back</h1>
-            <p class="page-subtitle">Sign in to continue your fitness journey</p>
+            <h1 class="page-title">Reset Your Password</h1>
+            <p class="page-subtitle">Enter your email to begin the password reset process</p>
         </div>
 
-        <!-- Error Messages -->
+        <!-- Error/Success Messages -->
         <% String message = (String) request.getAttribute("message"); %>
+        <% String errorType = (String) request.getAttribute("errorType"); %>
         <% if (message != null) { %>
-            <div class="alert alert-error">
-                <strong>Login Failed:</strong> <%= message %>
+            <div class="alert <%= "success".equals(errorType) ? "alert-success" : "alert-error" %>">
+                <%= message %>
             </div>
         <% } %>
 
         <div class="card">
             <div class="card-body">
-                <form action="LoginServlet" method="post">
+                <p class="text-muted mb-4">We'll ask you to answer your security question to verify your identity.</p>
+                
+                <form action="ForgotPasswordServlet" method="post">
                     <div class="form-group">
                         <label for="email">Email Address</label>
                         <input type="email" id="email" name="email" required 
-                               placeholder="Enter your email address">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" required 
-                               placeholder="Enter your password">
-                    </div>
-                    
-                    <div class="text-right mb-3">
-                        <a href="forgot_password.jsp" class="text-primary">Forgot Password?</a>
+                               placeholder="Enter your registered email address">
                     </div>
                     
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-block btn-lg">
-                            Sign In
+                            Continue
                         </button>
                     </div>
                 </form>
             </div>
             
             <div class="card-footer text-center">
-                <p class="text-muted">Don't have an account? 
-                                        <a href="register.jsp" class="text-primary auth-link">
-                        Create an account
+                <p class="text-muted">Remember your password? 
+                    <a href="login.jsp" class="text-primary auth-link">
+                        Sign in here
                     </a>
-                </div>
-                <div class="text-center mt-3">
+                </p>
+                <p class="text-muted">
                     <a href="index.jsp" class="text-secondary auth-link-secondary">
                         ← Back to Home
                     </a>
+                </p>
             </div>
         </div>
     </div>

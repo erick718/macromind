@@ -45,6 +45,25 @@
                     </div>
                     
                     <div class="form-group">
+                        <label for="security_question">Security Question</label>
+                        <select id="security_question" name="security_question" required>
+                            <option value="">Select a security question...</option>
+                            <option value="What was the name of your first pet?">What was the name of your first pet?</option>
+                            <option value="What city were you born in?">What city were you born in?</option>
+                            <option value="What is your mother's maiden name?">What is your mother's maiden name?</option>
+                            <option value="What was the name of your elementary school?">What was the name of your elementary school?</option>
+                            <option value="What is your favorite book?">What is your favorite book?</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="security_answer">Security Answer</label>
+                        <input type="text" id="security_answer" name="security_answer" required 
+                               placeholder="Enter your answer">
+                        <small class="text-muted">This will help you reset your password if you forget it</small>
+                    </div>
+                    
+                    <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-block btn-lg">
                             Create Account
                         </button>

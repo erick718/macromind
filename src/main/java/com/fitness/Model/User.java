@@ -12,6 +12,8 @@ public class User {
     private String dietaryPreference;
     private String fitnessLevel;
     private int availability;
+    private String securityQuestion;
+    private String securityAnswerHash;
 
     public User(){}
     public User(String name, String email, String password) {
@@ -105,6 +107,22 @@ public class User {
 
     public void setAvailability(int availability) {
         this.availability = availability;
+    }
+
+    public String getSecurityQuestion() {
+        return securityQuestion;
+    }
+
+    public void setSecurityQuestion(String securityQuestion) {
+        this.securityQuestion = securityQuestion;
+    }
+
+    public String getSecurityAnswerHash() {
+        return securityAnswerHash;
+    }
+
+    public void setSecurityAnswerHash(String securityAnswerHash) {
+        this.securityAnswerHash = securityAnswerHash;
     }
 }
 

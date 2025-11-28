@@ -56,7 +56,21 @@
         <servlet-class>com.fitness.servlets.FoodEntryHistoryServlet</servlet-class>
     </servlet>
 
-   
+    <!-- Password Reset Servlets -->
+    <servlet>
+        <servlet-name>ForgotPasswordServlet</servlet-name>
+        <servlet-class>com.fitness.servlets.ForgotPasswordServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>VerifySecurityAnswerServlet</servlet-name>
+        <servlet-class>com.fitness.servlets.VerifySecurityAnswerServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ResetPasswordServlet</servlet-name>
+        <servlet-class>com.fitness.servlets.ResetPasswordServlet</servlet-class>
+    </servlet>
 
 
 
@@ -109,6 +123,22 @@
     <servlet-mapping>
         <servlet-name>FoodEntryHistoryServlet</servlet-name>
         <url-pattern>/food-history</url-pattern>
+    </servlet-mapping>
+
+    <!-- Map password reset servlets -->
+    <servlet-mapping>
+        <servlet-name>ForgotPasswordServlet</servlet-name>
+        <url-pattern>/ForgotPasswordServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>VerifySecurityAnswerServlet</servlet-name>
+        <url-pattern>/VerifySecurityAnswerServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ResetPasswordServlet</servlet-name>
+        <url-pattern>/ResetPasswordServlet</url-pattern>
     </servlet-mapping>
 
 

@@ -17,15 +17,20 @@ public class RegisterServlet extends HttpServlet {
         String name = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        String securityQuestion = request.getParameter("security_question");
+        String securityAnswer = request.getParameter("security_answer");
 
         // Trim whitespace from input
         if (name != null) name = name.trim();
         if (email != null) email = email.trim();
         if (password != null) password = password.trim();
+        if (securityAnswer != null) securityAnswer = securityAnswer.trim();
 
         // Validate input
         if (name == null || name.isEmpty() || email == null || email.isEmpty() || 
-            password == null || password.isEmpty()) {
+            password == null || password.isEmpty() || 
+            securityQuestion == null || securityQuestion.isEmpty() ||
+            securityAnswer == null || securityAnswer.isEmpty()) {
             request.setAttribute("message", "All fields are required");
             request.getRequestDispatcher("register.jsp").forward(request, response);
             return;
@@ -39,6 +44,8 @@ public class RegisterServlet extends HttpServlet {
         }
 
         User user = new User(name, email, password);
+        user.setSecurityQuestion(securityQuestion);
+        user.setSecurityAnswerHash(securityAnswer); // Will be hashed in DAO
         dao.createUser(user);
 
 
