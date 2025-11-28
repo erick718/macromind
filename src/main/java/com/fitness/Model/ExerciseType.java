@@ -1,4 +1,4 @@
-package com.fitness.model;
+package com.fitness.Model;
 
 import java.sql.Timestamp;
 

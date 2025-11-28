@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.fitness.Model.User;
 import com.fitness.Model.WorkoutPlan;
+import com.fitness.dao.UserDAO;
 import com.fitness.service.WorkoutPlanService;
 
 import jakarta.servlet.ServletException;
@@ -16,10 +17,12 @@ import jakarta.servlet.http.HttpSession;
 public class WorkoutPlanServlet extends HttpServlet {
     
     private WorkoutPlanService workoutPlanService;
+    private UserDAO userDAO;
     
     @Override
     public void init() throws ServletException {
         workoutPlanService = new WorkoutPlanService();
+        userDAO = new UserDAO();
     }
     
     @Override
@@ -38,6 +41,11 @@ public class WorkoutPlanServlet extends HttpServlet {
         
         if ("generate".equals(action)) {
             // Show the workout plan generator form
+            // Reload user from database to get latest profile data
+            User freshUser = userDAO.getUserByEmail(user.getEmail());
+            if (freshUser != null) {
+                session.setAttribute("user", freshUser);
+            }
             request.getRequestDispatcher("workout-generator.jsp").forward(request, response);
         } else if ("view".equals(action)) {
             // View a specific workout plan
@@ -103,32 +111,50 @@ public class WorkoutPlanServlet extends HttpServlet {
             // Generate new workout plan
             try {
                 String goal = request.getParameter("goal");
-                String activityLevel = (String) session.getAttribute("activity");
-                String ageStr = (String) session.getAttribute("age");
-                String weightStr = (String) session.getAttribute("weight");
                 
-                // Validate inputs
-                if (goal == null || activityLevel == null || ageStr == null || weightStr == null) {
+                // Reload user from database to get latest profile data
+                User freshUser = userDAO.getUserByEmail(user.getEmail());
+                if (freshUser == null) {
+                    request.setAttribute("error", "Unable to load user profile.");
+                    request.getRequestDispatcher("workout-generator.jsp").forward(request, response);
+                    return;
+                }
+                
+                // Validate that user has completed their profile
+                if (freshUser.getAge() <= 0 || freshUser.getWeight() <= 0 || 
+                    freshUser.getFitnessLevel() == null || freshUser.getFitnessLevel().isEmpty()) {
                     request.setAttribute("error", "Please complete your profile first.");
                     request.getRequestDispatcher("profile.jsp").forward(request, response);
                     return;
                 }
                 
-                int age = Integer.parseInt(ageStr);
-                int weight = Integer.parseInt(weightStr);
+                // Validate goal parameter
+                if (goal == null || goal.isEmpty()) {
+                    request.setAttribute("error", "Please select a fitness goal.");
+                    request.getRequestDispatcher("workout-generator.jsp").forward(request, response);
+                    return;
+                }
                 
-                // Generate workout plan
+                // Generate workout plan using data from database
                 WorkoutPlan plan = workoutPlanService.generateWorkoutPlan(
-                    user.getUserId(), goal, activityLevel, age, weight
+                    freshUser.getUserId(), 
+                    goal, 
+                    freshUser.getFitnessLevel(), 
+                    freshUser.getAge(), 
+                    (int) freshUser.getWeight()
                 );
                 
                 // Save the plan
                 workoutPlanService.saveWorkoutPlan(plan);
                 
+                // Update session with fresh user data
+                session.setAttribute("user", freshUser);
+                
                 // Redirect to view the generated plan
                 response.sendRedirect("WorkoutPlanServlet?action=view&planId=" + plan.getPlanId());
                 
             } catch (Exception e) {
+                e.printStackTrace();
                 request.setAttribute("error", "Error generating workout plan: " + e.getMessage());
                 request.getRequestDispatcher("workout-generator.jsp").forward(request, response);
             }

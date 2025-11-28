@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.fitness.model.User" %>
+<%@ page import="com.fitness.Model.User" %>
 <%
     User user = (User) session.getAttribute("user");
     if (user == null) {
@@ -131,6 +131,11 @@
             </div>
             <div class="card-body">
                 <div class="grid grid-auto">
+                    <a href="workout-generator.jsp" class="btn btn-primary btn-lg text-center dashboard-nav-card">
+                        <div class="dashboard-nav-title">Generate Workout Plan</div>
+                        <div class="dashboard-nav-subtitle">AI-powered personalized plans</div>
+                    </a>
+
                     <a href="workout-log" class="btn btn-primary btn-lg text-center dashboard-nav-card">
                         <div class="dashboard-nav-title">Log Workout</div>
                         <div class="dashboard-nav-subtitle">Track exercises & calories burned</div>

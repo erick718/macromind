@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.fitness.model.User" %>
-<%@ page import="com.fitness.model.FoodEntry" %>
+<%@ page import="com.fitness.Model.User" %>
+<%@ page import="com.fitness.Model.FoodEntry" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.time.format.DateTimeFormatter" %>
 <%@ page import="java.util.Collections" %>
@@ -58,7 +58,7 @@
         <% if (foodHistory != null) { 
             out.println("<p>Iterating through " + foodHistory.size() + " entries:</p>");
             for (int i = 0; i < foodHistory.size(); i++) {
-                com.fitness.model.FoodEntry entry = foodHistory.get(i);
+                com.fitness.Model.FoodEntry entry = foodHistory.get(i);
                 out.println("<p>Entry " + i + ": " + entry.getFoodName() + " - " + entry.getCalories() + " cal</p>");
             }
         } %>

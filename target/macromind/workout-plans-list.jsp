@@ -18,86 +18,236 @@
     <title>My Workout Plans - MacroMind</title>
     <link href="css/custom.css" rel="stylesheet">
     <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
         .plans-container {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 30px;
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: bold;
         }
         
         .plan-card {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            padding: 20px;
-            margin-bottom: 20px;
-            transition: transform 0.3s ease;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            padding: 25px;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+            border: 2px solid #e9ecef;
         }
         
         .plan-card:hover {
-            transform: translateY(-2px);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-color: #667eea;
         }
         
         .plan-header {
             display: flex;
-            justify-content: between;
+            justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
         }
         
         .plan-title {
-            color: #333;
-            font-size: 1.3em;
+            color: #2c3e50;
+            font-size: 1.5em;
             font-weight: bold;
             margin: 0;
         }
         
         .plan-goal {
             display: inline-block;
-            padding: 4px 12px;
-            border-radius: 15px;
-            font-size: 0.8em;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.85em;
             font-weight: bold;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         
         .goal-lose {
-            background-color: #ff6b6b;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
             color: white;
+            box-shadow: 0 3px 10px rgba(255, 107, 107, 0.3);
         }
         
         .goal-gain {
-            background-color: #4ecdc4;
+            background: linear-gradient(135deg, #4ecdc4 0%, #44a8a8 100%);
             color: white;
+            box-shadow: 0 3px 10px rgba(78, 205, 196, 0.3);
         }
         
         .goal-maintain {
-            background-color: #45b7d1;
+            background: linear-gradient(135deg, #45b7d1 0%, #3a9bb5 100%);
             color: white;
+            box-shadow: 0 3px 10px rgba(69, 183, 209, 0.3);
         }
         
         .plan-stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
             gap: 15px;
-            margin: 15px 0;
+            margin: 20px 0;
         }
         
         .stat {
             text-align: center;
-            padding: 10px;
-            background-color: #f8f9fa;
-            border-radius: 8px;
+            padding: 15px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 10px;
+            border: 2px solid #dee2e6;
+            transition: all 0.3s ease;
+        }
+        
+        .stat:hover {
+            border-color: #667eea;
+            transform: scale(1.05);
         }
         
         .stat-value {
-            font-size: 1.2em;
+            font-size: 1.5em;
             font-weight: bold;
-            color: #333;
+            color: #2c3e50;
+            margin-bottom: 5px;
         }
         
         .stat-label {
-            font-size: 0.8em;
+            font-size: 0.85em;
             color: #666;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        .plan-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #0056b3 0%, #003d82 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+        }
+        
+        .btn-danger {
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+        }
+        
+        .btn-danger:hover {
+            background: linear-gradient(135deg, #c82333 0%, #bd2130 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(220, 53, 69, 0.4);
+        }
+        
+        .navigation {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .navigation a {
+            color: #667eea;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            font-size: 1.05em;
+            transition: color 0.3s ease;
+        }
+        
+        .navigation a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 80px 20px;
+            color: #666;
+        }
+        
+        .empty-state h3 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-size: 1.8em;
+        }
+        
+        .empty-state p {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 30px;
+        }
+        
+        .btn-generate {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(40, 167, 69, 0.3);
+        }
+        
+        .btn-generate:hover {
+            background: linear-gradient(135deg, #218838 0%, #1ba87d 100%);
+            text-decoration: none;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
+        }
+        
+        p strong {
+            color: #2c3e50;
+        }
+    </style>
             text-transform: uppercase;
         }
         
@@ -183,17 +333,6 @@
         </div>
         
         <h1>My Workout Plans</h1>
-        
-        <!-- Debug Information -->
-        <div style="background-color: #f8f9fa; padding: 10px; margin-bottom: 20px; border: 1px solid #dee2e6; border-radius: 5px;">
-            <h4>Debug Information:</h4>
-            <p><strong>User ID:</strong> <%= user != null ? user.getUserId() : "null" %></p>
-            <p><strong>Plans Object:</strong> <%= plans != null ? "Not null" : "null" %></p>
-            <p><strong>Plans Count:</strong> <%= plans != null ? plans.size() : "N/A" %></p>
-            <% if (plans != null && !plans.isEmpty()) { %>
-                <p><strong>First Plan:</strong> <%= plans.get(0).getPlanName() %></p>
-            <% } %>
-        </div>
         
         <% if (plans == null || plans.isEmpty()) { %>
             <div class="empty-state">

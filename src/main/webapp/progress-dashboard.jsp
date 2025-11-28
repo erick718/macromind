@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.fitness.model.User" %>
+<%@ page import="com.fitness.Model.User" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="java.text.DecimalFormat" %>
 <%@ page import="com.fitness.util.CalorieCalculator" %>

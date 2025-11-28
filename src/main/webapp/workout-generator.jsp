@@ -15,78 +15,155 @@
     <title>Workout Plan Generator - MacroMind</title>
     <link href="css/custom.css" rel="stylesheet">
     <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
         .generator-container {
-            max-width: 600px;
+            max-width: 700px;
             margin: 50px auto;
-            padding: 30px;
+            padding: 40px;
             background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        h3 {
+            color: #34495e;
+            font-size: 1.3em;
+            margin: 25px 0 15px 0;
         }
         
         .goal-option {
             margin: 15px 0;
-            padding: 15px;
-            border: 2px solid #e9ecef;
-            border-radius: 8px;
+            padding: 20px;
+            border: 3px solid #e0e0e0;
+            border-radius: 10px;
             cursor: pointer;
             transition: all 0.3s ease;
+            background-color: #fafafa;
         }
         
-        .goal-option:hover, .goal-option.selected {
-            border-color: #007bff;
-            background-color: #f8f9fa;
+        .goal-option:hover {
+            border-color: #667eea;
+            background-color: #f0f4ff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+        
+        .goal-option.selected {
+            border-color: #667eea;
+            background: linear-gradient(135deg, #f0f4ff 0%, #e8ecff 100%);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
         }
         
         .goal-option input[type="radio"] {
-            margin-right: 10px;
+            margin-right: 12px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
         }
         
         .goal-title {
             font-weight: bold;
-            color: #333;
-            margin-bottom: 5px;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 1.15em;
         }
         
         .goal-description {
-            color: #666;
-            font-size: 0.9em;
+            color: #555;
+            font-size: 0.95em;
+            line-height: 1.6;
         }
         
         .profile-info {
-            background-color: #f8f9fa;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .profile-info h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        
+        .profile-info p {
+            margin: 10px 0;
+            color: #2c3e50;
+            font-size: 1em;
+        }
+        
+        .profile-info strong {
+            color: #34495e;
+            min-width: 120px;
+            display: inline-block;
         }
         
         .btn-generate {
-            background-color: #28a745;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
             color: white;
-            padding: 12px 30px;
+            padding: 15px 30px;
             border: none;
-            border-radius: 5px;
-            font-size: 16px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
             cursor: pointer;
             width: 100%;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
         }
         
         .btn-generate:hover {
-            background-color: #218838;
+            background: linear-gradient(135deg, #218838 0%, #1ba87d 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
         }
         
         .navigation {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            text-align: center;
         }
         
         .navigation a {
-            color: #007bff;
+            color: #667eea;
             text-decoration: none;
-            margin-right: 15px;
+            margin: 0 15px;
+            font-weight: 600;
+            font-size: 1em;
+            transition: color 0.3s ease;
         }
         
         .navigation a:hover {
+            color: #764ba2;
             text-decoration: underline;
+        }
+        
+        .alert {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .alert-danger {
+            background-color: #f8d7da;
+            border: 2px solid #dc3545;
+            color: #721c24;
         }
     </style>
 </head>
@@ -109,11 +186,13 @@
         <div class="profile-info">
             <h3>Your Profile:</h3>
             <p><strong>Name:</strong> <%= user.getName() %></p>
-            <p><strong>Age:</strong> <%= session.getAttribute("age") != null ? session.getAttribute("age") : "Not set" %></p>
-            <p><strong>Activity Level:</strong> <%= session.getAttribute("activity") != null ? session.getAttribute("activity") : "Not set" %></p>
-            <p><strong>Weight:</strong> <%= session.getAttribute("weight") != null ? session.getAttribute("weight") + " kg" : "Not set" %></p>
+            <p><strong>Age:</strong> <%= user.getAge() > 0 ? user.getAge() : "Not set" %></p>
+            <p><strong>Fitness Level:</strong> <%= user.getFitnessLevel() != null && !user.getFitnessLevel().isEmpty() ? user.getFitnessLevel() : "Not set" %></p>
+            <p><strong>Weight:</strong> <%= user.getWeight() > 0 ? user.getWeight() + " kg" : "Not set" %></p>
+            <p><strong>Height:</strong> <%= user.getHeight() > 0 ? user.getHeight() + " cm" : "Not set" %></p>
+            <p><strong>Goal:</strong> <%= user.getGoal() != null && !user.getGoal().isEmpty() ? user.getGoal() : "Not set" %></p>
             
-            <% if (session.getAttribute("age") == null || session.getAttribute("activity") == null || session.getAttribute("weight") == null) { %>
+            <% if (user.getAge() <= 0 || user.getWeight() <= 0 || user.getFitnessLevel() == null || user.getFitnessLevel().isEmpty()) { %>
                 <div style="color: #dc3545; margin-top: 10px;">
                     <strong>⚠️ Please complete your profile first:</strong>
                     <a href="profile.jsp">Update Profile</a>

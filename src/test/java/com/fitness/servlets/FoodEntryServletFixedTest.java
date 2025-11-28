@@ -1,8 +1,8 @@
 package com.fitness.servlets;
 
 import com.fitness.dao.FoodEntryDAO;
-import com.fitness.model.FoodEntry;
-import com.fitness.model.User;
+import com.fitness.Model.FoodEntry;
+import com.fitness.Model.User;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

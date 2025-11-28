@@ -21,120 +21,146 @@
     <title><%= plan.getPlanName() %> - MacroMind</title>
     <link href="css/custom.css" rel="stylesheet">
     <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
         .plan-container {
-            max-width: 900px;
-            margin: 50px auto;
-            padding: 30px;
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0;
         }
         
         .plan-header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 30px;
+            padding: 40px;
             border-radius: 15px;
             margin-bottom: 30px;
             text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
         
         .plan-title {
-            font-size: 2.5em;
-            margin: 0 0 10px 0;
+            font-size: 2.8em;
+            margin: 0 0 15px 0;
             font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
         
         .plan-subtitle {
-            font-size: 1.2em;
-            opacity: 0.9;
+            font-size: 1.3em;
+            opacity: 0.95;
             margin: 0;
+            font-weight: 500;
         }
         
         .plan-overview {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 20px;
             margin-bottom: 30px;
         }
         
         .overview-card {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
             text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid #e9ecef;
+        }
+        
+        .overview-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            border-color: #667eea;
         }
         
         .overview-value {
-            font-size: 2em;
+            font-size: 2.2em;
             font-weight: bold;
-            color: #333;
-            margin-bottom: 5px;
+            color: #2c3e50;
+            margin-bottom: 8px;
         }
         
         .overview-label {
             color: #666;
-            font-size: 0.9em;
+            font-size: 0.95em;
             text-transform: uppercase;
             letter-spacing: 1px;
+            font-weight: 600;
         }
         
         .exercises-section {
-            background-color: white;
-            padding: 30px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 35px;
             border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            border: 2px solid #e9ecef;
         }
         
         .section-title {
-            font-size: 1.8em;
-            color: #333;
-            margin-bottom: 20px;
-            border-bottom: 3px solid #007bff;
-            padding-bottom: 10px;
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            border-bottom: 4px solid #667eea;
+            padding-bottom: 12px;
+            font-weight: bold;
         }
         
         .exercises-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
         }
         
         .exercise-card {
-            border: 1px solid #e9ecef;
-            border-radius: 10px;
-            padding: 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 25px;
             transition: all 0.3s ease;
+            background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
         }
         
         .exercise-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+            border-color: #667eea;
         }
         
         .exercise-name {
-            font-size: 1.3em;
+            font-size: 1.4em;
             font-weight: bold;
-            color: #333;
-            margin-bottom: 10px;
+            color: #2c3e50;
+            margin-bottom: 12px;
         }
         
         .exercise-description {
-            color: #666;
-            margin-bottom: 15px;
-            line-height: 1.4;
+            color: #555;
+            margin-bottom: 18px;
+            line-height: 1.6;
+            font-size: 0.95em;
         }
         
         .exercise-details {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            font-size: 0.9em;
+            gap: 12px;
+            font-size: 0.95em;
+            margin-bottom: 15px;
         }
         
         .exercise-detail {
             display: flex;
             justify-content: space-between;
-            padding: 5px 0;
-            border-bottom: 1px solid #f0f0f0;
+            padding: 8px 0;
+            border-bottom: 1px solid #e9ecef;
         }
         
         .exercise-detail:last-child {
@@ -143,11 +169,82 @@
         
         .detail-label {
             font-weight: bold;
-            color: #555;
+            color: #34495e;
         }
         
         .detail-value {
-            color: #333;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .muscle-group {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-top: 10px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            box-shadow: 0 3px 10px rgba(102, 126, 234, 0.3);
+        }
+        
+        .navigation {
+            margin-bottom: 25px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+        
+        .navigation a {
+            color: #667eea;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            font-size: 1em;
+            transition: color 0.3s ease;
+        }
+        
+        .navigation a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+        
+        .tips-section {
+            background: linear-gradient(135deg, #fff9e6 0%, #ffedcc 100%);
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border: 2px solid #ffe6b3;
+        }
+        
+        .tips-title {
+            font-size: 1.6em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .tip {
+            margin-bottom: 12px;
+            padding-left: 35px;
+            position: relative;
+            color: #34495e;
+            line-height: 1.6;
+            font-size: 1em;
+        }
+        
+        .tip:before {
+            content: "💡";
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+        }
+    </style>
         }
         
         .muscle-group {

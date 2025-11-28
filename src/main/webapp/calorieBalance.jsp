@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.fitness.model.User, java.util.List, com.fitness.model.FoodEntry" %>
+<%@ page import="com.fitness.Model.User, java.util.List, com.fitness.Model.FoodEntry" %>
 <%-- VS Code: Ignore CSS parsing warnings for JSP expressions --%>
 <%
     User user = (User) session.getAttribute("user");

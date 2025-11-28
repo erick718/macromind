@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.fitness.dao.FoodEntryDAO;
-import com.fitness.model.FoodEntry;
-import com.fitness.model.User;
+import com.fitness.Model.FoodEntry;
+import com.fitness.Model.User;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;

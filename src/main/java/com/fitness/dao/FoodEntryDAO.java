@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fitness.model.FoodEntry;
+import com.fitness.Model.FoodEntry;
 import com.fitness.util.DBConnection;
 
 public class FoodEntryDAO {
