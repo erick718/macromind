@@ -308,12 +308,6 @@ textarea {
     color: var(--white);
 }
 
-/* Delete button spacing in workout actions */
-.workout-actions .btn-danger {
-    margin: 8px;
-    padding: 8px 16px;
-}
-
 .btn-warning {
     background: linear-gradient(45deg, var(--warning-color), #d39e00);
     color: var(--text-primary);
@@ -1109,6 +1103,7 @@ textarea {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: var(--spacing-lg);
     transition: background-color 0.3s ease;
 }
 
@@ -1162,6 +1157,7 @@ textarea {
     display: flex;
     gap: var(--spacing-lg);
     align-items: center;
+    flex-shrink: 0;
 }
 
 .workout-stat {
@@ -1185,10 +1181,12 @@ textarea {
 .workout-actions {
     display: flex;
     gap: var(--spacing-sm);
+    align-items: center;
 }
 
 .delete-form {
     display: inline;
+    margin: 0;
 }
 
 /* Exercise Type Distribution */
@@ -1370,4 +1368,169 @@ textarea {
     overflow-x: auto;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
+}
+
+/* ============================================================
+   Food Entry Page Specific Styles
+   ============================================================ */
+
+.food-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.nutrition-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.lookup-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--spacing-md);
+    align-items: end;
+}
+
+.lookup-row .form-group {
+    margin-bottom: 0;
+}
+
+.lookup-row .btn {
+    margin-bottom: 0;
+    white-space: nowrap;
+}
+
+#statusMsg {
+    margin-top: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: var(--spacing-lg);
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+    color: var(--primary-hover);
+}
+
+/* Mobile Responsive for Food Entry */
+@media (max-width: 768px) {
+    .nutrition-fields {
+        grid-template-columns: 1fr;
+    }
+    
+    .lookup-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .lookup-row .btn {
+        width: 100%;
+    }
+}
+
+/* ============================================================
+   Profile Picture Styles
+   ============================================================ */
+
+.profile-picture-upload-container {
+    display: flex;
+    gap: var(--spacing-xl);
+    align-items: center;
+    justify-content: center;
+}
+
+.current-picture-section {
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.upload-section {
+    flex: 1;
+    max-width: 400px;
+}
+
+.upload-section h4 {
+    margin-bottom: var(--spacing-md);
+    color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+    .profile-picture-upload-container {
+        flex-direction: column;
+    }
+    
+    .upload-section {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+.profile-overview-container {
+    display: flex;
+    gap: var(--spacing-xl);
+    align-items: flex-start;
+}
+
+.profile-picture-section {
+    flex-shrink: 0;
+    text-align: center;
+    padding: var(--spacing-md);
+}
+
+.profile-form-section {
+    flex: 1;
+    min-width: 0;
+}
+
+@media (max-width: 768px) {
+    .profile-overview-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .profile-form-section {
+        width: 100%;
+    }
+}
+
+.profile-picture {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-picture:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+}
+
+.profile-picture-small {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary-color);
+}
+
+.profile-picture-large {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--primary-color);
+    box-shadow: var(--shadow-lg);
 }

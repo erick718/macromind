@@ -14,6 +14,8 @@ public class User {
     private int availability;
     private String securityQuestion;
     private String securityAnswerHash;
+    private byte[] profilePicture;
+    private String profilePictureType;
 
     public User(){}
     public User(String name, String email, String password) {
@@ -123,6 +125,22 @@ public class User {
 
     public void setSecurityAnswerHash(String securityAnswerHash) {
         this.securityAnswerHash = securityAnswerHash;
+    }
+
+    public byte[] getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(byte[] profilePicture) {
+        this.profilePicture = profilePicture;
+    }
+
+    public String getProfilePictureType() {
+        return profilePictureType;
+    }
+
+    public void setProfilePictureType(String profilePictureType) {
+        this.profilePictureType = profilePictureType;
     }
 }
 

@@ -2,6 +2,9 @@
 <%@ page import="com.fitness.Model.User" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="java.text.DecimalFormat" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.time.LocalDate" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
 <%@ page import="com.fitness.util.CalorieCalculator" %>
 <%
     User user = (User) session.getAttribute("user");
@@ -15,9 +18,15 @@
     @SuppressWarnings("unchecked")
     Map<String, Object> monthlyProgress = (Map<String, Object>) request.getAttribute("monthlyProgress");
     @SuppressWarnings("unchecked")
+    Map<String, Object> filteredProgress = (Map<String, Object>) request.getAttribute("filteredProgress");
+    @SuppressWarnings("unchecked")
     Map<String, Object> progressMetrics = (Map<String, Object>) request.getAttribute("progressMetrics");
     @SuppressWarnings("unchecked")
     Map<String, String> insights = (Map<String, String>) request.getAttribute("insights");
+    
+    String startDate = (String) request.getAttribute("startDate");
+    String endDate = (String) request.getAttribute("endDate");
+    String dateRange = (String) request.getAttribute("dateRange");
     
     Double recommendedDailyIntake = (Double) request.getAttribute("recommendedDailyIntake");
     Double bmr = (Double) request.getAttribute("bmr");
@@ -31,12 +40,38 @@
     
     if (weeklyProgress == null) weeklyProgress = new java.util.HashMap<>();
     if (monthlyProgress == null) monthlyProgress = new java.util.HashMap<>();
+    if (filteredProgress == null) filteredProgress = new java.util.HashMap<>();
     if (progressMetrics == null) progressMetrics = new java.util.HashMap<>();
     if (insights == null) insights = new java.util.HashMap<>();
     if (recommendedDailyIntake == null) recommendedDailyIntake = 2000.0;
     if (bmr == null) bmr = 1800.0;
     if (tdee == null) tdee = 2200.0;
     if (workoutStreak == null) workoutStreak = 0;
+    if (dateRange == null) dateRange = "week";
+
+    // Date formatter for MM/DD/YYYY display
+    DateTimeFormatter displayFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+    String formattedStartDate = "";
+    String formattedEndDate = "";
+    
+    if (startDate != null && !startDate.isEmpty()) {
+        try {
+            LocalDate start = LocalDate.parse(startDate);
+            formattedStartDate = start.format(displayFormatter);
+        } catch (Exception e) {
+            formattedStartDate = startDate;
+        }
+    }
+    
+    if (endDate != null && !endDate.isEmpty()) {
+        try {
+            LocalDate end = LocalDate.parse(endDate);
+            formattedEndDate = end.format(displayFormatter);
+        } catch (Exception e) {
+            formattedEndDate = endDate;
+        }
+    }
+    if (dateRange == null) dateRange = "week";
     
     DecimalFormat decimalFormat = new DecimalFormat("#.#");
     DecimalFormat integerFormat = new DecimalFormat("#");
@@ -70,6 +105,94 @@
             </div>
         </div>
 
+        <!-- Date Range Filter -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Filter by Date Range</h3>
+            </div>
+            <div class="card-body">
+                <form method="get" action="progress-dashboard" id="dateFilterForm">
+                    <!-- Quick Filter Buttons -->
+                    <div class="filter-tabs">
+                        <button type="button" class="filter-tab <%= request.getParameter("range") == null || "week".equals(request.getParameter("range")) ? "active" : "" %>" 
+                                onclick="setDateRange('week')">Last 7 Days</button>
+                        <button type="button" class="filter-tab <%= "month".equals(request.getParameter("range")) ? "active" : "" %>" 
+                                onclick="setDateRange('month')">Last 30 Days</button>
+                        <button type="button" class="filter-tab <%= "quarter".equals(request.getParameter("range")) ? "active" : "" %>" 
+                                onclick="setDateRange('quarter')">Last 90 Days</button>
+                        <button type="button" class="filter-tab <%= "all".equals(request.getParameter("range")) ? "active" : "" %>" 
+                                onclick="setDateRange('all')">All Time</button>
+                        <button type="button" class="filter-tab <%= "custom".equals(request.getParameter("range")) ? "active" : "" %>" 
+                                onclick="setDateRange('custom')">Custom Range</button>
+                    </div>
+                    
+                    <!-- Custom Date Range Inputs -->
+                    <div id="customDateRange" class="<%= "custom".equals(request.getParameter("range")) ? "" : "d-none" %>" style="margin-top: 1rem;">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="startDate">Start Date</label>
+                                <input type="date" id="startDate" name="startDate" class="form-input"
+                                       max="<%= java.time.LocalDate.now() %>"
+                                       value="<%= request.getParameter("startDate") != null ? request.getParameter("startDate") : "" %>"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label for="endDate">End Date</label>
+                                <input type="date" id="endDate" name="endDate" class="form-input"
+                                       max="<%= java.time.LocalDate.now() %>"
+                                       value="<%= request.getParameter("endDate") != null ? request.getParameter("endDate") : "" %>"
+                                       required>
+                            </div>
+                            <div class="form-group" style="display: flex; align-items: flex-end;">
+                                <button type="submit" class="btn btn-primary" onclick="return validateDateRange()">Apply Filter</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <input type="hidden" id="range" name="range" value="<%= request.getParameter("range") != null ? request.getParameter("range") : "week" %>">
+                </form>
+            </div>
+        </div>
+
+        <script>
+            function setDateRange(range) {
+                document.getElementById('range').value = range;
+                
+                if (range === 'custom') {
+                    document.getElementById('customDateRange').style.display = 'block';
+                } else {
+                    document.getElementById('customDateRange').style.display = 'none';
+                    document.getElementById('dateFilterForm').submit();
+                }
+            }
+            
+            function validateDateRange() {
+                var startDate = document.getElementById('startDate').value;
+                var endDate = document.getElementById('endDate').value;
+                var today = new Date().toISOString().split('T')[0];
+                
+                // Check if dates are provided
+                if (!startDate || !endDate) {
+                    alert('Please select both start and end dates.');
+                    return false;
+                }
+                
+                // Check if dates are not in the future
+                if (startDate > today || endDate > today) {
+                    alert('Cannot select future dates. Please select dates up to today.');
+                    return false;
+                }
+                
+                // Check if start date is before end date
+                if (startDate > endDate) {
+                    alert('Start date must be before or equal to end date.');
+                    return false;
+                }
+                
+                return true;
+            }
+        </script>
+
         <!-- Success/Error Messages -->
         <% String message = (String) session.getAttribute("message"); %>
         <% if (message != null) { %>
@@ -85,6 +208,82 @@
                 <%= error %>
             </div>
             <% session.removeAttribute("error"); %>
+        <% } %>
+
+        <!-- Filtered Date Range Summary -->
+        <% if (startDate != null && endDate != null) { %>
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Showing Results for: 
+                    <%
+                    if ("week".equals(dateRange)) {
+                        out.print("Last 7 Days");
+                    } else if ("month".equals(dateRange)) {
+                        out.print("Last 30 Days");
+                    } else if ("quarter".equals(dateRange)) {
+                        out.print("Last 90 Days");
+                    } else if ("all".equals(dateRange)) {
+                        out.print("All Time");
+                    } else if ("custom".equals(dateRange)) {
+                        out.print(formattedStartDate + " to " + formattedEndDate);
+                    }
+                    %>
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="card-grid">
+                    <div class="stat-card" style="border-left-color: var(--success-color);">
+                        <div class="stat-value"><%= filteredProgress.get("totalWorkouts") != null ? filteredProgress.get("totalWorkouts") : 0 %></div>
+                        <div class="stat-label">Total Workouts</div>
+                        <div class="stat-description">in selected range</div>
+                    </div>
+                    
+                    <div class="stat-card" style="border-left-color: var(--info-color);">
+                        <div class="stat-value"><%= filteredProgress.get("totalDuration") != null ? filteredProgress.get("totalDuration") : 0 %></div>
+                        <div class="stat-label">Total Minutes</div>
+                        <div class="stat-description">
+                            <%
+                            Integer filteredWorkouts = (Integer) filteredProgress.get("totalWorkouts");
+                            Integer filteredDuration = (Integer) filteredProgress.get("totalDuration");
+                            if (filteredWorkouts != null && filteredWorkouts > 0 && filteredDuration != null) {
+                                double avgDuration = (double) filteredDuration / filteredWorkouts;
+                                out.print(integerFormat.format(avgDuration) + " min average");
+                            } else {
+                                out.print("No workouts yet");
+                            }
+                            %>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card" style="border-left-color: var(--danger-color);">
+                        <div class="stat-value"><%= filteredProgress.get("totalCalories") != null ? integerFormat.format((Double)filteredProgress.get("totalCalories")) : "0" %></div>
+                        <div class="stat-label">Calories Burned</div>
+                        <div class="stat-description">
+                            <%
+                            Double filteredCalories = (Double) filteredProgress.get("totalCalories");
+                            Double avgFilteredDaily = (Double) progressMetrics.get("avgFilteredDailyCalorieBurn");
+                            if (avgFilteredDaily != null && avgFilteredDaily > 0) {
+                                out.print(integerFormat.format(avgFilteredDaily) + " per day");
+                            } else {
+                                out.print("Start burning!");
+                            }
+                            %>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card" style="border-left-color: var(--warning-color);">
+                        <div class="stat-value">
+                            <%
+                            Double avgFilteredWorkoutDuration = (Double) progressMetrics.get("avgFilteredWorkoutDuration");
+                            out.print(avgFilteredWorkoutDuration != null ? integerFormat.format(avgFilteredWorkoutDuration) : "0");
+                            %>
+                        </div>
+                        <div class="stat-label">Avg Workout Duration</div>
+                        <div class="stat-description">minutes per session</div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <% } %>
 
         <!-- Key Metrics -->

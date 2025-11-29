@@ -20,14 +20,35 @@
     if (progress > 100) progress = 100;
     if (progress < 0) progress = 0;
 
-    // Determine progress bar color
+    // Determine colors
     String progressColor = (netCalories > recommendedCalories) ? "#e74c3c" : "#2ecc71";
+    String netCaloriesColor = (netCalories > recommendedCalories) ? "#e74c3c" : "#2ecc71";
+    String remainingCaloriesColor = (remainingCalories < 0) ? "#e74c3c" : "#2ecc71";
 %>
 
 <html>
 <head>
     <title>Daily Calorie Balance</title>
     <link rel="stylesheet" href="css/custom.css">
+    <script>
+        // Set dynamic styles from JSP values
+        document.addEventListener('DOMContentLoaded', function() {
+            var netCaloriesEl = document.querySelector('.net-calories-value');
+            var remainingCaloriesEl = document.querySelector('.remaining-calories-value');
+            var progressBarEl = document.querySelector('.custom-progress-bar');
+            
+            if (netCaloriesEl) {
+                netCaloriesEl.style.color = '<%= netCaloriesColor %>';
+            }
+            if (remainingCaloriesEl) {
+                remainingCaloriesEl.style.color = '<%= remainingCaloriesColor %>';
+            }
+            if (progressBarEl) {
+                progressBarEl.style.width = '<%= progress %>%';
+                progressBarEl.style.backgroundColor = '<%= progressColor %>';
+            }
+        });
+    </script>
 </head>
 <body>
 
@@ -35,6 +56,11 @@
     <div class="page-header">
         <h1 class="page-title">Daily Calorie Balance</h1>
         <p class="page-subtitle">Track your daily calorie intake and burn for <%= user.getName() %></p>
+    </div>
+
+    <div class="nav-actions justify-center mb-4">
+        <a href="food_entry.jsp" class="btn btn-primary">Log Food</a>
+        <a href="dashboard" class="btn btn-outline">Back to Dashboard</a>
     </div>
 
     <div class="calorie-summary">
@@ -54,19 +80,19 @@
         
         <div class="grid grid-2 mb-4">
             <div class="stat-card">
-                <div class="stat-value" style="color: <%= netCalories > recommendedCalories ? "#e74c3c" : "#2ecc71" %>;"><%= netCalories %></div>
+                <div class="stat-value net-calories-value"><%= netCalories %></div>
                 <div class="stat-label">Net Calories</div>
                 <div class="stat-description">Consumed minus burned</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value" style="color: <%= remainingCalories < 0 ? "#e74c3c" : "#2ecc71" %>;"><%= remainingCalories %></div>
+                <div class="stat-value remaining-calories-value"><%= remainingCalories %></div>
                 <div class="stat-label">Remaining</div>
                 <div class="stat-description">Calories left for the day</div>
             </div>
         </div>
 
         <div class="progress-container">
-            <div class="progress-bar" style="width: <%= progress %>%; background-color: <%= progressColor %>;"><%= String.format("%.0f", progress) %>%</div>
+            <div class="progress-bar custom-progress-bar"><%= String.format("%.0f", progress) %>%</div>
         </div>
 
         <% if (netCalories > recommendedCalories) { %>
@@ -109,11 +135,6 @@
             </div>
             <% } %>
         </div>
-    </div>
-
-    <div class="nav-actions justify-center">
-        <a href="food_entry.jsp" class="btn btn-primary">Log Food</a>
-        <a href="dashboard" class="btn btn-outline">Back to Dashboard</a>
     </div>
 </div>
 
