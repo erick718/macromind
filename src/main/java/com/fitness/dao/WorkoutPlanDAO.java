@@ -8,8 +8,8 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fitness.Model.Exercise;
-import com.fitness.Model.WorkoutPlan;
+import com.fitness.model.Exercise;
+import com.fitness.model.WorkoutPlan;
 import com.fitness.util.DBConnection;
 
 public class WorkoutPlanDAO {

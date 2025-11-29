@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import com.fitness.Model.Exercise;
-import com.fitness.Model.WorkoutPlan;
+import com.fitness.model.Exercise;
+import com.fitness.model.WorkoutPlan;
 import com.fitness.dao.ExerciseDAO;
 import com.fitness.dao.WorkoutPlanDAO;
 

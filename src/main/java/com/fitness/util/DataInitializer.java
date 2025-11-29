@@ -3,7 +3,7 @@ package com.fitness.util;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fitness.Model.Exercise;
+import com.fitness.model.Exercise;
 import com.fitness.dao.ExerciseDAO;
 
 public class DataInitializer {

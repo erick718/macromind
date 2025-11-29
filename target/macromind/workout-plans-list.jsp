@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.fitness.Model.User" %>
-<%@ page import="com.fitness.Model.WorkoutPlan" %>
+<%@ page import="com.fitness.model.User" %>
+<%@ page import="com.fitness.model.WorkoutPlan" %>
 <%@ page import="java.util.List" %>
 <%
     User user = (User) session.getAttribute("user");
@@ -246,81 +246,6 @@
         
         p strong {
             color: #2c3e50;
-        }
-    </style>
-            text-transform: uppercase;
-        }
-        
-        .plan-actions {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-        }
-        
-        .btn {
-            padding: 8px 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            font-size: 0.9em;
-        }
-        
-        .btn-primary {
-            background-color: #007bff;
-            color: white;
-        }
-        
-        .btn-danger {
-            background-color: #dc3545;
-            color: white;
-        }
-        
-        .btn:hover {
-            opacity: 0.8;
-        }
-        
-        .navigation {
-            margin-bottom: 20px;
-        }
-        
-        .navigation a {
-            color: #007bff;
-            text-decoration: none;
-            margin-right: 15px;
-        }
-        
-        .navigation a:hover {
-            text-decoration: underline;
-        }
-        
-        .empty-state {
-            text-align: center;
-            padding: 60px 20px;
-            color: #666;
-        }
-        
-        .empty-state h3 {
-            margin-bottom: 10px;
-            color: #333;
-        }
-        
-        .btn-generate {
-            background-color: #28a745;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .btn-generate:hover {
-            background-color: #218838;
-            text-decoration: none;
-            color: white;
         }
     </style>
 </head>

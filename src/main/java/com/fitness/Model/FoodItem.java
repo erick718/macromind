@@ -1,4 +1,4 @@
-package com.fitness.Model;
+package com.fitness.model;
 
 public class FoodItem {
     private String name;

@@ -1,7 +1,7 @@
 package com.fitness.dao;
 
 import java.util.*;
-import com.fitness.Model.FoodItem;
+import com.fitness.model.FoodItem;
 
 public class FoodItemDAO {
     private static final List<FoodItem> defaultFoods = new ArrayList<>();

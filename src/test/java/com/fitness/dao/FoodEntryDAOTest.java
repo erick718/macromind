@@ -27,7 +27,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.fitness.Model.FoodEntry;
+import com.fitness.model.FoodEntry;
 import com.fitness.util.DBConnection;
 
 @ExtendWith(MockitoExtension.class)

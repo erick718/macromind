@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.fitness.Model.User" %>
+<%@ page import="com.fitness.model.User" %>
 <%
     User user = (User) session.getAttribute("user");
     if (user == null) {

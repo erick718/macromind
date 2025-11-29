@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="com.fitness.service.WorkoutPlanService" %>
-<%@ page import="com.fitness.Model.WorkoutPlan" %>
-<%@ page import="com.fitness.Model.Exercise" %>
+<%@ page import="com.fitness.model.WorkoutPlan" %>
+<%@ page import="com.fitness.model.Exercise" %>
 <%@ page import="java.util.List" %>
 
 <!DOCTYPE html>

@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.fitness.Model.User" %>
-<%@ page import="com.fitness.Model.WorkoutPlan" %>
-<%@ page import="com.fitness.Model.Exercise" %>
+<%@ page import="com.fitness.model.User" %>
+<%@ page import="com.fitness.model.WorkoutPlan" %>
+<%@ page import="com.fitness.model.Exercise" %>
 <%
     User user = (User) session.getAttribute("user");
     if (user == null) {

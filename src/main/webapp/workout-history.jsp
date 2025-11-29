@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.fitness.Model.User" %>
-<%@ page import="com.fitness.Model.Workout" %>
+<%@ page import="com.fitness.model.User" %>
+<%@ page import="com.fitness.model.Workout" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="java.text.SimpleDateFormat" %>

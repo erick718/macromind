@@ -2,8 +2,8 @@ package com.fitness.servlets;
 
 import com.fitness.dao.ExerciseLogDAO;
 import com.fitness.dao.FoodEntryDAO;
-import com.fitness.Model.FoodEntry;
-import com.fitness.Model.User;
+import com.fitness.model.FoodEntry;
+import com.fitness.model.User;
 import com.fitness.util.CalorieCalculator;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;

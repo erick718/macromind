@@ -15,9 +15,9 @@ import org.json.JSONObject;
 
 import com.fitness.dao.FoodEntryDAO;
 import com.fitness.dao.FoodItemDAO;
-import com.fitness.Model.FoodEntry;
-import com.fitness.Model.FoodItem;
-import com.fitness.Model.User;
+import com.fitness.model.FoodEntry;
+import com.fitness.model.FoodItem;
+import com.fitness.model.User;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

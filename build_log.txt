@@ -1,0 +1,2359 @@
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/C:/Maven/apache-maven-3.9.11/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< com.example:macromind >------------------------
+[INFO] Building macromind 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.1.0:clean (default-clean) @ macromind ---
+[INFO] Deleting C:\Users\wdost.DSL\Documents\GitHub\macromind\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ macromind ---
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ macromind ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 45 source files to C:\Users\wdost.DSL\Documents\GitHub\macromind\target\classes
+[INFO] /C:/Users/wdost.DSL/Documents/GitHub/macromind/src/main/java/com/fitness/servlets/FoodEntryServlet.java: Some input files use or override a deprecated API.
+[INFO] /C:/Users/wdost.DSL/Documents/GitHub/macromind/src/main/java/com/fitness/servlets/FoodEntryServlet.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ macromind ---
+[INFO] skip non existing resourceDirectory C:\Users\wdost.DSL\Documents\GitHub\macromind\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ macromind ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 22 source files to C:\Users\wdost.DSL\Documents\GitHub\macromind\target\test-classes
+[INFO] 
+[INFO] --- surefire:3.2.2:test (default-test) @ macromind ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[WARNING] The system property net.bytebuddy.experimental is configured twice! The property appears in <argLine/> and any of <systemPropertyVariables/>, <systemProperties/> or user property.
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.example.AppTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.209 s -- in com.example.AppTest
+[INFO] Running com.fitness.dao.ExerciseLogDAOTest
+[INFO] Running com.fitness.dao.ExerciseLogDAOTest$DailyCaloriesBurnedTests
+WARNING: A Java agent has been loaded dynamically (C:\Users\wdost.DSL\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.9\byte-buddy-agent-1.14.9.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by net.bytebuddy.dynamic.loading.ClassInjector$UsingUnsafe$Dispatcher$CreationAction (file:/C:/Users/wdost.DSL/.m2/repository/net/bytebuddy/byte-buddy/1.14.9/byte-buddy-1.14.9.jar)
+WARNING: Please consider reporting this to the maintainers of class net.bytebuddy.dynamic.loading.ClassInjector$UsingUnsafe$Dispatcher$CreationAction
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+java.sql.SQLException: Connection failed
+	at com.fitness.dao.ExerciseLogDAO.getTotalCaloriesBurnedByUserAndDate(ExerciseLogDAO.java:22)
+	at com.fitness.dao.ExerciseLogDAOTest$DailyCaloriesBurnedTests.shouldHandleSQLExceptionGracefully(ExerciseLogDAOTest.java:122)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.762 s -- in com.fitness.dao.ExerciseLogDAOTest$DailyCaloriesBurnedTests
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.786 s -- in com.fitness.dao.ExerciseLogDAOTest
+[INFO] Running com.fitness.dao.FoodEntryDAOTest
+[INFO] Running com.fitness.dao.FoodEntryDAOTest$FoodEntryRetrievalTests
+DEBUG DAO: Executing query: SELECT id, user_id, food_name, calories, protein, carbs, fat, consumed_oz, date_time FROM food_entries WHERE user_id = ? ORDER BY date_time DESC
+DEBUG DAO: Parameters - userId: 1, date: 2025-11-28
+DEBUG DAO: Connection URL: jdbc:mock://localhost/test
+DEBUG DAO: Setting parameter 1 to userId: 1
+DEBUG DAO: About to execute query...
+DEBUG DAO: Exception occurred: SQLException - Query failed
+java.sql.SQLException: Query failed
+	at com.fitness.dao.FoodEntryDAO.getFoodEntriesByUser(FoodEntryDAO.java:58)
+	at com.fitness.dao.FoodEntryDAOTest$FoodEntryRetrievalTests.shouldHandleSQLExceptionDuringRetrieval(FoodEntryDAOTest.java:161)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+DEBUG DAO: Executing query: SELECT id, user_id, food_name, calories, protein, carbs, fat, consumed_oz, date_time FROM food_entries WHERE user_id = ? ORDER BY date_time DESC
+DEBUG DAO: Parameters - userId: 1, date: 2025-11-28
+DEBUG DAO: Connection URL: jdbc:mock://localhost/test
+DEBUG DAO: Setting parameter 1 to userId: 1
+DEBUG DAO: About to execute query...
+DEBUG DAO: Query executed successfully
+DEBUG DAO: Finished processing. Total entries found: 0
+DEBUG DAO: Final list size: 0
+DEBUG DAO: Executing query: SELECT id, user_id, food_name, calories, protein, carbs, fat, consumed_oz, date_time FROM food_entries WHERE user_id = ? ORDER BY date_time DESC
+DEBUG DAO: Parameters - userId: 1, date: 2025-11-28
+DEBUG DAO: Connection URL: jdbc:mock://localhost/test
+DEBUG DAO: Setting parameter 1 to userId: 1
+DEBUG DAO: About to execute query...
+DEBUG DAO: Query executed successfully
+DEBUG DAO: Processing row 1
+DEBUG DAO: Added entry ID 1: Test Food (250 cal)
+DEBUG DAO: Finished processing. Total entries found: 1
+DEBUG DAO: Final list size: 1
+DEBUG DAO: Executing query: SELECT id, user_id, food_name, calories, protein, carbs, fat, consumed_oz, date_time FROM food_entries WHERE user_id = ? ORDER BY date_time DESC
+DEBUG DAO: Parameters - userId: 1, date: 2025-11-28
+DEBUG DAO: Connection URL: jdbc:mock://localhost/test
+DEBUG DAO: Setting parameter 1 to userId: 1
+DEBUG DAO: About to execute query...
+DEBUG DAO: Query executed successfully
+DEBUG DAO: Processing row 1
+DEBUG DAO: Added entry ID 1: Test Food (250 cal)
+DEBUG DAO: Finished processing. Total entries found: 1
+DEBUG DAO: Final list size: 1
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.117 s -- in com.fitness.dao.FoodEntryDAOTest$FoodEntryRetrievalTests
+[INFO] Running com.fitness.dao.FoodEntryDAOTest$FoodEntryCreationTests
+java.sql.SQLException: Insert failed
+	at com.fitness.dao.FoodEntryDAO.createFoodEntry(FoodEntryDAO.java:34)
+	at com.fitness.dao.FoodEntryDAOTest$FoodEntryCreationTests.lambda$shouldHandleSQLExceptionDuringFoodEntryCreation$0(FoodEntryDAOTest.java:111)
+	at org.assertj.core.api.ThrowableAssert.catchThrowable(ThrowableAssert.java:63)
+	at org.assertj.core.api.AssertionsForClassTypes.catchThrowable(AssertionsForClassTypes.java:892)
+	at org.assertj.core.api.AssertionsForClassTypes.assertThatCode(AssertionsForClassTypes.java:863)
+	at org.assertj.core.api.Assertions.assertThatCode(Assertions.java:1287)
+	at com.fitness.dao.FoodEntryDAOTest$FoodEntryCreationTests.shouldHandleSQLExceptionDuringFoodEntryCreation(FoodEntryDAOTest.java:111)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 s -- in com.fitness.dao.FoodEntryDAOTest$FoodEntryCreationTests
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.164 s -- in com.fitness.dao.FoodEntryDAOTest
+[INFO] Running com.fitness.dao.UserDAOProfilePictureTest
+Profile picture saved: 1 rows affected
+Profile picture saved: 1 rows affected
+Profile picture saved: 1 rows affected
+Profile picture saved: 1 rows affected
+Profile picture saved: 1 rows affected
+Profile picture saved: 1 rows affected
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.809 s -- in com.fitness.dao.UserDAOProfilePictureTest
+[INFO] Running com.fitness.dao.UserDAOTest
+[INFO] Running com.fitness.dao.UserDAOTest$UserProfileUpdateTests
+Profile updated: 1 rows affected
+java.sql.SQLException: Update failed
+	at com.fitness.dao.UserDAO.updateUserProfile(UserDAO.java:163)
+	at com.fitness.dao.UserDAOTest$UserProfileUpdateTests.lambda$shouldHandleSQLExceptionDuringProfileUpdate$0(UserDAOTest.java:265)
+	at org.assertj.core.api.ThrowableAssert.catchThrowable(ThrowableAssert.java:63)
+	at org.assertj.core.api.AssertionsForClassTypes.catchThrowable(AssertionsForClassTypes.java:892)
+	at org.assertj.core.api.AssertionsForClassTypes.assertThatCode(AssertionsForClassTypes.java:863)
+	at org.assertj.core.api.Assertions.assertThatCode(Assertions.java:1287)
+	at com.fitness.dao.UserDAOTest$UserProfileUpdateTests.shouldHandleSQLExceptionDuringProfileUpdate(UserDAOTest.java:265)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Error updating user profile: Update failed
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s -- in com.fitness.dao.UserDAOTest$UserProfileUpdateTests
+[INFO] Running com.fitness.dao.UserDAOTest$UserRetrievalTests
+java.sql.SQLException: Select failed
+	at com.fitness.dao.UserDAO.getUserByEmail(UserDAO.java:76)
+	at com.fitness.dao.UserDAOTest$UserRetrievalTests.shouldHandleSQLExceptionDuringUserRetrieval(UserDAOTest.java:224)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Error getting user by email: Select failed
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 s -- in com.fitness.dao.UserDAOTest$UserRetrievalTests
+[INFO] Running com.fitness.dao.UserDAOTest$UserCreationTests
+java.sql.SQLException: Insert failed
+	at com.fitness.dao.UserDAO.createUser(UserDAO.java:55)
+	at com.fitness.dao.UserDAOTest$UserCreationTests.lambda$shouldHandleSQLExceptionDuringUserCreation$0(UserDAOTest.java:173)
+	at org.assertj.core.api.ThrowableAssert.catchThrowable(ThrowableAssert.java:63)
+	at org.assertj.core.api.AssertionsForClassTypes.catchThrowable(AssertionsForClassTypes.java:892)
+	at org.assertj.core.api.AssertionsForClassTypes.assertThatCode(AssertionsForClassTypes.java:863)
+	at org.assertj.core.api.Assertions.assertThatCode(Assertions.java:1287)
+	at com.fitness.dao.UserDAOTest$UserCreationTests.shouldHandleSQLExceptionDuringUserCreation(UserDAOTest.java:173)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.318 s -- in com.fitness.dao.UserDAOTest$UserCreationTests
+[INFO] Running com.fitness.dao.UserDAOTest$EmailValidationTests
+java.sql.SQLException: Database connection failed
+	at com.fitness.util.DBConnection.getConnection(DBConnection.java:22)
+	at com.fitness.dao.UserDAO.getConnection(UserDAO.java:15)
+	at com.fitness.dao.UserDAO.isEmailTaken(UserDAO.java:21)
+	at com.fitness.dao.UserDAOTest$EmailValidationTests.shouldHandleDatabaseConnectionError(UserDAOTest.java:114)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Database connection error
+java.sql.SQLException: Query failed
+	at com.fitness.dao.UserDAO.isEmailTaken(UserDAO.java:25)
+	at com.fitness.dao.UserDAOTest$EmailValidationTests.shouldHandleSQLExceptionDuringQuery(UserDAOTest.java:127)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Database connection error
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 s -- in com.fitness.dao.UserDAOTest$EmailValidationTests
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.430 s -- in com.fitness.dao.UserDAOTest
+[INFO] Running com.fitness.dao.WorkoutDAOTest
+[INFO] Running com.fitness.dao.WorkoutDAOTest$AnalyticsTests
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s -- in com.fitness.dao.WorkoutDAOTest$AnalyticsTests
+[INFO] Running com.fitness.dao.WorkoutDAOTest$WorkoutDateRangeTests
+java.sql.SQLException: Query failed
+	at com.fitness.dao.WorkoutDAO.getWorkoutsByDateRange(WorkoutDAO.java:103)
+	at com.fitness.dao.WorkoutDAOTest$WorkoutDateRangeTests.shouldHandleSQLExceptionDuringDateRangeRetrieval(WorkoutDAOTest.java:218)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Error fetching workouts by date range: Query failed
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s -- in com.fitness.dao.WorkoutDAOTest$WorkoutDateRangeTests
+[INFO] Running com.fitness.dao.WorkoutDAOTest$WorkoutRetrievalTests
+java.sql.SQLException: Query failed
+	at com.fitness.dao.WorkoutDAO.getWorkoutsByUserId(WorkoutDAO.java:75)
+	at com.fitness.dao.WorkoutDAOTest$WorkoutRetrievalTests.shouldHandleSQLExceptionDuringRetrieval(WorkoutDAOTest.java:156)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Error fetching workouts for user 1: Query failed
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.048 s -- in com.fitness.dao.WorkoutDAOTest$WorkoutRetrievalTests
+[INFO] Running com.fitness.dao.WorkoutDAOTest$WorkoutCreationTests
+java.sql.SQLException: Insert failed
+	at com.fitness.dao.WorkoutDAO.createWorkout(WorkoutDAO.java:48)
+	at com.fitness.dao.WorkoutDAOTest$WorkoutCreationTests.lambda$shouldHandleSQLExceptionDuringWorkoutCreation$0(WorkoutDAOTest.java:109)
+	at org.assertj.core.api.ThrowableAssert.catchThrowable(ThrowableAssert.java:63)
+	at org.assertj.core.api.AssertionsForClassTypes.catchThrowable(AssertionsForClassTypes.java:892)
+	at org.assertj.core.api.AssertionsForClassTypes.assertThatCode(AssertionsForClassTypes.java:863)
+	at org.assertj.core.api.Assertions.assertThatCode(Assertions.java:1287)
+	at com.fitness.dao.WorkoutDAOTest$WorkoutCreationTests.shouldHandleSQLExceptionDuringWorkoutCreation(WorkoutDAOTest.java:109)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Error creating workout: Insert failed
+Workout created successfully with ID: 123
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s -- in com.fitness.dao.WorkoutDAOTest$WorkoutCreationTests
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.121 s -- in com.fitness.dao.WorkoutDAOTest
+[INFO] Running com.fitness.servlets.CalorieBalanceServletRealisticTest
+[INFO] Running com.fitness.servlets.CalorieBalanceServletRealisticTest$EdgeCasesAndErrorHandlingTests
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.762 s -- in com.fitness.servlets.CalorieBalanceServletRealisticTest$EdgeCasesAndErrorHandlingTests
+[INFO] Running com.fitness.servlets.CalorieBalanceServletRealisticTest$BalanceCalculationTests
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.060 s -- in com.fitness.servlets.CalorieBalanceServletRealisticTest$BalanceCalculationTests
+[INFO] Running com.fitness.servlets.CalorieBalanceServletRealisticTest$ExerciseCalorieProcessingTests
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.030 s -- in com.fitness.servlets.CalorieBalanceServletRealisticTest$ExerciseCalorieProcessingTests
+[INFO] Running com.fitness.servlets.CalorieBalanceServletRealisticTest$FoodEntryProcessingTests
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s -- in com.fitness.servlets.CalorieBalanceServletRealisticTest$FoodEntryProcessingTests
+[INFO] Running com.fitness.servlets.CalorieBalanceServletRealisticTest$CalorieCalculationTests
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 s -- in com.fitness.servlets.CalorieBalanceServletRealisticTest$CalorieCalculationTests
+[INFO] Running com.fitness.servlets.CalorieBalanceServletRealisticTest$UserAuthenticationTests
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 s -- in com.fitness.servlets.CalorieBalanceServletRealisticTest$UserAuthenticationTests
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.970 s -- in com.fitness.servlets.CalorieBalanceServletRealisticTest
+[INFO] Running com.fitness.servlets.CalorieBalanceServletTest
+[INFO] Running com.fitness.servlets.CalorieBalanceServletTest$RequestForwardingTests
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s -- in com.fitness.servlets.CalorieBalanceServletTest$RequestForwardingTests
+[INFO] Running com.fitness.servlets.CalorieBalanceServletTest$BalanceCalculationTests
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s -- in com.fitness.servlets.CalorieBalanceServletTest$BalanceCalculationTests
+[INFO] Running com.fitness.servlets.CalorieBalanceServletTest$ExerciseCalorieProcessingTests
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.020 s -- in com.fitness.servlets.CalorieBalanceServletTest$ExerciseCalorieProcessingTests
+[INFO] Running com.fitness.servlets.CalorieBalanceServletTest$FoodEntryProcessingTests
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.020 s -- in com.fitness.servlets.CalorieBalanceServletTest$FoodEntryProcessingTests
+[INFO] Running com.fitness.servlets.CalorieBalanceServletTest$CalorieCalculationTests
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 s -- in com.fitness.servlets.CalorieBalanceServletTest$CalorieCalculationTests
+[INFO] Running com.fitness.servlets.CalorieBalanceServletTest$UserAuthenticationTests
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s -- in com.fitness.servlets.CalorieBalanceServletTest$UserAuthenticationTests
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.162 s -- in com.fitness.servlets.CalorieBalanceServletTest
+[INFO] Running com.fitness.servlets.FoodEntryHistoryServletRealisticTest
+[INFO] Running com.fitness.servlets.FoodEntryHistoryServletRealisticTest$DailySummaryTests
+DEBUG SERVLET: Creating FoodEntryDAO instance...
+DEBUG SERVLET: DAO created successfully
+DEBUG SERVLET: Getting food entries for user 1 on date 2025-11-28
+DEBUG DAO: Executing query: SELECT id, user_id, food_name, calories, protein, carbs, fat, consumed_oz, date_time FROM food_entries WHERE user_id = ? ORDER BY date_time DESC
+DEBUG DAO: Parameters - userId: 1, date: 2025-11-28
+DEBUG DAO: Connection URL: jdbc:mysql://localhost:3306/macromind
+DEBUG DAO: Setting parameter 1 to userId: 1
+DEBUG DAO: About to execute query...
+DEBUG DAO: Query executed successfully
+DEBUG DAO: Finished processing. Total entries found: 0
+DEBUG DAO: Final list size: 0
+DEBUG SERVLET: DAO method returned, list size: 0
+DEBUG SERVLET: Found 0 food entries
+DEBUG SERVLET: Creating FoodEntryDAO instance...
+DEBUG SERVLET: DAO created successfully
+DEBUG SERVLET: Getting food entries for user 1 on date 2025-11-28
+DEBUG DAO: Executing query: SELECT id, user_id, food_name, calories, protein, carbs, fat, consumed_oz, date_time FROM food_entries WHERE user_id = ? ORDER BY date_time DESC
+DEBUG DAO: Parameters - userId: 1, date: 2025-11-28
+DEBUG DAO: Connection URL: jdbc:mysql://localhost:3306/macromind
+DEBUG DAO: Setting parameter 1 to userId: 1
+DEBUG DAO: About to execute query...
+DEBUG DAO: Query executed successfully
+DEBUG DAO: Finished processing. Total entries found: 0
+DEBUG DAO: Final list size: 0
+DEBUG SERVLET: DAO method returned, list size: 0
+DEBUG SERVLET: Found 0 food entries
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.099 s -- in com.fitness.servlets.FoodEntryHistoryServletRealisticTest$DailySummaryTests
+[INFO] Running com.fitness.servlets.FoodEntryHistoryServletRealisticTest$ErrorHandlingTests
+DEBUG SERVLET: Creating FoodEntryDAO instance...
+DEBUG SERVLET: DAO created successfully
+DEBUG SERVLET: Getting food entries for user 1 on date 2025-11-28
+DEBUG DAO: Executing query: SELECT id, user_id, food_name, calories, protein, carbs, fat, consumed_oz, date_time FROM food_entries WHERE user_id = ? ORDER BY date_time DESC
+DEBUG DAO: Parameters - userId: 1, date: 2025-11-28
+DEBUG DAO: Connection URL: jdbc:mysql://localhost:3306/macromind
+DEBUG DAO: Setting parameter 1 to userId: 1
+DEBUG DAO: About to execute query...
+DEBUG DAO: Query executed successfully
+DEBUG DAO: Finished processing. Total entries found: 0
+DEBUG DAO: Final list size: 0
+DEBUG SERVLET: DAO method returned, list size: 0
+DEBUG SERVLET: Found 0 food entries
+DEBUG SERVLET: Creating FoodEntryDAO instance...
+DEBUG SERVLET: DAO created successfully
+DEBUG SERVLET: Getting food entries for user 0 on date 2025-11-28
+DEBUG DAO: Executing query: SELECT id, user_id, food_name, calories, protein, carbs, fat, consumed_oz, date_time FROM food_entries WHERE user_id = ? ORDER BY date_time DESC
+DEBUG DAO: Parameters - userId: 0, date: 2025-11-28
+DEBUG DAO: Connection URL: jdbc:mysql://localhost:3306/macromind
+DEBUG DAO: Setting parameter 1 to userId: 0
+DEBUG DAO: About to execute query...
+DEBUG DAO: Query executed successfully
+DEBUG DAO: Finished processing. Total entries found: 0
+DEBUG DAO: Final list size: 0
+DEBUG SERVLET: DAO method returned, list size: 0
+DEBUG SERVLET: Found 0 food entries
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.071 s -- in com.fitness.servlets.FoodEntryHistoryServletRealisticTest$ErrorHandlingTests
+[INFO] Running com.fitness.servlets.FoodEntryHistoryServletRealisticTest$FoodEntryDetailsTests
+DEBUG SERVLET: Creating FoodEntryDAO instance...
+DEBUG SERVLET: DAO created successfully
+DEBUG SERVLET: Getting food entries for user 1 on date 2025-11-28
+DEBUG DAO: Executing query: SELECT id, user_id, food_name, calories, protein, carbs, fat, consumed_oz, date_time FROM food_entries WHERE user_id = ? ORDER BY date_time DESC
+DEBUG DAO: Parameters - userId: 1, date: 2025-11-28
+DEBUG DAO: Connection URL: jdbc:mysql://localhost:3306/macromind
+DEBUG DAO: Setting parameter 1 to userId: 1
+DEBUG DAO: About to execute query...
+DEBUG DAO: Query executed successfully
+DEBUG DAO: Finished processing. Total entries found: 0
+DEBUG DAO: Final list size: 0
+DEBUG SERVLET: DAO method returned, list size: 0
+DEBUG SERVLET: Found 0 food entries
+DEBUG SERVLET: Creating FoodEntryDAO instance...
+DEBUG SERVLET: DAO created successfully
+DEBUG SERVLET: Getting food entries for user 1 on date 2025-11-28
+DEBUG DAO: Executing query: SELECT id, user_id, food_name, calories, protein, carbs, fat, consumed_oz, date_time FROM food_entries WHERE user_id = ? ORDER BY date_time DESC
+DEBUG DAO: Parameters - userId: 1, date: 2025-11-28
+DEBUG DAO: Connection URL: jdbc:mysql://localhost:3306/macromind
+DEBUG DAO: Setting parameter 1 to userId: 1
+DEBUG DAO: About to execute query...
+DEBUG DAO: Query executed successfully
+DEBUG DAO: Finished processing. Total entries found: 0
+DEBUG DAO: Final list size: 0
+DEBUG SERVLET: DAO method returned, list size: 0
+DEBUG SERVLET: Found 0 food entries
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.068 s -- in com.fitness.servlets.FoodEntryHistoryServletRealisticTest$FoodEntryDetailsTests
+[INFO] Running com.fitness.servlets.FoodEntryHistoryServletRealisticTest$FoodHistoryDisplayTests
+DEBUG SERVLET: Creating FoodEntryDAO instance...
+DEBUG SERVLET: DAO created successfully
+DEBUG SERVLET: Getting food entries for user 1 on date 2025-11-28
+DEBUG DAO: Executing query: SELECT id, user_id, food_name, calories, protein, carbs, fat, consumed_oz, date_time FROM food_entries WHERE user_id = ? ORDER BY date_time DESC
+DEBUG DAO: Parameters - userId: 1, date: 2025-11-28
+DEBUG DAO: Connection URL: jdbc:mysql://localhost:3306/macromind
+DEBUG DAO: Setting parameter 1 to userId: 1
+DEBUG DAO: About to execute query...
+DEBUG DAO: Query executed successfully
+DEBUG DAO: Finished processing. Total entries found: 0
+DEBUG DAO: Final list size: 0
+DEBUG SERVLET: DAO method returned, list size: 0
+DEBUG SERVLET: Found 0 food entries
+DEBUG SERVLET: Creating FoodEntryDAO instance...
+DEBUG SERVLET: DAO created successfully
+DEBUG SERVLET: Getting food entries for user 1 on date 2025-11-28
+DEBUG DAO: Executing query: SELECT id, user_id, food_name, calories, protein, carbs, fat, consumed_oz, date_time FROM food_entries WHERE user_id = ? ORDER BY date_time DESC
+DEBUG DAO: Parameters - userId: 1, date: 2025-11-28
+DEBUG DAO: Connection URL: jdbc:mysql://localhost:3306/macromind
+DEBUG DAO: Setting parameter 1 to userId: 1
+DEBUG DAO: About to execute query...
+DEBUG DAO: Query executed successfully
+DEBUG DAO: Finished processing. Total entries found: 0
+DEBUG DAO: Final list size: 0
+DEBUG SERVLET: DAO method returned, list size: 0
+DEBUG SERVLET: Found 0 food entries
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.065 s -- in com.fitness.servlets.FoodEntryHistoryServletRealisticTest$FoodHistoryDisplayTests
+[INFO] Running com.fitness.servlets.FoodEntryHistoryServletRealisticTest$FoodHistoryAccessTests
+DEBUG SERVLET: Creating FoodEntryDAO instance...
+DEBUG SERVLET: DAO created successfully
+DEBUG SERVLET: Getting food entries for user 1 on date 2025-11-28
+DEBUG DAO: Executing query: SELECT id, user_id, food_name, calories, protein, carbs, fat, consumed_oz, date_time FROM food_entries WHERE user_id = ? ORDER BY date_time DESC
+DEBUG DAO: Parameters - userId: 1, date: 2025-11-28
+DEBUG DAO: Connection URL: jdbc:mysql://localhost:3306/macromind
+DEBUG DAO: Setting parameter 1 to userId: 1
+DEBUG DAO: About to execute query...
+DEBUG DAO: Query executed successfully
+DEBUG DAO: Finished processing. Total entries found: 0
+DEBUG DAO: Final list size: 0
+DEBUG SERVLET: DAO method returned, list size: 0
+DEBUG SERVLET: Found 0 food entries
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 s -- in com.fitness.servlets.FoodEntryHistoryServletRealisticTest$FoodHistoryAccessTests
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.355 s -- in com.fitness.servlets.FoodEntryHistoryServletRealisticTest
+[INFO] Running com.fitness.servlets.GetProfilePictureServletTest
+[INFO] Running com.fitness.servlets.GetProfilePictureServletTest$ResponseTests
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.086 s -- in com.fitness.servlets.GetProfilePictureServletTest$ResponseTests
+[INFO] Running com.fitness.servlets.GetProfilePictureServletTest$ContentTypeTests
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s -- in com.fitness.servlets.GetProfilePictureServletTest$ContentTypeTests
+[INFO] Running com.fitness.servlets.GetProfilePictureServletTest$PlaceholderTests
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.060 s -- in com.fitness.servlets.GetProfilePictureServletTest$PlaceholderTests
+[INFO] Running com.fitness.servlets.GetProfilePictureServletTest$AuthenticationTests
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s -- in com.fitness.servlets.GetProfilePictureServletTest$AuthenticationTests
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.191 s -- in com.fitness.servlets.GetProfilePictureServletTest
+[INFO] Running com.fitness.servlets.LoginServletTest
+[INFO] Running com.fitness.servlets.LoginServletTest$CaseSensitivityTests
+Login attempt for email: login.test@example.com
+User found: true
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.173 s -- in com.fitness.servlets.LoginServletTest$CaseSensitivityTests
+[INFO] Running com.fitness.servlets.LoginServletTest$InputValidationTests
+Login attempt for email:   login.test@example.com  
+User found: false
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 s -- in com.fitness.servlets.LoginServletTest$InputValidationTests
+[INFO] Running com.fitness.servlets.LoginServletTest$FailedLoginTests
+Login attempt for email: login.test@example.com
+User found: true
+Login attempt for email: nonexistent@example.com
+User found: false
+Login attempt for email: nonexistent@example.com
+User found: false
+Login attempt for email: login.test@example.com
+User found: true
+Login attempt for email: login.test@example.com
+User found: true
+Login attempt for email: login.test@example.com
+User found: true
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.714 s -- in com.fitness.servlets.LoginServletTest$FailedLoginTests
+[INFO] Running com.fitness.servlets.LoginServletTest$SuccessfulLoginTests
+Login attempt for email: login.test@example.com
+User found: true
+Login attempt for email: login.test@example.com
+User found: true
+Login attempt for email: login.test@example.com
+User found: true
+Login attempt for email: login.test@example.com
+User found: true
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.653 s -- in com.fitness.servlets.LoginServletTest$SuccessfulLoginTests
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.833 s -- in com.fitness.servlets.LoginServletTest
+[INFO] Running com.fitness.servlets.ProfileServletTest
+[INFO] Running com.fitness.servlets.ProfileServletTest$IntegrationTests
+ProfileServlet: doPost method called
+ProfileServlet: Processing profile for user: Profile Test User
+ProfileServlet: Received form data:
+- Age: 32
+- Height: 185
+- Weight: 82.0
+- Goal: gain muscle
+- Activity: active
+ProfileServlet: Saving profile to database for user ID: 254
+Profile updated: 1 rows affected
+ProfileServlet: Profile saved successfully
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 s -- in com.fitness.servlets.ProfileServletTest$IntegrationTests
+[INFO] Running com.fitness.servlets.ProfileServletTest$PartialUpdateTests
+ProfileServlet: doPost method called
+ProfileServlet: Processing profile for user: Profile Test User
+ProfileServlet: Received form data:
+- Age: null
+- Height: null
+- Weight: null
+- Goal: null
+- Activity: sedentary
+ProfileServlet: Saving profile to database for user ID: 254
+Profile updated: 1 rows affected
+ProfileServlet: Profile saved successfully
+ProfileServlet: doPost method called
+ProfileServlet: Processing profile for user: Profile Test User
+ProfileServlet: Received form data:
+- Age: null
+- Height: 165
+- Weight: null
+- Goal: null
+- Activity: null
+ProfileServlet: Saving profile to database for user ID: 254
+Profile updated: 1 rows affected
+ProfileServlet: Profile saved successfully
+ProfileServlet: doPost method called
+ProfileServlet: Processing profile for user: Profile Test User
+ProfileServlet: Received form data:
+- Age: null
+- Height: null
+- Weight: 68.5
+- Goal: null
+- Activity: null
+ProfileServlet: Saving profile to database for user ID: 254
+Profile updated: 1 rows affected
+ProfileServlet: Profile saved successfully
+ProfileServlet: doPost method called
+ProfileServlet: Processing profile for user: Profile Test User
+ProfileServlet: Received form data:
+- Age: 35
+- Height: null
+- Weight: null
+- Goal: null
+- Activity: null
+ProfileServlet: Saving profile to database for user ID: 254
+Profile updated: 1 rows affected
+ProfileServlet: Profile saved successfully
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.115 s -- in com.fitness.servlets.ProfileServletTest$PartialUpdateTests
+[INFO] Running com.fitness.servlets.ProfileServletTest$InputValidationTests
+ProfileServlet: doPost method called
+ProfileServlet: Processing profile for user: Profile Test User
+ProfileServlet: Received form data:
+- Age: null
+- Height: null
+- Weight: null
+- Goal: null
+- Activity: null
+ProfileServlet: Saving profile to database for user ID: 254
+Profile updated: 1 rows affected
+ProfileServlet: Profile saved successfully
+ProfileServlet: doPost method called
+ProfileServlet: Processing profile for user: Profile Test User
+ProfileServlet: Received form data:
+- Age: 
+- Height: 
+- Weight: 
+- Goal: 
+- Activity: 
+ProfileServlet: Saving profile to database for user ID: 254
+Profile updated: 1 rows affected
+ProfileServlet: Profile saved successfully
+ProfileServlet: doPost method called
+ProfileServlet: Processing profile for user: Profile Test User
+ProfileServlet: Received form data:
+- Age:    
+- Height:   
+- Weight: null
+- Goal: null
+- Activity: null
+ProfileServlet: Saving profile to database for user ID: 254
+Profile updated: 1 rows affected
+ProfileServlet: Profile saved successfully
+ProfileServlet: doPost method called
+ProfileServlet: Processing profile for user: Profile Test User
+ProfileServlet: Received form data:
+- Age: null
+- Height: null
+- Weight: null
+- Goal: lose weight
+- Activity: null
+ProfileServlet: Saving profile to database for user ID: 254
+Profile updated: 1 rows affected
+ProfileServlet: Profile saved successfully
+ProfileServlet: doPost method called
+ProfileServlet: Processing profile for user: Profile Test User
+ProfileServlet: Received form data:
+- Age: invalid
+- Height: null
+- Weight: null
+- Goal: null
+- Activity: null
+ProfileServlet: doPost method called
+ProfileServlet: Processing profile for user: Profile Test User
+ProfileServlet: Received form data:
+- Age: null
+- Height: not a number
+- Weight: null
+- Goal: null
+- Activity: null
+ProfileServlet: doPost method called
+ProfileServlet: Processing profile for user: Profile Test User
+ProfileServlet: Received form data:
+- Age: null
+- Height: null
+- Weight: abc
+- Goal: null
+- Activity: null
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.112 s -- in com.fitness.servlets.ProfileServletTest$InputValidationTests
+[INFO] Running com.fitness.servlets.ProfileServletTest$SuccessfulProfileUpdateTests
+ProfileServlet: doPost method called
+ProfileServlet: Processing profile for user: Profile Test User
+ProfileServlet: Received form data:
+- Age: 25
+- Height: null
+- Weight: null
+- Goal: null
+- Activity: null
+ProfileServlet: Saving profile to database for user ID: 254
+Profile updated: 1 rows affected
+ProfileServlet: Profile saved successfully
+ProfileServlet: doPost method called
+ProfileServlet: Processing profile for user: Profile Test User
+ProfileServlet: Received form data:
+- Age: 26
+- Height: null
+- Weight: null
+- Goal: null
+- Activity: null
+ProfileServlet: Saving profile to database for user ID: 254
+Profile updated: 1 rows affected
+ProfileServlet: Profile saved successfully
+ProfileServlet: doPost method called
+ProfileServlet: Processing profile for user: Profile Test User
+ProfileServlet: Received form data:
+- Age: 30
+- Height: 180
+- Weight: 75.5
+- Goal: 2000
+- Activity: moderate
+ProfileServlet: Saving profile to database for user ID: 254
+Profile updated: 1 rows affected
+ProfileServlet: Profile saved successfully
+ProfileServlet: doPost method called
+ProfileServlet: Processing profile for user: Profile Test User
+ProfileServlet: Received form data:
+- Age: 28
+- Height: 175
+- Weight: 70.0
+- Goal: 1800
+- Activity: light
+ProfileServlet: Saving profile to database for user ID: 254
+Profile updated: 1 rows affected
+ProfileServlet: Profile saved successfully
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.112 s -- in com.fitness.servlets.ProfileServletTest$SuccessfulProfileUpdateTests
+[INFO] Running com.fitness.servlets.ProfileServletTest$AuthenticationTests
+ProfileServlet: doPost method called
+ProfileServlet: No user in session, redirecting to login
+ProfileServlet: doPost method called
+ProfileServlet: No user in session, redirecting to login
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s -- in com.fitness.servlets.ProfileServletTest$AuthenticationTests
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.641 s -- in com.fitness.servlets.ProfileServletTest
+[INFO] Running com.fitness.servlets.ProgressDashboardServletRealisticTest
+[INFO] Running com.fitness.servlets.ProgressDashboardServletRealisticTest$ErrorHandlingTests
+ProgressDashboardServlet: Loading progress dashboard for user: Test User
+ProgressDashboardServlet: Date range - 2025-11-21 to 2025-11-28
+ProgressDashboardServlet: Weekly calories burned: 0.0
+ProgressDashboardServlet: Monthly calories burned: 0.0
+ProgressDashboardServlet: Filtered calories burned: 0.0
+ProgressDashboardServlet: Recommended daily intake: 2520.0
+ProgressDashboardServlet: Loading progress dashboard for user: Test User
+ProgressDashboardServlet: Date range - 2025-11-21 to 2025-11-28
+ProgressDashboardServlet: Weekly calories burned: 0.0
+ProgressDashboardServlet: Monthly calories burned: 0.0
+ProgressDashboardServlet: Filtered calories burned: 0.0
+ProgressDashboardServlet: Recommended daily intake: 2594.3125
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.264 s -- in com.fitness.servlets.ProgressDashboardServletRealisticTest$ErrorHandlingTests
+[INFO] Running com.fitness.servlets.ProgressDashboardServletRealisticTest$InsightsGenerationTests
+ProgressDashboardServlet: Loading progress dashboard for user: Test User
+ProgressDashboardServlet: Date range - 2025-11-21 to 2025-11-28
+ProgressDashboardServlet: Weekly calories burned: 0.0
+ProgressDashboardServlet: Monthly calories burned: 0.0
+ProgressDashboardServlet: Filtered calories burned: 0.0
+ProgressDashboardServlet: Recommended daily intake: 2594.3125
+ProgressDashboardServlet: Loading progress dashboard for user: Test User
+ProgressDashboardServlet: Date range - 2025-11-21 to 2025-11-28
+ProgressDashboardServlet: Weekly calories burned: 0.0
+ProgressDashboardServlet: Monthly calories burned: 0.0
+ProgressDashboardServlet: Filtered calories burned: 0.0
+ProgressDashboardServlet: Recommended daily intake: 2594.3125
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.250 s -- in com.fitness.servlets.ProgressDashboardServletRealisticTest$InsightsGenerationTests
+[INFO] Running com.fitness.servlets.ProgressDashboardServletRealisticTest$ExerciseDistributionAnalysisTests
+ProgressDashboardServlet: Loading progress dashboard for user: Test User
+ProgressDashboardServlet: Date range - 2025-11-21 to 2025-11-28
+ProgressDashboardServlet: Weekly calories burned: 0.0
+ProgressDashboardServlet: Monthly calories burned: 0.0
+ProgressDashboardServlet: Filtered calories burned: 0.0
+ProgressDashboardServlet: Recommended daily intake: 2594.3125
+ProgressDashboardServlet: Loading progress dashboard for user: Test User
+ProgressDashboardServlet: Date range - 2025-11-21 to 2025-11-28
+ProgressDashboardServlet: Weekly calories burned: 0.0
+ProgressDashboardServlet: Monthly calories burned: 0.0
+ProgressDashboardServlet: Filtered calories burned: 0.0
+ProgressDashboardServlet: Recommended daily intake: 2594.3125
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.228 s -- in com.fitness.servlets.ProgressDashboardServletRealisticTest$ExerciseDistributionAnalysisTests
+[INFO] Running com.fitness.servlets.ProgressDashboardServletRealisticTest$CalorieBalanceCalculationTests
+ProgressDashboardServlet: Loading progress dashboard for user: Test User
+ProgressDashboardServlet: Date range - 2025-11-21 to 2025-11-28
+ProgressDashboardServlet: Weekly calories burned: 0.0
+ProgressDashboardServlet: Monthly calories burned: 0.0
+ProgressDashboardServlet: Filtered calories burned: 0.0
+ProgressDashboardServlet: Recommended daily intake: 2594.3125
+ProgressDashboardServlet: Loading progress dashboard for user: Test User
+ProgressDashboardServlet: Date range - 2025-11-21 to 2025-11-28
+ProgressDashboardServlet: Weekly calories burned: 0.0
+ProgressDashboardServlet: Monthly calories burned: 0.0
+ProgressDashboardServlet: Filtered calories burned: 0.0
+ProgressDashboardServlet: Recommended daily intake: 2887.21875
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.208 s -- in com.fitness.servlets.ProgressDashboardServletRealisticTest$CalorieBalanceCalculationTests
+[INFO] Running com.fitness.servlets.ProgressDashboardServletRealisticTest$UserGoalAnalysisTests
+ProgressDashboardServlet: Loading progress dashboard for user: Test User
+ProgressDashboardServlet: Date range - 2025-11-21 to 2025-11-28
+ProgressDashboardServlet: Weekly calories burned: 0.0
+ProgressDashboardServlet: Monthly calories burned: 0.0
+ProgressDashboardServlet: Filtered calories burned: 0.0
+ProgressDashboardServlet: Recommended daily intake: 2594.3125
+ProgressDashboardServlet: Loading progress dashboard for user: Test User
+ProgressDashboardServlet: Date range - 2025-11-21 to 2025-11-28
+ProgressDashboardServlet: Weekly calories burned: 0.0
+ProgressDashboardServlet: Monthly calories burned: 0.0
+ProgressDashboardServlet: Filtered calories burned: 0.0
+ProgressDashboardServlet: Recommended daily intake: 2094.3125
+ProgressDashboardServlet: Loading progress dashboard for user: Test User
+ProgressDashboardServlet: Date range - 2025-11-21 to 2025-11-28
+ProgressDashboardServlet: Weekly calories burned: 0.0
+ProgressDashboardServlet: Monthly calories burned: 0.0
+ProgressDashboardServlet: Filtered calories burned: 0.0
+ProgressDashboardServlet: Recommended daily intake: 2894.3125
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.322 s -- in com.fitness.servlets.ProgressDashboardServletRealisticTest$UserGoalAnalysisTests
+[INFO] Running com.fitness.servlets.ProgressDashboardServletRealisticTest$ProgressMetricsTests
+ProgressDashboardServlet: Loading progress dashboard for user: Test User
+ProgressDashboardServlet: Date range - 2025-11-21 to 2025-11-28
+ProgressDashboardServlet: Weekly calories burned: 0.0
+ProgressDashboardServlet: Monthly calories burned: 0.0
+ProgressDashboardServlet: Filtered calories burned: 0.0
+ProgressDashboardServlet: Recommended daily intake: 2594.3125
+ProgressDashboardServlet: Loading progress dashboard for user: Test User
+ProgressDashboardServlet: Date range - 2025-11-21 to 2025-11-28
+ProgressDashboardServlet: Weekly calories burned: 0.0
+ProgressDashboardServlet: Monthly calories burned: 0.0
+ProgressDashboardServlet: Filtered calories burned: 0.0
+ProgressDashboardServlet: Recommended daily intake: 2594.3125
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.192 s -- in com.fitness.servlets.ProgressDashboardServletRealisticTest$ProgressMetricsTests
+[INFO] Running com.fitness.servlets.ProgressDashboardServletRealisticTest$DashboardAccessTests
+ProgressDashboardServlet: Loading progress dashboard for user: Test User
+ProgressDashboardServlet: Date range - 2025-11-21 to 2025-11-28
+ProgressDashboardServlet: Weekly calories burned: 0.0
+ProgressDashboardServlet: Monthly calories burned: 0.0
+ProgressDashboardServlet: Filtered calories burned: 0.0
+ProgressDashboardServlet: Recommended daily intake: 2594.3125
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.106 s -- in com.fitness.servlets.ProgressDashboardServletRealisticTest$DashboardAccessTests
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.577 s -- in com.fitness.servlets.ProgressDashboardServletRealisticTest
+[INFO] Running com.fitness.servlets.ProgressDashboardServletTest
+[INFO] Running com.fitness.servlets.ProgressDashboardServletTest$DataAccuracyTests
+ProgressDashboardServlet: Loading progress dashboard for user: Test User
+ProgressDashboardServlet: Date range - 2025-08-30 to 2025-11-28
+ProgressDashboardServlet: Weekly calories burned: 0.0
+ProgressDashboardServlet: Monthly calories burned: 0.0
+ProgressDashboardServlet: Filtered calories burned: 0.0
+ProgressDashboardServlet: Recommended daily intake: 2555.5625
+ProgressDashboardServlet: Loading progress dashboard for user: Test User
+ProgressDashboardServlet: Date range - 2025-11-21 to 2025-11-28
+ProgressDashboardServlet: Weekly calories burned: 0.0
+ProgressDashboardServlet: Monthly calories burned: 0.0
+ProgressDashboardServlet: Filtered calories burned: 0.0
+ProgressDashboardServlet: Recommended daily intake: 2555.5625
+ProgressDashboardServlet: Loading progress dashboard for user: Test User
+ProgressDashboardServlet: Date range - 2025-10-29 to 2025-11-28
+ProgressDashboardServlet: Weekly calories burned: 0.0
+ProgressDashboardServlet: Monthly calories burned: 0.0
+ProgressDashboardServlet: Filtered calories burned: 0.0
+ProgressDashboardServlet: Recommended daily intake: 2555.5625
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.291 s -- in com.fitness.servlets.ProgressDashboardServletTest$DataAccuracyTests
+[INFO] Running com.fitness.servlets.ProgressDashboardServletTest$ErrorHandlingTests
+ProgressDashboardServlet: Loading progress dashboard for user: Test User
+ProgressDashboardServlet: Date range - 2025-11-21 to 2025-11-28
+ProgressDashboardServlet: Weekly calories burned: 0.0
+ProgressDashboardServlet: Monthly calories burned: 0.0
+ProgressDashboardServlet: Filtered calories burned: 0.0
+ProgressDashboardServlet: Recommended daily intake: 2555.5625
+Error loading progress dashboard: Database error
+java.lang.RuntimeException: Database error
+	at com.fitness.servlets.ProgressDashboardServlet.doGet(ProgressDashboardServlet.java:184)
+	at com.fitness.servlets.ProgressDashboardServletTest$ErrorHandlingTests.testRedirectOnError(ProgressDashboardServletTest.java:379)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.096 s -- in com.fitness.servlets.ProgressDashboardServletTest$ErrorHandlingTests
+[INFO] Running com.fitness.servlets.ProgressDashboardServletTest$FilteredDataTests
+ProgressDashboardServlet: Loading progress dashboard for user: Test User
+ProgressDashboardServlet: Date range - 2025-10-29 to 2025-11-28
+ProgressDashboardServlet: Weekly calories burned: 0.0
+ProgressDashboardServlet: Monthly calories burned: 0.0
+ProgressDashboardServlet: Filtered calories burned: 0.0
+ProgressDashboardServlet: Recommended daily intake: 2555.5625
+ProgressDashboardServlet: Loading progress dashboard for user: Test User
+ProgressDashboardServlet: Date range - 2025-08-30 to 2025-11-28
+ProgressDashboardServlet: Weekly calories burned: 0.0
+ProgressDashboardServlet: Monthly calories burned: 0.0
+ProgressDashboardServlet: Filtered calories burned: 0.0
+ProgressDashboardServlet: Recommended daily intake: 2555.5625
+ProgressDashboardServlet: Loading progress dashboard for user: Test User
+ProgressDashboardServlet: Date range - 2025-11-21 to 2025-11-28
+ProgressDashboardServlet: Weekly calories burned: 0.0
+ProgressDashboardServlet: Monthly calories burned: 0.0
+ProgressDashboardServlet: Filtered calories burned: 0.0
+ProgressDashboardServlet: Recommended daily intake: 2555.5625
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.288 s -- in com.fitness.servlets.ProgressDashboardServletTest$FilteredDataTests
+[INFO] Running com.fitness.servlets.ProgressDashboardServletTest$DateRangeFilterTests
+ProgressDashboardServlet: Loading progress dashboard for user: Test User
+ProgressDashboardServlet: Date range - 2024-01-01 to 2024-01-31
+ProgressDashboardServlet: Weekly calories burned: 0.0
+ProgressDashboardServlet: Monthly calories burned: 0.0
+ProgressDashboardServlet: Filtered calories burned: 0.0
+ProgressDashboardServlet: Recommended daily intake: 2555.5625
+ProgressDashboardServlet: Loading progress dashboard for user: Test User
+ProgressDashboardServlet: Date range - 2025-11-21 to 2025-11-28
+ProgressDashboardServlet: Weekly calories burned: 0.0
+ProgressDashboardServlet: Monthly calories burned: 0.0
+ProgressDashboardServlet: Filtered calories burned: 0.0
+ProgressDashboardServlet: Recommended daily intake: 2555.5625
+ProgressDashboardServlet: Loading progress dashboard for user: Test User
+ProgressDashboardServlet: Date range - 2025-11-21 to 2025-11-28
+ProgressDashboardServlet: Weekly calories burned: 0.0
+ProgressDashboardServlet: Monthly calories burned: 0.0
+ProgressDashboardServlet: Filtered calories burned: 0.0
+ProgressDashboardServlet: Recommended daily intake: 2555.5625
+ProgressDashboardServlet: Loading progress dashboard for user: Test User
+ProgressDashboardServlet: Date range - 2025-08-30 to 2025-11-28
+ProgressDashboardServlet: Weekly calories burned: 0.0
+ProgressDashboardServlet: Monthly calories burned: 0.0
+ProgressDashboardServlet: Filtered calories burned: 0.0
+ProgressDashboardServlet: Recommended daily intake: 2555.5625
+ProgressDashboardServlet: Loading progress dashboard for user: Test User
+ProgressDashboardServlet: Date range - 2025-11-21 to 2025-11-28
+ProgressDashboardServlet: Weekly calories burned: 0.0
+ProgressDashboardServlet: Monthly calories burned: 0.0
+ProgressDashboardServlet: Filtered calories burned: 0.0
+ProgressDashboardServlet: Recommended daily intake: 2555.5625
+ProgressDashboardServlet: Loading progress dashboard for user: Test User
+ProgressDashboardServlet: Date range - 2024-01-01 to 2024-01-31
+ProgressDashboardServlet: Weekly calories burned: 0.0
+ProgressDashboardServlet: Monthly calories burned: 0.0
+ProgressDashboardServlet: Filtered calories burned: 0.0
+ProgressDashboardServlet: Recommended daily intake: 2555.5625
+ProgressDashboardServlet: Loading progress dashboard for user: Test User
+ProgressDashboardServlet: Date range - 2000-01-01 to 2025-11-28
+ProgressDashboardServlet: Weekly calories burned: 0.0
+ProgressDashboardServlet: Monthly calories burned: 0.0
+ProgressDashboardServlet: Filtered calories burned: 0.0
+ProgressDashboardServlet: Recommended daily intake: 2555.5625
+ProgressDashboardServlet: Loading progress dashboard for user: Test User
+ProgressDashboardServlet: Date range - 2025-10-29 to 2025-11-28
+ProgressDashboardServlet: Weekly calories burned: 0.0
+ProgressDashboardServlet: Monthly calories burned: 0.0
+ProgressDashboardServlet: Filtered calories burned: 0.0
+ProgressDashboardServlet: Recommended daily intake: 2555.5625
+ProgressDashboardServlet: Loading progress dashboard for user: Test User
+ProgressDashboardServlet: Date range - 2024-01-01 to 2025-11-28
+ProgressDashboardServlet: Weekly calories burned: 0.0
+ProgressDashboardServlet: Monthly calories burned: 0.0
+ProgressDashboardServlet: Filtered calories burned: 0.0
+ProgressDashboardServlet: Recommended daily intake: 2555.5625
+ProgressDashboardServlet: Loading progress dashboard for user: Test User
+Invalid custom date range: Text 'invalid-date' could not be parsed at index 0
+ProgressDashboardServlet: Date range - 2025-11-21 to 2025-11-28
+ProgressDashboardServlet: Weekly calories burned: 0.0
+ProgressDashboardServlet: Monthly calories burned: 0.0
+ProgressDashboardServlet: Filtered calories burned: 0.0
+ProgressDashboardServlet: Recommended daily intake: 2555.5625
+ProgressDashboardServlet: Loading progress dashboard for user: Test User
+ProgressDashboardServlet: Date range - 2025-11-21 to 2025-11-28
+ProgressDashboardServlet: Weekly calories burned: 0.0
+ProgressDashboardServlet: Monthly calories burned: 0.0
+ProgressDashboardServlet: Filtered calories burned: 0.0
+ProgressDashboardServlet: Recommended daily intake: 2555.5625
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.066 s -- in com.fitness.servlets.ProgressDashboardServletTest$DateRangeFilterTests
+[INFO] Running com.fitness.servlets.ProgressDashboardServletTest$AuthenticationTests
+ProgressDashboardServlet: Loading progress dashboard for user: Test User
+ProgressDashboardServlet: Date range - 2025-11-21 to 2025-11-28
+ProgressDashboardServlet: Weekly calories burned: 0.0
+ProgressDashboardServlet: Monthly calories burned: 0.0
+ProgressDashboardServlet: Filtered calories burned: 0.0
+ProgressDashboardServlet: Recommended daily intake: 2555.5625
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.093 s -- in com.fitness.servlets.ProgressDashboardServletTest$AuthenticationTests
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.842 s -- in com.fitness.servlets.ProgressDashboardServletTest
+[INFO] Running com.fitness.servlets.RegisterServletTest
+[INFO] Running com.fitness.servlets.RegisterServletTest$IntegrationTests
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.381 s -- in com.fitness.servlets.RegisterServletTest$IntegrationTests
+[INFO] Running com.fitness.servlets.RegisterServletTest$InputValidationTests
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.570 s -- in com.fitness.servlets.RegisterServletTest$InputValidationTests
+[INFO] Running com.fitness.servlets.RegisterServletTest$DuplicateEmailTests
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.841 s -- in com.fitness.servlets.RegisterServletTest$DuplicateEmailTests
+[INFO] Running com.fitness.servlets.RegisterServletTest$SuccessfulRegistrationTests
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.473 s -- in com.fitness.servlets.RegisterServletTest$SuccessfulRegistrationTests
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.270 s -- in com.fitness.servlets.RegisterServletTest
+[INFO] Running com.fitness.servlets.SaveProfilePictureServletTest
+[INFO] Running com.fitness.servlets.SaveProfilePictureServletTest$ResponseFormatTests
+Profile picture saved: 1 rows affected
+Profile picture saved: 1 rows affected
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.212 s -- in com.fitness.servlets.SaveProfilePictureServletTest$ResponseFormatTests
+[INFO] Running com.fitness.servlets.SaveProfilePictureServletTest$ImageTypeTests
+Profile picture saved: 1 rows affected
+Profile picture saved: 1 rows affected
+Profile picture saved: 1 rows affected
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 s -- in com.fitness.servlets.SaveProfilePictureServletTest$ImageTypeTests
+[INFO] Running com.fitness.servlets.SaveProfilePictureServletTest$FileValidationTests
+Profile picture saved: 1 rows affected
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.703 s -- in com.fitness.servlets.SaveProfilePictureServletTest$FileValidationTests
+[INFO] Running com.fitness.servlets.SaveProfilePictureServletTest$AuthenticationTests
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s -- in com.fitness.servlets.SaveProfilePictureServletTest$AuthenticationTests
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.992 s -- in com.fitness.servlets.SaveProfilePictureServletTest
+[INFO] Running com.fitness.servlets.WorkoutEditServletTest
+[INFO] Running com.fitness.servlets.WorkoutEditServletTest$PostRequestTests
+WorkoutEditServlet: doPost method called
+WorkoutEditServlet: Updating workout:
+- Exercise Name: Swimming
+- Exercise Type: cardio
+- Duration: 45
+- Date: 2024-01-15
+- Time: 14:30
+WorkoutEditServlet: Calculated calories burned: 0.0
+WorkoutEditServlet: Saving workout to database
+WorkoutEditServlet: Workout updated successfully
+WorkoutEditServlet: doPost method called
+WorkoutEditServlet: Updating workout:
+- Exercise Name: Running
+- Exercise Type: cardio
+- Duration: 30
+- Date: invalid-date
+- Time: null
+WorkoutEditServlet: Invalid date/time format: null
+WorkoutEditServlet: doPost method called
+WorkoutEditServlet: Updating workout:
+- Exercise Name: Bench Press
+- Exercise Type: strength
+- Duration: 60
+- Date: 2024-01-15
+- Time: 18:00
+WorkoutEditServlet: Calculated calories burned: 0.0
+WorkoutEditServlet: Saving workout to database
+WorkoutEditServlet: Workout updated successfully
+WorkoutEditServlet: doPost method called
+WorkoutEditServlet: Updating workout:
+- Exercise Name: Running
+- Exercise Type: cardio
+- Duration: 30
+- Date: 2024-01-15
+- Time: null
+WorkoutEditServlet: Calculated calories burned: 0.0
+WorkoutEditServlet: Saving workout to database
+WorkoutEditServlet: Workout updated successfully
+WorkoutEditServlet: doPost method called
+WorkoutEditServlet: doPost method called
+WorkoutEditServlet: doPost method called
+WorkoutEditServlet: Updating workout:
+- Exercise Name: Running
+- Exercise Type: cardio
+- Duration: 30
+- Date: 2024-01-15
+- Time: null
+WorkoutEditServlet: Calculated calories burned: 0.0
+WorkoutEditServlet: Saving workout to database
+WorkoutEditServlet: Workout updated successfully
+WorkoutEditServlet: doPost method called
+WorkoutEditServlet: No user in session, redirecting to login
+WorkoutEditServlet: doPost method called
+WorkoutEditServlet: doPost method called
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.170 s -- in com.fitness.servlets.WorkoutEditServletTest$PostRequestTests
+[INFO] Running com.fitness.servlets.WorkoutEditServletTest$GetRequestTests
+WorkoutEditServlet: doGet method called
+WorkoutEditServlet: No workout ID provided
+WorkoutEditServlet: doGet method called
+WorkoutEditServlet: Invalid workout ID format: invalid
+WorkoutEditServlet: doGet method called
+WorkoutEditServlet: Loading workout with ID: 100
+WorkoutEditServlet: User 1 attempting to edit workout owned by 999
+WorkoutEditServlet: doGet method called
+WorkoutEditServlet: Loading workout with ID: 999
+WorkoutEditServlet: Workout not found
+WorkoutEditServlet: doGet method called
+WorkoutEditServlet: Loading workout with ID: 100
+WorkoutEditServlet: Workout loaded successfully - Running
+WorkoutEditServlet: doGet method called
+WorkoutEditServlet: No user in session, redirecting to login
+WorkoutEditServlet: doGet method called
+WorkoutEditServlet: No workout ID provided
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 s -- in com.fitness.servlets.WorkoutEditServletTest$GetRequestTests
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.210 s -- in com.fitness.servlets.WorkoutEditServletTest
+[INFO] Running com.fitness.servlets.WorkoutHistoryServletRealisticTest
+[INFO] Running com.fitness.servlets.WorkoutHistoryServletRealisticTest$ErrorHandlingTests
+WorkoutHistoryServlet: Loading workout history for user: Test User
+WorkoutHistoryServlet: Found 0 workouts
+WorkoutHistoryServlet: Progress summary - Total workouts: 0
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.089 s -- in com.fitness.servlets.WorkoutHistoryServletRealisticTest$ErrorHandlingTests
+[INFO] Running com.fitness.servlets.WorkoutHistoryServletRealisticTest$WorkoutDisplayTests
+WorkoutHistoryServlet: Loading workout history for user: Test User
+WorkoutHistoryServlet: Found 0 workouts
+WorkoutHistoryServlet: Progress summary - Total workouts: 0
+WorkoutHistoryServlet: Loading workout history for user: Test User
+WorkoutHistoryServlet: Found 0 workouts
+WorkoutHistoryServlet: Progress summary - Total workouts: 0
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.121 s -- in com.fitness.servlets.WorkoutHistoryServletRealisticTest$WorkoutDisplayTests
+[INFO] Running com.fitness.servlets.WorkoutHistoryServletRealisticTest$WorkoutManagementTests
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s -- in com.fitness.servlets.WorkoutHistoryServletRealisticTest$WorkoutManagementTests
+[INFO] Running com.fitness.servlets.WorkoutHistoryServletRealisticTest$WorkoutAnalyticsTests
+WorkoutHistoryServlet: Loading workout history for user: Test User
+WorkoutHistoryServlet: Found 0 workouts
+WorkoutHistoryServlet: Progress summary - Total workouts: 0
+WorkoutHistoryServlet: Loading workout history for user: Test User
+WorkoutHistoryServlet: Found 0 workouts
+WorkoutHistoryServlet: Progress summary - Total workouts: 0
+WorkoutHistoryServlet: Loading workout history for user: Test User
+WorkoutHistoryServlet: Found 0 workouts
+WorkoutHistoryServlet: Progress summary - Total workouts: 0
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.185 s -- in com.fitness.servlets.WorkoutHistoryServletRealisticTest$WorkoutAnalyticsTests
+[INFO] Running com.fitness.servlets.WorkoutHistoryServletRealisticTest$WorkoutFilterTests
+WorkoutHistoryServlet: Loading workout history for user: Test User
+WorkoutHistoryServlet: Found 0 workouts
+WorkoutHistoryServlet: Progress summary - Total workouts: 0
+WorkoutHistoryServlet: Loading workout history for user: Test User
+WorkoutHistoryServlet: Found 0 workouts
+WorkoutHistoryServlet: Progress summary - Total workouts: 0
+WorkoutHistoryServlet: Loading workout history for user: Test User
+WorkoutHistoryServlet: Found 0 workouts
+WorkoutHistoryServlet: Progress summary - Total workouts: 0
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.185 s -- in com.fitness.servlets.WorkoutHistoryServletRealisticTest$WorkoutFilterTests
+[INFO] Running com.fitness.servlets.WorkoutHistoryServletRealisticTest$WorkoutHistoryAccessTests
+WorkoutHistoryServlet: Loading workout history for user: Test User
+WorkoutHistoryServlet: Found 0 workouts
+WorkoutHistoryServlet: Progress summary - Total workouts: 0
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.063 s -- in com.fitness.servlets.WorkoutHistoryServletRealisticTest$WorkoutHistoryAccessTests
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.679 s -- in com.fitness.servlets.WorkoutHistoryServletRealisticTest
+[INFO] Running com.fitness.servlets.WorkoutLogServletRealisticTest
+[INFO] Running com.fitness.servlets.WorkoutLogServletRealisticTest$ErrorHandlingTests
+WorkoutLogServlet: doPost method called
+WorkoutLogServlet: Processing workout for user: Test User
+WorkoutLogServlet: Received form data:
+- Exercise Name: Running
+- Exercise Type: cardio
+- Sets: null
+- Reps: null
+- Weight: null
+- Duration: 30
+- Date: invalid-date
+- Time: null
+java.lang.IllegalArgumentException
+	at java.sql/java.sql.Date.valueOf(Date.java:141)
+	at com.fitness.servlets.WorkoutLogServlet.doPost(WorkoutLogServlet.java:134)
+	at com.fitness.servlets.WorkoutLogServletRealisticTest$ErrorHandlingTests.lambda$shouldHandleInvalidDateFormat$0(WorkoutLogServletRealisticTest.java:408)
+	at org.assertj.core.api.ThrowableAssert.catchThrowable(ThrowableAssert.java:63)
+	at org.assertj.core.api.AssertionsForClassTypes.catchThrowable(AssertionsForClassTypes.java:892)
+	at org.assertj.core.api.AssertionsForClassTypes.assertThatCode(AssertionsForClassTypes.java:863)
+	at org.assertj.core.api.Assertions.assertThatCode(Assertions.java:1287)
+	at com.fitness.servlets.WorkoutLogServletRealisticTest$ErrorHandlingTests.shouldHandleInvalidDateFormat(WorkoutLogServletRealisticTest.java:408)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+WorkoutLogServlet: doPost method called
+WorkoutLogServlet: Processing workout for user: Test User
+WorkoutLogServlet: Received form data:
+- Exercise Name: Running
+- Exercise Type: cardio
+- Sets: 0
+- Reps: 0
+- Weight: 0
+- Duration: 30
+- Date: 2024-01-01
+- Time: 09:00
+WorkoutLogServlet: Calculated calories burned: 300.0
+WorkoutLogServlet: Saving workout to database for user ID: 1
+java.lang.RuntimeException: Database connection failed
+	at com.fitness.dao.WorkoutDAO.updateDailyFitnessSummary(WorkoutDAO.java:256)
+	at com.fitness.servlets.WorkoutLogServlet.doPost(WorkoutLogServlet.java:164)
+	at com.fitness.servlets.WorkoutLogServletRealisticTest$ErrorHandlingTests.lambda$shouldHandleDatabaseSaveErrorsGracefully$0(WorkoutLogServletRealisticTest.java:389)
+	at org.assertj.core.api.ThrowableAssert.catchThrowable(ThrowableAssert.java:63)
+	at org.assertj.core.api.AssertionsForClassTypes.catchThrowable(AssertionsForClassTypes.java:892)
+	at org.assertj.core.api.AssertionsForClassTypes.assertThatCode(AssertionsForClassTypes.java:863)
+	at org.assertj.core.api.Assertions.assertThatCode(Assertions.java:1287)
+	at com.fitness.servlets.WorkoutLogServletRealisticTest$ErrorHandlingTests.shouldHandleDatabaseSaveErrorsGracefully(WorkoutLogServletRealisticTest.java:389)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+WorkoutLogServlet: doPost method called
+WorkoutLogServlet: Processing workout for user: Test User
+WorkoutLogServlet: Received form data:
+- Exercise Name: 
+- Exercise Type: 
+- Sets: null
+- Reps: null
+- Weight: null
+- Duration: 
+- Date: 
+- Time: null
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s -- in com.fitness.servlets.WorkoutLogServletRealisticTest$ErrorHandlingTests
+[INFO] Running com.fitness.servlets.WorkoutLogServletRealisticTest$UserSessionManagementTests
+WorkoutLogServlet: doPost method called
+WorkoutLogServlet: Processing workout for user: Test User
+WorkoutLogServlet: Received form data:
+- Exercise Name: Cycling
+- Exercise Type: cardio
+- Sets: 0
+- Reps: 0
+- Weight: 0
+- Duration: 45
+- Date: 2024-01-01
+- Time: 10:00
+WorkoutLogServlet: Calculated calories burned: 350.0
+WorkoutLogServlet: Saving workout to database for user ID: 1
+WorkoutLogServlet: Workout saved successfully
+WorkoutLogServlet: doPost method called
+WorkoutLogServlet: No user in session, redirecting to login
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s -- in com.fitness.servlets.WorkoutLogServletRealisticTest$UserSessionManagementTests
+[INFO] Running com.fitness.servlets.WorkoutLogServletRealisticTest$CalorieCalculationTests
+WorkoutLogServlet: doPost method called
+WorkoutLogServlet: Processing workout for user: Test User
+WorkoutLogServlet: Received form data:
+- Exercise Name: Swimming
+- Exercise Type: cardio
+- Sets: null
+- Reps: null
+- Weight: null
+- Duration: 60
+- Date: 2024-01-01
+- Time: null
+WorkoutLogServlet: Calculated calories burned: 500.0
+WorkoutLogServlet: Saving workout to database for user ID: 1
+WorkoutLogServlet: Workout saved successfully
+WorkoutLogServlet: doPost method called
+WorkoutLogServlet: Processing workout for user: Test User
+WorkoutLogServlet: Received form data:
+- Exercise Name: Unknown Exercise
+- Exercise Type: other
+- Sets: null
+- Reps: null
+- Weight: null
+- Duration: 30
+- Date: 2024-01-01
+- Time: null
+WorkoutLogServlet: Calculated calories burned: 120.0
+WorkoutLogServlet: Saving workout to database for user ID: 1
+WorkoutLogServlet: Workout saved successfully
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s -- in com.fitness.servlets.WorkoutLogServletRealisticTest$CalorieCalculationTests
+[INFO] Running com.fitness.servlets.WorkoutLogServletRealisticTest$WorkoutHistoryDisplayTests
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s -- in com.fitness.servlets.WorkoutLogServletRealisticTest$WorkoutHistoryDisplayTests
+[INFO] Running com.fitness.servlets.WorkoutLogServletRealisticTest$WorkoutCreationStrengthTests
+WorkoutLogServlet: doPost method called
+WorkoutLogServlet: Processing workout for user: Test User
+WorkoutLogServlet: Received form data:
+- Exercise Name: Push-ups
+- Exercise Type: strength
+- Sets: 
+- Reps: 
+- Weight: 
+- Duration: 20
+- Date: 2024-01-01
+- Time: 
+WorkoutLogServlet: Calculated calories burned: 150.0
+WorkoutLogServlet: Saving workout to database for user ID: 1
+WorkoutLogServlet: Workout saved successfully
+WorkoutLogServlet: doPost method called
+WorkoutLogServlet: Processing workout for user: Test User
+WorkoutLogServlet: Received form data:
+- Exercise Name: Bench Press
+- Exercise Type: strength
+- Sets: 3
+- Reps: 10
+- Weight: 80.0
+- Duration: 45
+- Date: 2024-01-01
+- Time: 18:00
+WorkoutLogServlet: Calculated calories burned: 200.0
+WorkoutLogServlet: Saving workout to database for user ID: 1
+WorkoutLogServlet: Workout saved successfully
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s -- in com.fitness.servlets.WorkoutLogServletRealisticTest$WorkoutCreationStrengthTests
+[INFO] Running com.fitness.servlets.WorkoutLogServletRealisticTest$WorkoutCreationCardioTests
+WorkoutLogServlet: doPost method called
+WorkoutLogServlet: Processing workout for user: Test User
+WorkoutLogServlet: Received form data:
+- Exercise Name: Running
+- Exercise Type: cardio
+- Sets: 0
+- Reps: 0
+- Weight: 0
+- Duration: 30
+- Date: 2024-01-01
+- Time: 08:00
+WorkoutLogServlet: Calculated calories burned: 300.0
+WorkoutLogServlet: Saving workout to database for user ID: 1
+WorkoutLogServlet: Workout saved successfully
+WorkoutLogServlet: doPost method called
+WorkoutLogServlet: Processing workout for user: Test User
+WorkoutLogServlet: Received form data:
+- Exercise Name: null
+- Exercise Type: cardio
+- Sets: null
+- Reps: null
+- Weight: null
+- Duration: 30
+- Date: 2024-01-01
+- Time: null
+WorkoutLogServlet: doPost method called
+WorkoutLogServlet: Processing workout for user: Test User
+WorkoutLogServlet: Received form data:
+- Exercise Name: Running
+- Exercise Type: cardio
+- Sets: null
+- Reps: null
+- Weight: null
+- Duration: invalid
+- Date: 2024-01-01
+- Time: 10:00
+WorkoutLogServlet: Calculated calories burned: 0.0
+WorkoutLogServlet: Saving workout to database for user ID: 1
+WorkoutLogServlet: Workout saved successfully
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s -- in com.fitness.servlets.WorkoutLogServletRealisticTest$WorkoutCreationCardioTests
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.112 s -- in com.fitness.servlets.WorkoutLogServletRealisticTest
+[INFO] Running com.fitness.servlets.WorkoutLogServletTest
+[INFO] Running com.fitness.servlets.WorkoutLogServletTest$UserSessionManagementTests
+WorkoutLogServlet: doPost method called
+WorkoutLogServlet: No user in session, redirecting to login
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s -- in com.fitness.servlets.WorkoutLogServletTest$UserSessionManagementTests
+[INFO] Running com.fitness.servlets.WorkoutLogServletTest$CalorieCalculationTests
+WorkoutLogServlet: doPost method called
+WorkoutLogServlet: Processing workout for user: Test User
+WorkoutLogServlet: Received form data:
+- Exercise Name: Swimming
+- Exercise Type: cardio
+- Sets: null
+- Reps: null
+- Weight: null
+- Duration: 45
+- Date: 2024-01-15
+- Time: 10:30
+WorkoutLogServlet: Calculated calories burned: 400.0
+WorkoutLogServlet: Saving workout to database for user ID: 1
+WorkoutLogServlet: Workout saved successfully
+WorkoutLogServlet: doPost method called
+WorkoutLogServlet: Processing workout for user: Test User
+WorkoutLogServlet: Received form data:
+- Exercise Name: Unknown Exercise
+- Exercise Type: cardio
+- Sets: null
+- Reps: null
+- Weight: null
+- Duration: 30
+- Date: 2024-01-15
+- Time: 10:30
+WorkoutLogServlet: Calculated calories burned: 150.0
+WorkoutLogServlet: Saving workout to database for user ID: 1
+WorkoutLogServlet: Workout saved successfully
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s -- in com.fitness.servlets.WorkoutLogServletTest$CalorieCalculationTests
+[INFO] Running com.fitness.servlets.WorkoutLogServletTest$WorkoutHistoryDisplayTests
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s -- in com.fitness.servlets.WorkoutLogServletTest$WorkoutHistoryDisplayTests
+[INFO] Running com.fitness.servlets.WorkoutLogServletTest$WorkoutCreationTests
+WorkoutLogServlet: doPost method called
+WorkoutLogServlet: Processing workout for user: Test User
+WorkoutLogServlet: Received form data:
+- Exercise Name: Running
+- Exercise Type: cardio
+- Sets: null
+- Reps: null
+- Weight: null
+- Duration: 30
+- Date: 2024-01-15
+- Time: 10:30
+WorkoutLogServlet: Calculated calories burned: 300.0
+WorkoutLogServlet: Saving workout to database for user ID: 1
+WorkoutLogServlet: Workout saved successfully
+WorkoutLogServlet: doPost method called
+WorkoutLogServlet: Processing workout for user: Test User
+WorkoutLogServlet: Received form data:
+- Exercise Name: Bench Press
+- Exercise Type: strength
+- Sets: 3
+- Reps: 10
+- Weight: 80.0
+- Duration: 45
+- Date: 2024-01-15
+- Time: 14:30
+WorkoutLogServlet: Calculated calories burned: 250.0
+WorkoutLogServlet: Saving workout to database for user ID: 1
+WorkoutLogServlet: Workout saved successfully
+WorkoutLogServlet: doPost method called
+WorkoutLogServlet: Processing workout for user: Test User
+WorkoutLogServlet: Received form data:
+- Exercise Name: null
+- Exercise Type: null
+- Sets: null
+- Reps: null
+- Weight: null
+- Duration: null
+- Date: null
+- Time: null
+WorkoutLogServlet: doPost method called
+WorkoutLogServlet: Processing workout for user: Test User
+WorkoutLogServlet: Received form data:
+- Exercise Name: Jogging
+- Exercise Type: cardio
+- Sets: null
+- Reps: null
+- Weight: null
+- Duration: invalid
+- Date: 2024-01-15
+- Time: null
+WorkoutLogServlet: Calculated calories burned: 0.0
+WorkoutLogServlet: Saving workout to database for user ID: 1
+WorkoutLogServlet: Workout saved successfully
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s -- in com.fitness.servlets.WorkoutLogServletTest$WorkoutCreationTests
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.051 s -- in com.fitness.servlets.WorkoutLogServletTest
+[INFO] Running com.fitness.util.CalorieCalculatorTest
+[INFO] Running com.fitness.util.CalorieCalculatorTest$EdgeCaseTests
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s -- in com.fitness.util.CalorieCalculatorTest$EdgeCaseTests
+[INFO] Running com.fitness.util.CalorieCalculatorTest$WeeklyBalanceTests
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s -- in com.fitness.util.CalorieCalculatorTest$WeeklyBalanceTests
+[INFO] Running com.fitness.util.CalorieCalculatorTest$RecommendedIntakeTests
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in com.fitness.util.CalorieCalculatorTest$RecommendedIntakeTests
+[INFO] Running com.fitness.util.CalorieCalculatorTest$CalorieGoalTests
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.191 s -- in com.fitness.util.CalorieCalculatorTest$CalorieGoalTests
+[INFO] Running com.fitness.util.CalorieCalculatorTest$EnhancedCalculationTests
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s -- in com.fitness.util.CalorieCalculatorTest$EnhancedCalculationTests
+[INFO] Running com.fitness.util.CalorieCalculatorTest$TDEECalculationTests
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s -- in com.fitness.util.CalorieCalculatorTest$TDEECalculationTests
+[INFO] Running com.fitness.util.CalorieCalculatorTest$BMRCalculationTests
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s -- in com.fitness.util.CalorieCalculatorTest$BMRCalculationTests
+[INFO] Running com.fitness.util.CalorieCalculatorTest$METCalculationTests
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s -- in com.fitness.util.CalorieCalculatorTest$METCalculationTests
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.266 s -- in com.fitness.util.CalorieCalculatorTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 284, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- war:3.3.2:war (default-war) @ macromind ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [macromind] in [C:\Users\wdost.DSL\Documents\GitHub\macromind\target\macromind]
+[INFO] Processing war project
+[INFO] Copying webapp resources [C:\Users\wdost.DSL\Documents\GitHub\macromind\src\main\webapp]
+[INFO] Building war: C:\Users\wdost.DSL\Documents\GitHub\macromind\target\macromind.war
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  35.688 s
+[INFO] Finished at: 2025-11-28T23:13:44-05:00
+[INFO] ------------------------------------------------------------------------

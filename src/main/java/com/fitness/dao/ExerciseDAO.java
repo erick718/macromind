@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fitness.Model.Exercise;
+import com.fitness.model.Exercise;
 import com.fitness.util.DBConnection;
 
 public class ExerciseDAO {

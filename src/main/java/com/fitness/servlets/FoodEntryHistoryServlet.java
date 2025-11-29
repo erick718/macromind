@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fitness.dao.FoodEntryDAO;
-import com.fitness.Model.FoodEntry;
-import com.fitness.Model.User;
+import com.fitness.model.FoodEntry;
+import com.fitness.model.User;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;

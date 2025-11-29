@@ -10,8 +10,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.fitness.Model.ExerciseType;
-import com.fitness.Model.Workout;
+import com.fitness.model.ExerciseType;
+import com.fitness.model.Workout;
 import com.fitness.util.DBConnection;
 
 public class WorkoutDAO {

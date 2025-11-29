@@ -2,7 +2,7 @@ package com.fitness.servlets;
 
 import java.io.IOException;
 
-import com.fitness.Model.User;
+import com.fitness.model.User;
 import com.fitness.util.SecurityUtil;
 
 import jakarta.servlet.ServletException;

@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.fitness.Model.User;
+import com.fitness.model.User;
 import com.fitness.util.DBConnection;
 import com.fitness.util.SecurityUtil;
 

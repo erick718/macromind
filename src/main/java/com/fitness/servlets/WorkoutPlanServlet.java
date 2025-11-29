@@ -3,8 +3,8 @@ package com.fitness.servlets;
 import java.io.IOException;
 import java.util.List;
 
-import com.fitness.Model.User;
-import com.fitness.Model.WorkoutPlan;
+import com.fitness.model.User;
+import com.fitness.model.WorkoutPlan;
 import com.fitness.dao.UserDAO;
 import com.fitness.service.WorkoutPlanService;
 

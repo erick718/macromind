@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import com.fitness.Model.User;
-import com.fitness.Model.Workout;
+import com.fitness.model.User;
+import com.fitness.model.Workout;
 import com.fitness.util.CalorieCalculator.CalorieBalanceSummary;
 
 @DisplayName("CalorieCalculator Tests")
