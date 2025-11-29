@@ -2,7 +2,7 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="com.fitness.util.DBConnection" %>
 <%@ page import="com.fitness.dao.WorkoutPlanDAO" %>
-<%@ page import="com.fitness.Model.WorkoutPlan" %>
+<%@ page import="com.fitness.model.WorkoutPlan" %>
 <%@ page import="java.util.List" %>
 
 <!DOCTYPE html>

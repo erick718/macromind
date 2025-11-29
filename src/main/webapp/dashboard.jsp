@@ -48,20 +48,6 @@
                 <div class="grid grid-auto">
                     <div class="card bg-light">
                         <div class="card-body text-center">
-                            <% if (user.getProfilePicture() != null && user.getProfilePicture().length > 0) { %>
-                                <img src="data:<%= user.getProfilePictureType() %>;base64,<%= java.util.Base64.getEncoder().encodeToString(user.getProfilePicture()) %>" 
-                                     alt="Profile Picture" 
-                                     class="profile-picture">
-                            <% } else { %>
-                                <div class="profile-picture" style="background: linear-gradient(135deg, var(--primary-color) 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; font-weight: bold; margin: 0 auto;">
-                                    <%= user.getName().substring(0, 1).toUpperCase() %>
-                                </div>
-                            <% } %>
-                        </div>
-                    </div>
-                    
-                    <div class="card bg-light">
-                        <div class="card-body text-center">
                             <h4 class="text-primary">Age</h4>
                             <p class="text-secondary">
                                 <%= user.getAge() > 0 ? user.getAge() + " years" : "Not set" %>
@@ -145,6 +131,11 @@
             </div>
             <div class="card-body">
                 <div class="grid grid-auto">
+                    <a href="workout-generator.jsp" class="btn btn-primary btn-lg text-center dashboard-nav-card">
+                        <div class="dashboard-nav-title">Generate Workout Plan</div>
+                        <div class="dashboard-nav-subtitle">AI-powered personalized plans</div>
+                    </a>
+
                     <a href="workout-log" class="btn btn-primary btn-lg text-center dashboard-nav-card">
                         <div class="dashboard-nav-title">Log Workout</div>
                         <div class="dashboard-nav-subtitle">Track exercises & calories burned</div>
@@ -174,11 +165,6 @@
                         <div class="dashboard-nav-title">Progress Dashboard</div>
                         <div class="dashboard-nav-subtitle">Analytics & insights</div>
                     </a>
-                    
-                    <a href="workout-generator.jsp" class="btn btn-primary btn-lg text-center dashboard-nav-card" style="grid-column: 1 / -1;">
-                        <div class="dashboard-nav-title">Generate Workout Plan</div>
-                        <div class="dashboard-nav-subtitle">AI-powered personalized plans</div>
-                    </a>
                 </div>
             </div>
         </div>
@@ -191,4 +177,3 @@
     </div>
 </div>
 </body>
-</html>

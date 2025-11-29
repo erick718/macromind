@@ -1,22 +1,27 @@
 package com.fitness.servlets;
 
-import com.fitness.dao.UserDAO;
-import com.fitness.Model.User;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.ServletOutputStream;
-import jakarta.servlet.http.*;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentCaptor;
-
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
 import static org.mockito.ArgumentMatchers.anyInt;
-import static org.mockito.Mockito.*;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import com.fitness.Model.User;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletOutputStream;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @DisplayName("GetProfilePictureServlet Tests")
 class GetProfilePictureServletTest {
@@ -35,7 +40,8 @@ class GetProfilePictureServletTest {
         mockResponse = mock(HttpServletResponse.class);
         mockSession = mock(HttpSession.class);
         mockUser = new User();
-        mockUser.setUserId(1);
+        // Use a high user ID that doesn't exist in the database
+        mockUser.setUserId(99999);
         mockUser.setName("Test User");
 
         responseOutputStream = new ByteArrayOutputStream();

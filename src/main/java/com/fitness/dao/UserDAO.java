@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 import com.fitness.Model.User;
 import com.fitness.util.DBConnection;
+import com.fitness.util.SecurityUtil;
 
 public class UserDAO {
 
@@ -33,13 +34,24 @@ public class UserDAO {
 
     // Create new user
     public void createUser(User user) {
-        String query = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
+        String rawPassword = user.getPassword();
+        String hashedPassword = SecurityUtil.hashPassword(rawPassword);
+        
+        // Hash security answer if provided
+        String securityAnswerHash = null;
+        if (user.getSecurityAnswerHash() != null && !user.getSecurityAnswerHash().isEmpty()) {
+            securityAnswerHash = SecurityUtil.hashPassword(user.getSecurityAnswerHash().toLowerCase().trim());
+        }
+        
+        String query = "INSERT INTO users (username, email, hashed_password, security_question, security_answer_hash) VALUES (?, ?, ?, ?, ?)";
         try (Connection conn = getConnection();
              PreparedStatement ps = conn.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS)) {
 
             ps.setString(1, user.getName());
             ps.setString(2, user.getEmail());
-            ps.setString(3, user.getPassword());
+            ps.setString(3, hashedPassword);
+            ps.setString(4, user.getSecurityQuestion());
+            ps.setString(5, securityAnswerHash);
             ps.executeUpdate();
             
 
@@ -67,7 +79,15 @@ public class UserDAO {
                 user.setUserId(rs.getInt("user_id"));
                 user.setName(rs.getString("username"));
                 user.setEmail(rs.getString("email"));
-                user.setPassword(rs.getString("password"));
+                user.setPassword(rs.getString("hashed_password"));
+                
+                // Load security question and answer hash if available
+                try {
+                    user.setSecurityQuestion(rs.getString("security_question"));
+                    user.setSecurityAnswerHash(rs.getString("security_answer_hash"));
+                } catch (SQLException e) {
+                    // Security columns don't exist yet - that's okay
+                }
                 
                 // Load profile data if available (check if columns exist)
                 try {
@@ -150,6 +170,28 @@ public boolean deleteUser(int userId) {
         } catch (SQLException e) {
             e.printStackTrace();
             System.err.println("Error updating user profile: " + e.getMessage());
+        }
+    }
+
+
+    // Reset user password
+    public boolean resetPassword(String email, String newPassword) {
+        String hashedPassword = SecurityUtil.hashPassword(newPassword);
+        String query = "UPDATE users SET hashed_password=? WHERE email=?";
+        
+        try (Connection conn = getConnection();
+             PreparedStatement ps = conn.prepareStatement(query)) {
+
+            ps.setString(1, hashedPassword);
+            ps.setString(2, email);
+            int rowsUpdated = ps.executeUpdate();
+            
+            return rowsUpdated > 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("Error resetting password: " + e.getMessage());
+            return false;
         }
     }
 

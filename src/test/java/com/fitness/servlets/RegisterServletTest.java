@@ -1,20 +1,32 @@
 package com.fitness.servlets;
 
+import java.io.IOException;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
 import com.fitness.dao.UserDAO;
 import com.fitness.Model.User;
+
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import org.junit.jupiter.api.*;
-
-import java.io.IOException;
-
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.*;
 
 @DisplayName("RegisterServlet Tests")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -67,6 +79,8 @@ class RegisterServletTest {
             when(mockRequest.getParameter("username")).thenReturn("Test User");
             when(mockRequest.getParameter("email")).thenReturn(email);
             when(mockRequest.getParameter("password")).thenReturn("password123");
+            when(mockRequest.getParameter("security_question")).thenReturn("What is your favorite color?");
+            when(mockRequest.getParameter("security_answer")).thenReturn("blue");
 
             servlet.doPost(mockRequest, mockResponse);
 
@@ -87,6 +101,8 @@ class RegisterServletTest {
             when(mockRequest.getParameter("username")).thenReturn("Test User");
             when(mockRequest.getParameter("email")).thenReturn(email);
             when(mockRequest.getParameter("password")).thenReturn("password123");
+            when(mockRequest.getParameter("security_question")).thenReturn("What is your favorite color?");
+            when(mockRequest.getParameter("security_answer")).thenReturn("blue");
 
             servlet.doPost(mockRequest, mockResponse);
 
@@ -107,6 +123,8 @@ class RegisterServletTest {
             when(mockRequest.getParameter("username")).thenReturn("Test User");
             when(mockRequest.getParameter("email")).thenReturn(email);
             when(mockRequest.getParameter("password")).thenReturn("password123");
+            when(mockRequest.getParameter("security_question")).thenReturn("What is your favorite color?");
+            when(mockRequest.getParameter("security_answer")).thenReturn("blue");
 
             servlet.doPost(mockRequest, mockResponse);
 
@@ -127,6 +145,8 @@ class RegisterServletTest {
             when(mockRequest.getParameter("username")).thenReturn("Test User");
             when(mockRequest.getParameter("email")).thenReturn(email);
             when(mockRequest.getParameter("password")).thenReturn("password123");
+            when(mockRequest.getParameter("security_question")).thenReturn("What is your favorite color?");
+            when(mockRequest.getParameter("security_answer")).thenReturn("blue");
 
             servlet.doPost(mockRequest, mockResponse);
 
@@ -157,6 +177,8 @@ class RegisterServletTest {
             when(mockRequest.getParameter("username")).thenReturn("New User");
             when(mockRequest.getParameter("email")).thenReturn(email);
             when(mockRequest.getParameter("password")).thenReturn("newPassword");
+            when(mockRequest.getParameter("security_question")).thenReturn("What is your favorite color?");
+            when(mockRequest.getParameter("security_answer")).thenReturn("red");
 
             servlet.doPost(mockRequest, mockResponse);
 
@@ -180,6 +202,8 @@ class RegisterServletTest {
             when(mockRequest.getParameter("username")).thenReturn("New User");
             when(mockRequest.getParameter("email")).thenReturn(email);
             when(mockRequest.getParameter("password")).thenReturn("newPassword");
+            when(mockRequest.getParameter("security_question")).thenReturn("What is your favorite color?");
+            when(mockRequest.getParameter("security_answer")).thenReturn("red");
 
             servlet.doPost(mockRequest, mockResponse);
 
@@ -202,6 +226,8 @@ class RegisterServletTest {
             when(mockRequest.getParameter("username")).thenReturn("New User");
             when(mockRequest.getParameter("email")).thenReturn(email);
             when(mockRequest.getParameter("password")).thenReturn("newPassword");
+            when(mockRequest.getParameter("security_question")).thenReturn("What is your favorite color?");
+            when(mockRequest.getParameter("security_answer")).thenReturn("red");
 
             servlet.doPost(mockRequest, mockResponse);
 
@@ -224,6 +250,8 @@ class RegisterServletTest {
             when(mockRequest.getParameter("username")).thenReturn("New User");
             when(mockRequest.getParameter("email")).thenReturn(email);
             when(mockRequest.getParameter("password")).thenReturn("newPassword");
+            when(mockRequest.getParameter("security_question")).thenReturn("What is your favorite color?");
+            when(mockRequest.getParameter("security_answer")).thenReturn("red");
 
             servlet.doPost(mockRequest, mockResponse);
 
@@ -245,6 +273,8 @@ class RegisterServletTest {
             when(mockRequest.getParameter("username")).thenReturn("Complete Name");
             when(mockRequest.getParameter("email")).thenReturn(email);
             when(mockRequest.getParameter("password")).thenReturn("strongPassword123");
+            when(mockRequest.getParameter("security_question")).thenReturn("What is your favorite color?");
+            when(mockRequest.getParameter("security_answer")).thenReturn("blue");
 
             servlet.doPost(mockRequest, mockResponse);
 
@@ -271,6 +301,8 @@ class RegisterServletTest {
                 when(mockRequest.getParameter("username")).thenReturn("Test User");
                 when(mockRequest.getParameter("email")).thenReturn(email);
                 when(mockRequest.getParameter("password")).thenReturn("password123");
+                when(mockRequest.getParameter("security_question")).thenReturn("What is your favorite color?");
+                when(mockRequest.getParameter("security_answer")).thenReturn("blue");
 
                 servlet.doPost(mockRequest, mockResponse);
 
@@ -299,6 +331,8 @@ class RegisterServletTest {
                 when(mockRequest.getParameter("username")).thenReturn(usernames[i]);
                 when(mockRequest.getParameter("email")).thenReturn(email);
                 when(mockRequest.getParameter("password")).thenReturn("password123");
+                when(mockRequest.getParameter("security_question")).thenReturn("What is your favorite color?");
+                when(mockRequest.getParameter("security_answer")).thenReturn("blue");
 
                 servlet.doPost(mockRequest, mockResponse);
 
@@ -324,6 +358,8 @@ class RegisterServletTest {
             when(mockRequest.getParameter("username")).thenReturn("Integration Test User");
             when(mockRequest.getParameter("email")).thenReturn(email);
             when(mockRequest.getParameter("password")).thenReturn("password123");
+            when(mockRequest.getParameter("security_question")).thenReturn("What is your favorite color?");
+            when(mockRequest.getParameter("security_answer")).thenReturn("blue");
 
             servlet.doPost(mockRequest, mockResponse);
 

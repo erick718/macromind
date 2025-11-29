@@ -37,6 +37,10 @@
                                placeholder="Enter your password">
                     </div>
                     
+                    <div class="text-right mb-3">
+                        <a href="forgot_password.jsp" class="text-primary">Forgot Password?</a>
+                    </div>
+                    
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-block btn-lg">
                             Sign In

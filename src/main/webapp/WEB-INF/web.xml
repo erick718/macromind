@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
-                             http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
-         version="4.0">
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+                             https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
 
     <!-- ======== Servlet Declarations ======== -->
     <servlet>
@@ -50,7 +50,25 @@
         <servlet-class>com.fitness.servlets.FoodEntryHistoryServlet</servlet-class>
     </servlet>
 
-   
+    <!-- Password Reset Servlets -->
+    <servlet>
+        <servlet-name>ForgotPasswordServlet</servlet-name>
+        <servlet-class>com.fitness.servlets.ForgotPasswordServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>VerifySecurityAnswerServlet</servlet-name>
+        <servlet-class>com.fitness.servlets.VerifySecurityAnswerServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ResetPasswordServlet</servlet-name>
+        <servlet-class>com.fitness.servlets.ResetPasswordServlet</servlet-class>
+    </servlet>
+
+    <!-- Workout Logging Servlets are auto-configured via @WebServlet annotations -->
+    <!-- WorkoutEditServlet, LogExerciseServlet, CalorieBalanceServlet, 
+         DeleteAccountServlet, and DatabaseTestServlet use @WebServlet annotations for auto-configuration -->
 
 
 
@@ -98,6 +116,25 @@
         <servlet-name>FoodEntryHistoryServlet</servlet-name>
         <url-pattern>/food-history</url-pattern>
     </servlet-mapping>
+
+    <!-- Map password reset servlets -->
+    <servlet-mapping>
+        <servlet-name>ForgotPasswordServlet</servlet-name>
+        <url-pattern>/ForgotPasswordServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>VerifySecurityAnswerServlet</servlet-name>
+        <url-pattern>/VerifySecurityAnswerServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ResetPasswordServlet</servlet-name>
+        <url-pattern>/ResetPasswordServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- Workout Logging Servlet Mappings (via @WebServlet annotations) -->
+    <!-- Database Test servlets use @WebServlet annotations -->
 
 
 
