@@ -15,11 +15,16 @@
     <title>Profile Setup - MacroMind</title>
     <link rel="stylesheet" href="css/custom.css">
 </head>
+
 <body>
-    <div class="container container-md">
-        <div class="page-header">
-            <h1 class="page-title">Profile Setup</h1>
-            <p class="page-subtitle">Complete your profile for <%= user.getName() %> to get personalized recommendations</p>
+<div class="container">
+    <h2>Profile Setup for <%= user.getName() %></h2>
+
+    <!-- Success/Error Messages -->
+    <% String error = (String) session.getAttribute("error"); %>
+    <% if (error != null) { %>
+        <div class="alert alert-error">
+            <%= error %>
         </div>
         
         <!-- Success/Error Messages -->
@@ -109,6 +114,50 @@
             <a href="LogoutServlet" class="btn btn-outline">Logout</a>
         </div>
     </div>
+
+    <!-- Delete account button -->
+    <button class="btn btn-danger" onclick="openDeleteModal()">Delete Account</button>
 </div>
+
+<!-- Delete Confirmation Modal -->
+<div id="deleteModal" class="modal">
+    <div class="modal-content">
+        <h3>Are you sure?</h3>
+        <p>This will permanently delete your account and all your saved data.</p>
+
+        <button class="btn btn-secondary" onclick="closeDeleteModal()">Cancel</button>
+
+        <form action="DeleteAccountServlet" method="POST" style="display:inline;">
+            <input type="text" name="confirm" placeholder="Type DELETE to confirm" required>
+            <button type="submit" class="btn btn-danger">Delete Account</button>
+        </form>
+    </div>
+</div>
+
+<style>
+.modal {
+    display: none;
+    position: fixed;
+    left: 0; top: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.7);
+}
+.modal-content {
+    margin: 15% auto;
+    padding: 20px;
+    width: 30%;
+    background: white;
+    border-radius: 10px;
+}
+</style>
+
+<script>
+function openDeleteModal() {
+    document.getElementById("deleteModal").style.display = "block";
+}
+function closeDeleteModal() {
+    document.getElementById("deleteModal").style.display = "none";
+}
+</script>
+
 </body>
 </html>

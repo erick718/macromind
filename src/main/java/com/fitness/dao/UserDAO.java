@@ -104,19 +104,21 @@ public class UserDAO {
     }
 
     // Delete user
-    public void deleteUser(int userId) {
-        String query = "DELETE FROM users WHERE user_id=?";
-        try (Connection conn = getConnection();
-             PreparedStatement ps = conn.prepareStatement(query)) {
+public boolean deleteUser(int userId) {
+    String sql = "DELETE FROM users WHERE user_id = ?";
 
-            ps.setInt(1, userId);
-            ps.executeUpdate();
+    try (Connection conn = getConnection();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        stmt.setInt(1, userId);
+        int rows = stmt.executeUpdate();
+
+        return rows > 0;
+    } catch (Exception e) {
+        e.printStackTrace();
+        return false;
     }
-
+}
     // Update user profile information
     public void updateUserProfile(User user) {
         String query = "UPDATE users SET age=?, weight=?, height=?, goal=?, dietary_preference=?, fitness_level=?, availability=? WHERE user_id=?";
