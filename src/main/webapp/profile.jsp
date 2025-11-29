@@ -24,19 +24,12 @@
     <% String error = (String) session.getAttribute("error"); %>
     <% if (error != null) { %>
         <div class="alert alert-error">
-            <%= error %>
+            <strong>Profile Error:</strong> <%= error %>
         </div>
-        
-        <!-- Success/Error Messages -->
-        <% String error = (String) session.getAttribute("error"); %>
-        <% if (error != null) { %>
-            <div class="alert alert-error">
-                <strong>Profile Error:</strong> <%= error %>
-            </div>
-            <% session.removeAttribute("error"); %>
-        <% } %>
+        <% session.removeAttribute("error"); %>
+    <% } %>
 
-        <div class="card">
+    <div class="card">
             <div class="card-header">
                 <h3 class="card-title">Personal Information</h3>
                 <p class="card-subtitle">This information helps us calculate accurate calorie burns and provide personalized recommendations</p>

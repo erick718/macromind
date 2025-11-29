@@ -1,11 +1,17 @@
 package com.fitness.servlets;
 
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.time.LocalDate;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
-import java.util.Collections;
-import java.util.List;
-import java.util.stream.Collectors;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import com.fitness.dao.FoodEntryDAO;
 import com.fitness.dao.FoodItemDAO;
@@ -16,22 +22,9 @@ import com.fitness.model.User;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.net.URLEncoder;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
-import java.time.LocalDateTime;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/FoodEntryServlet")
 public class FoodEntryServlet extends HttpServlet {

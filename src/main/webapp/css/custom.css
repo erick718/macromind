@@ -1369,3 +1369,71 @@ textarea {
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
 }
+
+/* ============================================================
+   Food Entry Page Specific Styles
+   ============================================================ */
+
+.food-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.nutrition-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.lookup-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--spacing-md);
+    align-items: end;
+}
+
+.lookup-row .form-group {
+    margin-bottom: 0;
+}
+
+.lookup-row .btn {
+    margin-bottom: 0;
+    white-space: nowrap;
+}
+
+#statusMsg {
+    margin-top: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: var(--spacing-lg);
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+    color: var(--primary-hover);
+}
+
+/* Mobile Responsive for Food Entry */
+@media (max-width: 768px) {
+    .nutrition-fields {
+        grid-template-columns: 1fr;
+    }
+    
+    .lookup-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .lookup-row .btn {
+        width: 100%;
+    }
+}

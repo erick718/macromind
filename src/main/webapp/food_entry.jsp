@@ -11,21 +11,10 @@
 <html>
 <head>
     <title>Log Food - MacroMind</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 40px; }
-        h1 { color: #333; }
-        form { width: 340px; }
-        label { display: block; margin-top: 10px; }
-        input { width: 100%; padding: 6px; margin-top: 4px; }
-        .row { display: flex; gap: 8px; }
-        .row > div { flex: 1; }
-        .btn { margin-top: 14px; background-color: #007bff; color: white; border: none; padding: 8px; border-radius: 5px; cursor: pointer; }
-        .btn:hover { background-color: #0056b3; }
-        .msg { margin-top: 8px; font-size: 12px; color: #666; }
-    </style>
+    <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
-    <div class="container container-lg">
+    <div class="container">
         <div class="page-header">
             <h1 class="page-title">Log Your Food</h1>
             <p class="page-subtitle">Welcome back, <strong><%= user.getName() %></strong>! Track your daily nutrition.</p>
@@ -42,42 +31,68 @@
             </div>
         <% } %>
 
-<form action="FoodEntryServlet" method="post" id="foodForm">
-    <label for="foodName">Food Name:</label>
-    <input type="text" id="foodName" name="foodName" list="food-suggestions" autocomplete="off" required>
-    <datalist id="food-suggestions"></datalist>
+        <div class="food-form-container">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Food Entry</h3>
+                    <p class="card-subtitle">Search for food items and track your nutrition</p>
+                </div>
+                <div class="card-body">
+                    <form action="FoodEntryServlet" method="post" id="foodForm">
+                        <div class="form-group">
+                            <label for="foodName">Food Name</label>
+                            <input type="text" id="foodName" name="foodName" list="food-suggestions" 
+                                   autocomplete="off" required placeholder="Search for food...">
+                            <datalist id="food-suggestions"></datalist>
+                        </div>
 
-    <div class="row">
-        <div>
-            <label for="consumedOunces">Consumed (oz):</label>
-            <input type="number" id="consumedOunces" name="consumedOunces" min="0" step="0.1" placeholder="e.g., 4.0">
-        </div>
-        <div style="align-self: end;">
-            <button type="button" class="btn" id="lookupBtn">Get Nutrition Info</button>
+                        <div class="lookup-row">
+                            <div class="form-group">
+                                <label for="consumedOunces">Consumed (oz)</label>
+                                <input type="number" id="consumedOunces" name="consumedOunces" 
+                                       min="0" step="0.1" placeholder="e.g., 4.0">
+                            </div>
+                            <button type="button" class="btn btn-info" id="lookupBtn">
+                                Get Nutrition Info
+                            </button>
+                        </div>
+
+                        <!-- Hidden base serving size returned by the servlet (grams). Default 100g -->
+                        <input type="hidden" id="servingSize" name="servingSize" value="100">
+
+                        <div class="nutrition-fields">
+                            <div class="form-group">
+                                <label for="calories">Calories</label>
+                                <input type="number" id="calories" name="calories" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="protein">Protein (g)</label>
+                                <input type="number" id="protein" name="protein" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="carbs">Carbs (g)</label>
+                                <input type="number" id="carbs" name="carbs" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="fat">Fat (g)</label>
+                                <input type="number" id="fat" name="fat" readonly>
+                            </div>
+                        </div>
+
+                        <div id="statusMsg"></div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Save Entry</button>
+                            <a href="dashboard.jsp" class="btn btn-outline">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
-
-    <!-- Hidden base serving size returned by the servlet (grams). Default 100g -->
-    <input type="hidden" id="servingSize" name="servingSize" value="100">
-
-    <label for="calories">Calories:</label>
-    <input type="number" id="calories" name="calories" readonly>
-
-    <label for="protein">Protein (g):</label>
-    <input type="number" id="protein" name="protein" readonly>
-
-    <label for="carbs">Carbs (g):</label>
-    <input type="number" id="carbs" name="carbs" readonly>
-
-    <label for="fat">Fat (g):</label>
-    <input type="number" id="fat" name="fat" readonly>
-
-    <button type="submit" class="btn">Save Entry</button>
-    <div class="msg" id="statusMsg"></div>
-</form>
-
-<br>
-<a href="calorieBalance">Back to Calorie Balance</a>
 
 <script>
 const foodInput = document.getElementById("foodName");

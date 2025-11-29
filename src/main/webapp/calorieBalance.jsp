@@ -57,6 +57,11 @@
         <p class="page-subtitle">Track your daily calorie intake and burn for <%= user.getName() %></p>
     </div>
 
+    <div class="nav-actions justify-center mb-4">
+        <a href="food_entry.jsp" class="btn btn-primary">Log Food</a>
+        <a href="dashboard" class="btn btn-outline">Back to Dashboard</a>
+    </div>
+
     <div class="calorie-summary">
         <h2>Recommended: <%= recommendedCalories %> kcal</h2>
         <div class="grid grid-2 mb-4">
@@ -73,13 +78,11 @@
         </div>
         
         <div class="grid grid-2 mb-4">
-            <% String netCaloriesColor = netCalories > recommendedCalories ? "#e74c3c" : "#2ecc71"; %>
             <div class="stat-card">
                 <div class="stat-value net-calories-value"><%= netCalories %></div>
                 <div class="stat-label">Net Calories</div>
                 <div class="stat-description">Consumed minus burned</div>
             </div>
-            <% String remainingCaloriesColor = remainingCalories < 0 ? "#e74c3c" : "#2ecc71"; %>
             <div class="stat-card">
                 <div class="stat-value remaining-calories-value"><%= remainingCalories %></div>
                 <div class="stat-label">Remaining</div>
@@ -131,11 +134,6 @@
             </div>
             <% } %>
         </div>
-    </div>
-
-    <div class="nav-actions justify-center">
-        <a href="food_entry.jsp" class="btn btn-primary">Log Food</a>
-        <a href="dashboard" class="btn btn-outline">Back to Dashboard</a>
     </div>
 </div>
 
