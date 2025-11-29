@@ -1,6 +1,6 @@
 package com.fitness.dao;
 
-import com.fitness.model.User;
+import com.fitness.Model.User;
 import org.junit.jupiter.api.*;
 
 import java.sql.Connection;

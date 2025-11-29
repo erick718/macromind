@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.fitness.model.User" %>
+<%@ page import="com.fitness.Model.User" %>
 <%
     User user = (User) session.getAttribute("user");
     if (user == null) {
@@ -48,7 +48,10 @@
                     <h4>Upload New Picture</h4>
                     <input type="file" id="profilePicInput" accept="image/jpeg,image/png" class="form-input mb-3">
                     <div id="uploadStatus" class="mb-3"></div>
-                    <button type="button" class="btn btn-primary" onclick="uploadProfilePicture()">Upload Picture</button>
+                    <div class="d-flex gap-2">
+                        <button type="button" class="btn btn-primary" onclick="uploadProfilePicture()">Upload Picture</button>
+                        <button type="button" class="btn btn-danger" onclick="removeProfilePicture()">Remove Picture</button>
+                    </div>
                     <p class="text-muted mt-2">JPEG or PNG, max 10MB</p>
                 </div>
             </div>
@@ -218,6 +221,33 @@ function uploadProfilePicture() {
     })
     .catch(error => {
         statusDiv.innerHTML = '<div class="alert alert-error">Upload failed: ' + error.message + '</div>';
+    });
+}
+
+function removeProfilePicture() {
+    const statusDiv = document.getElementById('uploadStatus');
+    
+    if (!confirm('Are you sure you want to remove your profile picture?')) {
+        return;
+    }
+    
+    statusDiv.innerHTML = '<div class="alert alert-info">Removing...</div>';
+    
+    fetch('api/profile/picture/remove', {
+        method: 'POST'
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.message === 'Profile picture removed') {
+            statusDiv.innerHTML = '<div class="alert alert-success">Profile picture removed successfully!</div>';
+            // Refresh the profile picture with cache busting
+            document.getElementById('currentProfilePic').src = 'api/profile/picture?cb=' + new Date().getTime();
+        } else {
+            statusDiv.innerHTML = '<div class="alert alert-error">' + data.message + '</div>';
+        }
+    })
+    .catch(error => {
+        statusDiv.innerHTML = '<div class="alert alert-error">Remove failed: ' + error.message + '</div>';
     });
 }
 </script>

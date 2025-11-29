@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import com.fitness.dao.UserDAO;
-import com.fitness.model.User;
+import com.fitness.Model.User;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;

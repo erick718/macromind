@@ -26,9 +26,11 @@
         <servlet-class>com.fitness.servlets.ProfileServlet</servlet-class>
     </servlet>
 
-
-
-
+    <!-- Workout Plan Servlet -->
+    <servlet>
+        <servlet-name>WorkoutPlanServlet</servlet-name>
+        <servlet-class>com.fitness.servlets.WorkoutPlanServlet</servlet-class>
+    </servlet>
 
     <!-- Workout History Servlet -->
     <servlet>
@@ -73,9 +75,11 @@
         <url-pattern>/ProfileServlet</url-pattern>
     </servlet-mapping>
 
-
-
-
+    <!-- Map /WorkoutPlanServlet to WorkoutPlanServlet -->
+    <servlet-mapping>
+        <servlet-name>WorkoutPlanServlet</servlet-name>
+        <url-pattern>/WorkoutPlanServlet</url-pattern>
+    </servlet-mapping>
 
     <!-- Map /workout-history to WorkoutHistoryServlet -->
     <servlet-mapping>

@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.fitness.model.User" %>
-<%@ page import="com.fitness.model.FoodEntry" %>
+<%@ page import="com.fitness.Model.User" %>
+<%@ page import="com.fitness.Model.FoodEntry" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.time.format.DateTimeFormatter" %>
 <%@ page import="java.util.Collections" %>

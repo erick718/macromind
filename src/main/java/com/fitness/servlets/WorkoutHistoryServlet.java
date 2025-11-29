@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.fitness.dao.WorkoutDAO;
-import com.fitness.model.User;
-import com.fitness.model.Workout;
+import com.fitness.Model.User;
+import com.fitness.Model.Workout;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;

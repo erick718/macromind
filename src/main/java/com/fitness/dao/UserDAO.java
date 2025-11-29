@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.fitness.model.User;
+import com.fitness.Model.User;
 import com.fitness.util.DBConnection;
 
 public class UserDAO {
@@ -69,20 +69,30 @@ public class UserDAO {
                 user.setEmail(rs.getString("email"));
                 user.setPassword(rs.getString("password"));
                 
-                // Load profile data if available
-                user.setAge(rs.getInt("age"));
-                user.setWeight(rs.getFloat("weight"));
-                user.setHeight(rs.getInt("height"));
-                user.setGoal(rs.getString("goal"));
-                user.setDietaryPreference(rs.getString("dietary_preference"));
-                user.setFitnessLevel(rs.getString("fitness_level"));
-                user.setAvailability(rs.getInt("availability"));
+                // Load profile data if available (check if columns exist)
+                try {
+                    user.setAge(rs.getInt("age"));
+                    user.setWeight(rs.getFloat("weight"));
+                    user.setHeight(rs.getInt("height"));
+                    user.setGoal(rs.getString("goal"));
+                    user.setDietaryPreference(rs.getString("dietary_preference"));
+                    user.setFitnessLevel(rs.getString("fitness_level"));
+                    user.setAvailability(rs.getInt("availability"));
+                    
+                    // Load profile picture if available
+                    user.setProfilePicture(rs.getBytes("profile_picture"));
+                    user.setProfilePictureType(rs.getString("profile_picture_type"));
+                } catch (SQLException e) {
+                    // Profile columns don't exist yet - that's okay, skip them
+                    System.out.println("Note: Profile columns not found in users table. Run database setup script to add them.");
+                }
                 
                 return user;
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
+            System.err.println("Error getting user by email: " + e.getMessage());
         }
         return null;
     }

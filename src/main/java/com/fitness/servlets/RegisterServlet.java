@@ -2,8 +2,8 @@ package com.fitness.servlets;
 
 import java.io.IOException;
 
+import com.fitness.Model.User;
 import com.fitness.dao.UserDAO;
-import com.fitness.model.User;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -17,6 +17,19 @@ public class RegisterServlet extends HttpServlet {
         String name = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+
+        // Trim whitespace from input
+        if (name != null) name = name.trim();
+        if (email != null) email = email.trim();
+        if (password != null) password = password.trim();
+
+        // Validate input
+        if (name == null || name.isEmpty() || email == null || email.isEmpty() || 
+            password == null || password.isEmpty()) {
+            request.setAttribute("message", "All fields are required");
+            request.getRequestDispatcher("register.jsp").forward(request, response);
+            return;
+        }
 
         UserDAO dao = new UserDAO();
         if (dao.isEmailTaken(email)) {

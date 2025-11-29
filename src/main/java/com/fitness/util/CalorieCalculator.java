@@ -1,7 +1,7 @@
 package com.fitness.util;
 
-import com.fitness.model.User;
-import com.fitness.model.Workout;
+import com.fitness.Model.User;
+import com.fitness.Model.Workout;
 
 public class CalorieCalculator {
     

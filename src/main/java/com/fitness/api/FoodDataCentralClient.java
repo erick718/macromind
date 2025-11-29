@@ -9,7 +9,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fitness.model.FoodItem;
+import com.fitness.Model.FoodItem;
 
 // NOTE: This class assumes you are using a JSON parsing library (like Gson or Jackson)
 // for simplicity, the parsing logic is left as a placeholder for the actual library calls.

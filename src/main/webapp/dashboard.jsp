@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.fitness.model.User" %>
+<%@ page import="com.fitness.Model.User" %>
 <%
     User user = (User) session.getAttribute("user");
     if (user == null) {
@@ -48,9 +48,15 @@
                 <div class="grid grid-auto">
                     <div class="card bg-light">
                         <div class="card-body text-center">
-                            <img src="api/profile/picture?cb=<%= System.currentTimeMillis() %>" 
-                                 alt="Profile Picture" 
-                                 class="profile-picture mb-3">
+                            <% if (user.getProfilePicture() != null && user.getProfilePicture().length > 0) { %>
+                                <img src="data:<%= user.getProfilePictureType() %>;base64,<%= java.util.Base64.getEncoder().encodeToString(user.getProfilePicture()) %>" 
+                                     alt="Profile Picture" 
+                                     class="profile-picture">
+                            <% } else { %>
+                                <div class="profile-picture" style="background: linear-gradient(135deg, var(--primary-color) 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; font-weight: bold; margin: 0 auto;">
+                                    <%= user.getName().substring(0, 1).toUpperCase() %>
+                                </div>
+                            <% } %>
                         </div>
                     </div>
                     
@@ -167,6 +173,11 @@
                     <a href="progress-dashboard" class="btn btn-outline btn-lg text-center dashboard-nav-card">
                         <div class="dashboard-nav-title">Progress Dashboard</div>
                         <div class="dashboard-nav-subtitle">Analytics & insights</div>
+                    </a>
+                    
+                    <a href="workout-generator.jsp" class="btn btn-primary btn-lg text-center dashboard-nav-card" style="grid-column: 1 / -1;">
+                        <div class="dashboard-nav-title">Generate Workout Plan</div>
+                        <div class="dashboard-nav-subtitle">AI-powered personalized plans</div>
                     </a>
                 </div>
             </div>
