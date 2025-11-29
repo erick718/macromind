@@ -48,6 +48,14 @@
                 <div class="grid grid-auto">
                     <div class="card bg-light">
                         <div class="card-body text-center">
+                            <img src="api/profile/picture?cb=<%= System.currentTimeMillis() %>" 
+                                 alt="Profile Picture" 
+                                 class="profile-picture mb-3">
+                        </div>
+                    </div>
+                    
+                    <div class="card bg-light">
+                        <div class="card-body text-center">
                             <h4 class="text-primary">Age</h4>
                             <p class="text-secondary">
                                 <%= user.getAge() > 0 ? user.getAge() + " years" : "Not set" %>

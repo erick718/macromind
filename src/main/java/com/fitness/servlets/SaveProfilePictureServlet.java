@@ -1,26 +1,37 @@
 package com.fitness.servlets;
 
-import com.fitness.services.FileStorage;
-
-import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.InputStream;
+
+import com.fitness.dao.UserDAO;
+import com.fitness.model.User;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.Part;
 
 @WebServlet(name = "SaveProfilePictureServlet", urlPatterns = {"/api/profile/picture/save"})
 @MultipartConfig(
         fileSizeThreshold = 1024 * 64,        // 64 KB
-        maxFileSize = 1024 * 1024 * 3,        // 3 MB per file
-        maxRequestSize = 1024 * 1024 * 4      // 4 MB request
+        maxFileSize = 1024 * 1024 * 10,       // 10 MB per file
+        maxRequestSize = 1024 * 1024 * 12     // 12 MB request
 )
 public class SaveProfilePictureServlet extends HttpServlet {
 
-    private String resolveUserId(HttpServletRequest req) {
-        // Sprint 1: stub user id = session id
-        HttpSession session = req.getSession(true);
-        return session.getId();
+    private int resolveUserId(HttpServletRequest req) {
+        HttpSession session = req.getSession(false);
+        if (session != null) {
+            User user = (User) session.getAttribute("user");
+            if (user != null) {
+                return user.getUserId();
+            }
+        }
+        return -1;
     }
 
     @Override
@@ -28,7 +39,13 @@ public class SaveProfilePictureServlet extends HttpServlet {
                           HttpServletResponse resp) throws ServletException, IOException {
 
         resp.setContentType("application/json");
-        String userId = resolveUserId(req);
+        int userId = resolveUserId(req);
+        
+        if (userId == -1) {
+            resp.setStatus(401);
+            resp.getWriter().write("{\"message\":\"User not logged in\"}");
+            return;
+        }
 
         Part filePart = req.getPart("file"); // <input name="file">
 
@@ -53,16 +70,21 @@ public class SaveProfilePictureServlet extends HttpServlet {
             return;
         }
 
-        if (filePart.getSize() > 3L * 1024 * 1024) {
+        if (filePart.getSize() > 10L * 1024 * 1024) {
             resp.setStatus(400);
-            resp.getWriter().write("{\"message\":\"Max file size is 3 MB\"}");
+            resp.getWriter().write("{\"message\":\"Max file size is 10 MB\"}");
             return;
         }
 
-        // If we reach here, file is valid → save/replace existing
+        // Read the image data
+        byte[] imageData;
         try (InputStream in = filePart.getInputStream()) {
-            FileStorage.saveProfilePic(userId, in);
+            imageData = in.readAllBytes();
         }
+
+        // Save to database
+        UserDAO userDAO = new UserDAO();
+        userDAO.saveProfilePicture(userId, imageData, contentType);
 
         resp.getWriter().write("{\"message\":\"Profile picture saved\"}");
     }

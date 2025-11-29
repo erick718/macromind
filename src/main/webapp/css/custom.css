@@ -1437,3 +1437,100 @@ textarea {
         width: 100%;
     }
 }
+
+/* ============================================================
+   Profile Picture Styles
+   ============================================================ */
+
+.profile-picture-upload-container {
+    display: flex;
+    gap: var(--spacing-xl);
+    align-items: center;
+    justify-content: center;
+}
+
+.current-picture-section {
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.upload-section {
+    flex: 1;
+    max-width: 400px;
+}
+
+.upload-section h4 {
+    margin-bottom: var(--spacing-md);
+    color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+    .profile-picture-upload-container {
+        flex-direction: column;
+    }
+    
+    .upload-section {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+.profile-overview-container {
+    display: flex;
+    gap: var(--spacing-xl);
+    align-items: flex-start;
+}
+
+.profile-picture-section {
+    flex-shrink: 0;
+    text-align: center;
+    padding: var(--spacing-md);
+}
+
+.profile-form-section {
+    flex: 1;
+    min-width: 0;
+}
+
+@media (max-width: 768px) {
+    .profile-overview-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .profile-form-section {
+        width: 100%;
+    }
+}
+
+.profile-picture {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-picture:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+}
+
+.profile-picture-small {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary-color);
+}
+
+.profile-picture-large {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--primary-color);
+    box-shadow: var(--shadow-lg);
+}

@@ -29,6 +29,32 @@
         <% session.removeAttribute("error"); %>
     <% } %>
 
+    <!-- Profile Picture Card -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h3 class="card-title">Profile Picture</h3>
+            <p class="card-subtitle">Upload or change your profile picture</p>
+        </div>
+        <div class="card-body">
+            <div class="profile-picture-upload-container">
+                <div class="current-picture-section">
+                    <img src="api/profile/picture?cb=<%= System.currentTimeMillis() %>" 
+                         alt="Profile Picture" 
+                         id="currentProfilePic"
+                         class="profile-picture-large">
+                </div>
+                
+                <div class="upload-section">
+                    <h4>Upload New Picture</h4>
+                    <input type="file" id="profilePicInput" accept="image/jpeg,image/png" class="form-input mb-3">
+                    <div id="uploadStatus" class="mb-3"></div>
+                    <button type="button" class="btn btn-primary" onclick="uploadProfilePicture()">Upload Picture</button>
+                    <p class="text-muted mt-2">JPEG or PNG, max 10MB</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="card">
             <div class="card-header">
                 <h3 class="card-title">Personal Information</h3>
@@ -105,12 +131,9 @@
         <div class="nav-actions justify-center">
             <a href="dashboard" class="btn btn-secondary">Back to Dashboard</a>
             <a href="LogoutServlet" class="btn btn-outline">Logout</a>
+            <button class="btn btn-danger" onclick="openDeleteModal()">Delete Account</button>
         </div>
     </div>
-
-    <!-- Delete account button -->
-    <button class="btn btn-danger" onclick="openDeleteModal()">Delete Account</button>
-</div>
 
 <!-- Delete Confirmation Modal -->
 <div id="deleteModal" class="modal">
@@ -149,6 +172,53 @@ function openDeleteModal() {
 }
 function closeDeleteModal() {
     document.getElementById("deleteModal").style.display = "none";
+}
+
+function uploadProfilePicture() {
+    const fileInput = document.getElementById('profilePicInput');
+    const statusDiv = document.getElementById('uploadStatus');
+    const file = fileInput.files[0];
+    
+    if (!file) {
+        statusDiv.innerHTML = '<div class="alert alert-error">Please select a file first</div>';
+        return;
+    }
+    
+    // Validate file type
+    if (!file.type.match(/image\/(jpeg|png)/)) {
+        statusDiv.innerHTML = '<div class="alert alert-error">Only JPEG or PNG images are allowed</div>';
+        return;
+    }
+    
+    // Validate file size (10MB)
+    if (file.size > 10 * 1024 * 1024) {
+        statusDiv.innerHTML = '<div class="alert alert-error">File size must be less than 10MB</div>';
+        return;
+    }
+    
+    const formData = new FormData();
+    formData.append('file', file);
+    
+    statusDiv.innerHTML = '<div class="alert alert-info">Uploading...</div>';
+    
+    fetch('api/profile/picture/save', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.message === 'Profile picture saved') {
+            statusDiv.innerHTML = '<div class="alert alert-success">Profile picture uploaded successfully!</div>';
+            // Refresh the profile picture with cache busting
+            document.getElementById('currentProfilePic').src = 'api/profile/picture?cb=' + new Date().getTime();
+            fileInput.value = ''; // Clear the file input
+        } else {
+            statusDiv.innerHTML = '<div class="alert alert-error">' + data.message + '</div>';
+        }
+    })
+    .catch(error => {
+        statusDiv.innerHTML = '<div class="alert alert-error">Upload failed: ' + error.message + '</div>';
+    });
 }
 </script>
 

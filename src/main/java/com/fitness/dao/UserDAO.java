@@ -142,4 +142,47 @@ public boolean deleteUser(int userId) {
             System.err.println("Error updating user profile: " + e.getMessage());
         }
     }
+
+    // Save profile picture to database
+    public void saveProfilePicture(int userId, byte[] imageData, String contentType) {
+        String query = "UPDATE users SET profile_picture=?, profile_picture_type=? WHERE user_id=?";
+        try (Connection conn = getConnection();
+             PreparedStatement ps = conn.prepareStatement(query)) {
+
+            ps.setBytes(1, imageData);
+            ps.setString(2, contentType);
+            ps.setInt(3, userId);
+            
+            int rowsUpdated = ps.executeUpdate();
+            System.out.println("Profile picture saved: " + rowsUpdated + " rows affected");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("Error saving profile picture: " + e.getMessage());
+        }
+    }
+
+    // Get profile picture from database
+    public User getProfilePicture(int userId) {
+        String query = "SELECT profile_picture, profile_picture_type FROM users WHERE user_id=?";
+        try (Connection conn = getConnection();
+             PreparedStatement ps = conn.prepareStatement(query)) {
+
+            ps.setInt(1, userId);
+            ResultSet rs = ps.executeQuery();
+            
+            if (rs.next()) {
+                User user = new User();
+                user.setUserId(userId);
+                user.setProfilePicture(rs.getBytes("profile_picture"));
+                user.setProfilePictureType(rs.getString("profile_picture_type"));
+                return user;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("Error retrieving profile picture: " + e.getMessage());
+        }
+        return null;
+    }
 }

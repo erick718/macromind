@@ -3,52 +3,62 @@
 <html>
 <head>
   <meta charset="utf-8"/>
-  <title>Profile Picture</title>
+  <title>Profile Picture - MacroMind</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/custom.css">
   <style>
-    body { font-family: system-ui, Arial, sans-serif; margin: 24px; }
-    .wrap { max-width: 480px; }
-    .preview {
-      width: 160px; height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 1px solid #ddd;
-    }
-    .row { margin: 12px 0; }
-    button { padding: 8px 12px; cursor: pointer; }
-    #msg { color: #0a0; }
-    #err { color: #b00; }
+    .upload-container { max-width: 600px; margin: 0 auto; }
+    .preview-img { margin: 1rem 0; }
+    #msg { color: var(--success-color); margin-top: 1rem; font-weight: 600; }
+    #err { color: var(--danger-color); margin-top: 1rem; font-weight: 600; }
   </style>
 </head>
 <body>
-<div class="wrap">
-  <h2>Profile Picture</h2>
-
-  <!-- current image -->
-  <div class="row">
-    <img id="currentPic"
-         class="preview"
-         src="api/profile/picture?cb=<%= System.currentTimeMillis() %>"
-         alt="Current profile picture" />
+<div class="container">
+  <div class="page-header">
+    <h1 class="page-title">Profile Picture</h1>
+    <p class="page-subtitle">Upload and manage your profile picture</p>
   </div>
 
-  <!-- file input -->
-  <div class="row">
-    <input type="file" id="fileInput" accept="image/*" />
-  </div>
+  <div class="upload-container">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Current Picture</h3>
+      </div>
+      <div class="card-body text-center">
+        <img id="currentPic"
+             class="profile-picture-large"
+             src="api/profile/picture?cb=<%= System.currentTimeMillis() %>"
+             alt="Current profile picture" />
+      </div>
+    </div>
 
-  <!-- preview before saving -->
-  <div class="row" id="previewRow" style="display:none;">
-    <label>Preview before saving:</label><br/>
-    <img id="previewImg" class="preview" alt="Preview" />
-  </div>
+    <div class="card mt-4">
+      <div class="card-header">
+        <h3 class="card-title">Upload New Picture</h3>
+        <p class="card-subtitle">JPEG or PNG, max 3 MB</p>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <label for="fileInput">Choose Image</label>
+          <input type="file" id="fileInput" accept="image/*" class="form-input" />
+        </div>
 
-  <div class="row">
-    <button id="saveBtn" disabled>Save New Picture</button>
-  </div>
+        <div id="previewRow" style="display:none;" class="text-center preview-img">
+          <label class="form-label">Preview before saving:</label><br/>
+          <img id="previewImg" class="profile-picture-large" alt="Preview" />
+        </div>
 
-  <div id="msg"></div>
-  <div id="err"></div>
+        <div class="form-actions">
+          <button id="saveBtn" class="btn btn-primary" disabled>Save New Picture</button>
+          <a href="profile.jsp" class="btn btn-outline">Back to Profile</a>
+        </div>
+
+        <div id="msg"></div>
+        <div id="err"></div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script src="js/profile_picture.js"></script>

@@ -12,6 +12,8 @@ public class User {
     private String dietaryPreference;
     private String fitnessLevel;
     private int availability;
+    private byte[] profilePicture;
+    private String profilePictureType;
 
     public User(){}
     public User(String name, String email, String password) {
@@ -105,6 +107,22 @@ public class User {
 
     public void setAvailability(int availability) {
         this.availability = availability;
+    }
+
+    public byte[] getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(byte[] profilePicture) {
+        this.profilePicture = profilePicture;
+    }
+
+    public String getProfilePictureType() {
+        return profilePictureType;
+    }
+
+    public void setProfilePictureType(String profilePictureType) {
+        this.profilePictureType = profilePictureType;
     }
 }
 
