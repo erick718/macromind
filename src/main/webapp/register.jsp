@@ -39,8 +39,11 @@
                     
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" id="password" name="password" required 
-                               placeholder="Create a secure password" minlength="6">
+                        <div class="password-wrapper">
+                            <input type="password" id="password" name="password" required 
+                                   placeholder="Create a secure password" minlength="6" style="padding-right: 80px;">
+                            <button type="button" class="password-toggle" onclick="togglePassword()">Show</button>
+                        </div>
                         <small class="text-muted">Password must be at least 6 characters long</small>
                     </div>
                     
@@ -105,5 +108,20 @@
             </div>
         </div>
     </div>
+    
+    <script>
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const toggleButton = document.querySelector('.password-toggle');
+            
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                toggleButton.textContent = 'Hide';
+            } else {
+                passwordField.type = 'password';
+                toggleButton.textContent = 'Show';
+            }
+        }
+    </script>
 </body>
 </html>

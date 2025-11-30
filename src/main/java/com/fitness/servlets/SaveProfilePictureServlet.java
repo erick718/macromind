@@ -3,8 +3,8 @@ package com.fitness.servlets;
 import java.io.IOException;
 import java.io.InputStream;
 
-import com.fitness.dao.UserDAO;
 import com.fitness.Model.User;
+import com.fitness.dao.UserDAO;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
@@ -85,6 +85,17 @@ public class SaveProfilePictureServlet extends HttpServlet {
         // Save to database
         UserDAO userDAO = new UserDAO();
         userDAO.saveProfilePicture(userId, imageData, contentType);
+
+        // Update the session user object with the new profile picture
+        HttpSession session = req.getSession(false);
+        if (session != null) {
+            User user = (User) session.getAttribute("user");
+            if (user != null) {
+                user.setProfilePicture(imageData);
+                user.setProfilePictureType(contentType);
+                session.setAttribute("user", user);
+            }
+        }
 
         resp.getWriter().write("{\"message\":\"Profile picture saved\"}");
     }

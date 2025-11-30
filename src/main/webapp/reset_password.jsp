@@ -41,15 +41,21 @@
                 <form action="ResetPasswordServlet" method="post">
                     <div class="form-group">
                         <label for="new_password">New Password</label>
-                        <input type="password" id="new_password" name="new_password" required 
-                               placeholder="Enter new password" minlength="6">
+                        <div class="password-wrapper">
+                            <input type="password" id="new_password" name="new_password" required 
+                                   placeholder="Enter new password" minlength="6" style="padding-right: 80px;">
+                            <button type="button" class="password-toggle" onclick="togglePassword('new_password', this)">Show</button>
+                        </div>
                         <small class="text-muted">Password must be at least 6 characters long</small>
                     </div>
                     
                     <div class="form-group">
                         <label for="confirm_password">Confirm Password</label>
-                        <input type="password" id="confirm_password" name="confirm_password" required 
-                               placeholder="Re-enter new password" minlength="6">
+                        <div class="password-wrapper">
+                            <input type="password" id="confirm_password" name="confirm_password" required 
+                                   placeholder="Re-enter new password" minlength="6" style="padding-right: 80px;">
+                            <button type="button" class="password-toggle" onclick="togglePassword('confirm_password', this)">Show</button>
+                        </div>
                     </div>
                     
                     <div class="form-group">
@@ -69,5 +75,19 @@
             </div>
         </div>
     </div>
+    
+    <script>
+        function togglePassword(fieldId, button) {
+            const passwordField = document.getElementById(fieldId);
+            
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                button.textContent = 'Hide';
+            } else {
+                passwordField.type = 'password';
+                button.textContent = 'Show';
+            }
+        }
+    </script>
 </body>
 </html>

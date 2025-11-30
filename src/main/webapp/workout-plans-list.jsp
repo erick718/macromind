@@ -22,15 +22,15 @@
 </head>
 <body>
     <div class="container container-xl">
-        <div class="nav-actions justify-center mb-4">
+        <div class="page-header mb-md">
+            <h1 class="page-title">My Workout Plans</h1>
+            <p class="page-subtitle">Track and manage your personalized fitness programs</p>
+        </div>
+        
+        <div class="nav-actions justify-center mb-xl">
             <a href="dashboard.jsp" class="btn btn-secondary">← Back to Dashboard</a>
             <a href="WorkoutPlanServlet?action=generate" class="btn btn-outline">Generate New Plan</a>
             <a href="LogoutServlet" class="btn btn-outline">Logout</a>
-        </div>
-        
-        <div class="page-header mb-xl">
-            <h1 class="page-title">My Workout Plans</h1>
-            <p class="page-subtitle">Track and manage your personalized fitness programs</p>
         </div>
         
         <% if (plans == null || plans.isEmpty()) { %>
@@ -57,26 +57,26 @@
                     </div>
                     
                     <div class="card-body">
-                        <div class="workout-plan-overview">
-                            <div class="stat-card">
+                        <div style="display: flex; gap: 1rem; overflow-x: auto; margin-bottom: 1.5rem;">
+                            <div class="stat-card" style="flex: 1; min-width: 130px;">
                                 <div class="stat-value"><%= plan.getDurationWeeks() %></div>
                                 <div class="stat-label">Weeks</div>
                             </div>
-                            <div class="stat-card">
+                            <div class="stat-card" style="flex: 1; min-width: 140px;">
                                 <div class="stat-value"><%= plan.getSessionsPerWeek() %></div>
                                 <div class="stat-label">Sessions/Week</div>
                             </div>
-                            <div class="stat-card">
+                            <div class="stat-card" style="flex: 1; min-width: 130px;">
                                 <div class="stat-value"><%= plan.getExercises().size() %></div>
                                 <div class="stat-label">Exercises</div>
                             </div>
-                            <div class="stat-card">
+                            <div class="stat-card" style="flex: 1; min-width: 150px;">
                                 <div class="stat-value"><%= plan.getTotalCaloriesBurned() %></div>
                                 <div class="stat-label">Calories/Session</div>
                             </div>
-                            <div class="stat-card">
+                            <div class="stat-card" style="flex: 1; min-width: 150px;">
                                 <div class="stat-value"><%= plan.getDifficulty().substring(0, 1).toUpperCase() + plan.getDifficulty().substring(1) %></div>
-                                <div class="stat-label">Level</div>
+                                <div class="stat-label">Difficulty</div>
                             </div>
                         </div>
                         

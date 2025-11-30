@@ -18,7 +18,7 @@
                 <h3 class="card-title">Welcome to MacroMind!</h3>
                 <p class="card-subtitle">Track your fitness goals, log workouts, and monitor your progress all in one place.</p>
                 
-                <div class="nav-actions mt-4">
+                <div class="nav-actions justify-center mt-4">
                     <a href="register.jsp" class="btn btn-primary btn-lg">Get Started</a>
                     <a href="login.jsp" class="btn btn-outline btn-lg">Sign In</a>
                 </div>

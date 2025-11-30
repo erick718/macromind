@@ -33,8 +33,11 @@
                     
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" id="password" name="password" required 
-                               placeholder="Enter your password">
+                        <div class="password-wrapper">
+                            <input type="password" id="password" name="password" required 
+                                   placeholder="Enter your password" style="padding-right: 80px;">
+                            <button type="button" class="password-toggle" onclick="togglePassword()">Show</button>
+                        </div>
                     </div>
                     
                     <div class="text-right mb-3">
@@ -62,5 +65,20 @@
             </div>
         </div>
     </div>
+    
+    <script>
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const toggleButton = document.querySelector('.password-toggle');
+            
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                toggleButton.textContent = 'Hide';
+            } else {
+                passwordField.type = 'password';
+                toggleButton.textContent = 'Show';
+            }
+        }
+    </script>
 </body>
 </html>
