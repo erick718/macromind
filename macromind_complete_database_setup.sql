@@ -2,7 +2,7 @@
 -- MacroMind Fitness Application - Complete Database Setup
 -- This script creates all necessary tables and columns for the application
 -- Run this script in MySQL Workbench to set up the complete database
--- Last Updated: November 28, 2025
+-- Last Updated: December 1, 2025
 -- =====================================================
 
 -- Create the database (if it doesn't exist)
@@ -40,6 +40,8 @@ CREATE TABLE IF NOT EXISTS `users` (
     `dietary_preference` VARCHAR(100) DEFAULT NULL,
     `fitness_level` VARCHAR(50) DEFAULT NULL,
     `availability` INT DEFAULT NULL,
+    `profile_picture` MEDIUMBLOB DEFAULT NULL,
+    `profile_picture_type` VARCHAR(50) DEFAULT NULL,
     `created_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     `updated_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     
